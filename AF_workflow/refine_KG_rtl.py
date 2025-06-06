@@ -521,6 +521,197 @@ class CollectRTLInfo:
             for bvi in bv:
                 ret.append(bvi.tostr())
         return ret
+    
+    def _determine_logic_type(self,always_node):
+        if not hasattr(always_node, 'sens_list'):
+            return 'combinational'
+        
+        sens_list = always_node.sens_list
+        
+        if isinstance(sens_list, SensList):
+            sensitivity_items = sens_list.list    
+            if len(sensitivity_items) == 1 and str(sensitivity_items[0]) == '*':
+                return 'combinational'
+            
+            for sens_item in sensitivity_items:
+                if isinstance(sens_item, Sens):
+                    if hasattr(sens_item, 'type'):
+                        sens_type = sens_item.type
+                        
+                        if sens_type in ('posedge', 'negedge'):
+                            return 'sequential'
+                
+                sens_str = str(sens_item).strip()
+                if 'posedge' in sens_str or 'negedge' in sens_str:
+                    return 'sequential'
+        return 'combinational'
+    
+    def _collect_structured_variable_paths(self,node, conditions=None, variable_paths=None, logic_type=None, in_always=False, current_scope="", code_blocks=None, current_block_id=None):
+        if conditions is None:
+            conditions = []
+        if variable_paths is None:
+            variable_paths = {}
+        if code_blocks is None:
+            code_blocks = {}
+        
+        line_number = getattr(node, 'lineno', None)
+
+                
+        if isinstance(node, Always):
+            in_always = True
+            start_line = line_number
+            end_line = self._find_last_line_number(node)
+            
+            block_id = f"id_{len(code_blocks) + 1}"
+            
+            current_logic_type = self._determine_logic_type(node)
+            logic_type = current_logic_type
+            
+            code_blocks[block_id] = {
+                "type": "AlwaysBlock",
+                "start_line": start_line,
+                "end_line": end_line,
+                "logic_type": current_logic_type,
+                "description": f"Always block starting at line {start_line}",
+                "variable_assignments": {}
+            }
+            
+
+            self._collect_structured_variable_paths(node.statement, conditions, variable_paths, logic_type, in_always, current_scope, code_blocks, block_id)
+        
+        elif isinstance(node, IfStatement):
+            cond_str = self._get_value(node.cond)
+            true_cond = conditions + [cond_str]
+
+            self._collect_structured_variable_paths(node.true_statement, true_cond, variable_paths, logic_type, in_always, current_scope, code_blocks, current_block_id)
+            
+            if node.false_statement:
+                false_cond = conditions + [f"!({cond_str})"]
+                self._collect_structured_variable_paths(node.false_statement, false_cond, variable_paths, logic_type, in_always, current_scope, code_blocks, current_block_id)
+                
+        elif isinstance(node, CaseStatement):
+            case_expr = self._get_value(node.comp)
+            handled_conditions = []
+            
+            # Process each case branch
+            for case in node.caselist:
+                if case.cond is not None:
+                    # Normal case branch
+                    if isinstance(case.cond, list):
+                        case_conditions = []
+                        for cond_item in case.cond:
+                            formatted_item = self._get_value(cond_item)
+                            case_condition = f"{case_expr} == {formatted_item}"
+                            case_conditions.append(case_condition)
+                            handled_conditions.append(case_condition)
+                        
+                        combined_condition = " || ".join(case_conditions)
+                        
+                        self._collect_structured_variable_paths(case.statement, conditions + [f"({combined_condition})"], 
+                                                variable_paths, logic_type, in_always, current_scope, code_blocks, current_block_id)
+                    else:
+                        formatted_cond = self._get_value(case.cond)
+                        formatted_cond = formatted_cond.replace("(", "").replace(")", "").replace(",", "")
+                        case_condition = f"{case_expr} == {formatted_cond}"
+                        handled_conditions.append(case_condition)
+                        
+                        self._collect_structured_variable_paths(case.statement, conditions + [case_condition], 
+                                                variable_paths, logic_type, in_always, current_scope, code_blocks, current_block_id)
+                else:
+                    is_default = True
+                    
+                    if is_default:
+                        if handled_conditions:
+                            not_conditions = [f"!({cond})" for cond in handled_conditions]
+                            default_condition = " && ".join(not_conditions)
+                            
+                            self._collect_structured_variable_paths(case.statement, conditions + [f"({default_condition})"], 
+                                            variable_paths, logic_type, in_always, current_scope, code_blocks, current_block_id)
+                        else:
+                            default_condition = f"default({case_expr})"
+                            
+                            self._collect_structured_variable_paths(case.statement, conditions + [default_condition], 
+                                            variable_paths, logic_type, in_always, current_scope, code_blocks, current_block_id)
+                    else:
+                        self._collect_structured_variable_paths(case.statement, conditions, 
+                                            variable_paths, logic_type, in_always, current_scope, code_blocks, current_block_id)
+        
+        elif isinstance(node, (BlockingSubstitution, NonblockingSubstitution)):
+            left_var=self._get_value(node.left.var)
+            right_expr=self._get_value(node.right.var)
+            assignment_type = 'non-blocking' if isinstance(node, NonblockingSubstitution) else 'blocking'
+            current_logic_type = logic_type if in_always else 'combinational'
+            
+            if current_scope and left_var:
+                scoped_var = f"{current_scope}.{left_var}"
+            else:
+                scoped_var = left_var
+            
+            if left_var:
+                if conditions:
+                    formatted_conditions = conditions
+                    condition_str = ' && '.join(formatted_conditions)
+                else:
+                    condition_str = "always"
+                
+                assignment_info = {
+                    "condition": condition_str,
+                    "line": line_number,
+                    "logic_type": current_logic_type,
+                    "assignment_type": assignment_type,
+                    "right_expr": right_expr
+                }
+                
+                if current_block_id and current_block_id in code_blocks:
+                    if scoped_var not in code_blocks[current_block_id]["variable_assignments"]:
+                        code_blocks[current_block_id]["variable_assignments"][scoped_var] = []
+                    code_blocks[current_block_id]["variable_assignments"][scoped_var].append(assignment_info)
+                
+                if scoped_var not in variable_paths:
+                    variable_paths[scoped_var] = []
+                variable_paths[scoped_var].append((condition_str, line_number, current_logic_type, assignment_type, right_expr))
+        
+        elif isinstance(node, Assign):
+            left_var=self._get_value(node.left.var)
+            right_expr=self._get_value(node.right.var)
+            
+            if current_scope and left_var:
+                scoped_var = f"{current_scope}.{left_var}"
+            else:
+                scoped_var = left_var
+            
+            if left_var:
+                block_id = f"id_{len(code_blocks) + 1}"
+                
+                code_blocks[block_id] = {
+                    "type": "AssignBlock",
+                    "start_line": line_number,
+                    "end_line": line_number,
+                    "logic_type": "combinational",
+                    "description": f"Assign statement at line {line_number}",
+                    "variable_assignments": {}
+                }
+                
+                assignment_info = {
+                    "condition": "None",
+                    "line": line_number,
+                    "logic_type": "combinational",
+                    "assignment_type": "continuous",
+                    "right_expr": right_expr
+                }
+                
+                code_blocks[block_id]["variable_assignments"][scoped_var] = [assignment_info]
+                
+                if scoped_var not in variable_paths:
+                    variable_paths[scoped_var] = []
+                variable_paths[scoped_var].append(("None", line_number, "combinational", "continuous", right_expr))
+
+        elif hasattr(node, 'children'):
+            for child in node.children():
+                self._collect_structured_variable_paths(child, conditions, variable_paths, logic_type, in_always, current_scope, code_blocks, current_block_id)
+        
+        return variable_paths, code_blocks
+
 #######################################################################
 
     def parse_node(self,filepath=None,type=None):
@@ -702,25 +893,21 @@ class CollectRTLInfo:
             })
     def _parse_always_blocks(self,filepath):
         for node,module_name in self.wait_nodes[filepath]["always_blocks"]:
+            variable_paths,code_blocks=self._collect_structured_variable_paths(node)
+            print(code_blocks)
             self.parsed_data[filepath]["always_blocks"].append({
                 "lineno":node.lineno,
                 "senlist":self._get_senslist(node.sens_list),
                 "ast":self._get_ast(node),
                 "startline":node.lineno,
                 "endline":self._find_last_line_number(node),
+                "logic_type":self._determine_logic_type(node),
+                "cfg_data":code_blocks["id_1"]["variable_assignments"],
                 "parent_module":module_name,
             })
     def _parse_dataflow(self,filepath):
-        module_nodes=self.wait_nodes[filepath]["modules"]
-        module_names=[]
-        for node in module_nodes:
-            module_names.append(node.name)
-        for module_name in module_names:
-            self.parsed_data[filepath]["dataflow"].append({
-                "dataflow":self._get_dataflow(filepath,module_name),
-                "parent_module":module_name
-                }
-            )
+        # 换为自己的方法
+        pass
     def _to_json(self,indent=2):
         return  json.dumps(self.parsed_data,indent=indent,default=str) 
     
@@ -836,60 +1023,30 @@ def remove_comments(input_path, output_path):
 if __name__ == "__main__":
 
     vistor= RTLCollectorVisitor()
+    # in_file_list=[
+    #     'C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\rtl\\apb.v','C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\rtl\\fifo.v','C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\rtl\\i2c.v'
+    #     ]
+    # out_file_list=[
+    #     'C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v','C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\fifo.v','C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\i2c.v'
+    # ]
     in_file_list=[
-        'C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\rtl\\apb.v','C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\rtl\\fifo.v','C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\rtl\\i2c.v'
+        'C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\rtl\\apb.v'
         ]
     out_file_list=[
-        'C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v','C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\fifo.v','C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\i2c.v'
+        'C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v'
     ]
     for inf,ouf in zip(in_file_list,out_file_list):
         remove_comments(inf,ouf) 
         #得到该文件的语法树
         ast,_=parse([str(ouf)])
-        # ast.show()
+        ast.show()
         #收集该语法树信息
         vistor.set_filepath(ouf)
         vistor.visit(ast)
-
+        break
     json_dir='C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\json'
     os.makedirs( json_dir,exist_ok=True)
     with open(f'{json_dir}/data.json',"w",encoding='utf-8') as f:
-        f.write(vistor.collected_info.parse_node('C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v',"dataflow"))
+        f.write(vistor.collected_info.parse_node(filepath='C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v',type="always_blocks"))
     
-    # file='C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v'
-    # from pyverilog.dataflow.dataflow_analyzer import VerilogDataflowAnalyzer
-    # analyzer = VerilogDataflowAnalyzer(file)
-    # analyzer.generate()
-    # directives = analyzer.get_directives()
-    # print('Directive:')
-    # for dr in sorted(directives, key=lambda x: str(x)):
-    #     print(dr)
-
-    # instances = analyzer.getInstances()
-    # print('Instance:')
-    # print(instances)
-    # # for module, instname in sorted(instances, key=lambda x: str(x[1])):
-    # #     print((module, instname))
-
-
-    # print('Signal:')
-    # signals = analyzer.getSignals()
-    # for sig in signals:
-    #     print(sig)
-
-    # print('Const:')
-    # consts = analyzer.getConsts()
-    # for con in consts:
-    #     print(con)
-
-    # else:
-    #     terms = analyzer.getTerms()
-    #     print('Term:')
-    #     for tk, tv in sorted(terms.items(), key=lambda x: str(x[0])):
-    #         print(tv.tostr())
-
-    #     binddict = analyzer.getBinddict()
-    #     print('Bind:')
-    #     for bk, bv in sorted(binddict.items(), key=lambda x: str(x[0])):
-    #         for bvi in bv:
-    #             print(bvi.tostr())
+   
