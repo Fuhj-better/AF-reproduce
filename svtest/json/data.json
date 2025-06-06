@@ -1,0 +1,31 @@
+{
+  "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v": {
+    "modules": [],
+    "ports": [],
+    "signals": [],
+    "registers": [],
+    "wires": [],
+    "parameters": [],
+    "instances": [],
+    "assigns": [],
+    "always_blocks": [],
+    "initial_blocks": [],
+    "dataflow": [
+      {
+        "dataflow": [
+          "(Bind dest:apb.INTERNAL_I2C_REGISTER_CONFIG tree:(Branch Cond:(Operator Ulnot Next:(Terminal apb.PRESETn)) True:(IntConst 14'd0) False:(Branch Cond:(Operator Land Next:(Operator Land Next:(Operator Land Next:(Operator Eq Next:(Terminal apb.PADDR),(IntConst 32'd8)),(Operator Eq Next:(Terminal apb.PSELx),(IntConst 1'b1))),(Operator Eq Next:(Terminal apb.PWRITE),(IntConst 1'b1))),(Operator Eq Next:(Terminal apb.PREADY),(IntConst 1'b1))) True:(Partselect Var:(Terminal apb.PWDATA) MSB:(IntConst 13) LSB:(IntConst 0)) False:(Branch Cond:(Operator Land Next:(Operator Land Next:(Operator Land Next:(Operator Eq Next:(Terminal apb.PADDR),(IntConst 32'd12)),(Operator Eq Next:(Terminal apb.PSELx),(IntConst 1'b1))),(Operator Eq Next:(Terminal apb.PWRITE),(IntConst 1'b1))),(Operator Eq Next:(Terminal apb.PREADY),(IntConst 1'b1))) False:(Terminal apb.INTERNAL_I2C_REGISTER_CONFIG)))))",
+          "(Bind dest:apb.INTERNAL_I2C_REGISTER_TIMEOUT tree:(Branch Cond:(Operator Ulnot Next:(Terminal apb.PRESETn)) True:(IntConst 14'd0) False:(Branch Cond:(Operator Land Next:(Operator Land Next:(Operator Land Next:(Operator Eq Next:(Terminal apb.PADDR),(IntConst 32'd8)),(Operator Eq Next:(Terminal apb.PSELx),(IntConst 1'b1))),(Operator Eq Next:(Terminal apb.PWRITE),(IntConst 1'b1))),(Operator Eq Next:(Terminal apb.PREADY),(IntConst 1'b1))) False:(Branch Cond:(Operator Land Next:(Operator Land Next:(Operator Land Next:(Operator Eq Next:(Terminal apb.PADDR),(IntConst 32'd12)),(Operator Eq Next:(Terminal apb.PSELx),(IntConst 1'b1))),(Operator Eq Next:(Terminal apb.PWRITE),(IntConst 1'b1))),(Operator Eq Next:(Terminal apb.PREADY),(IntConst 1'b1))) True:(Partselect Var:(Terminal apb.PWDATA) MSB:(IntConst 13) LSB:(IntConst 0))))))",
+          "(Bind dest:apb.INT_RX tree:(Terminal apb.RX_EMPTY))",
+          "(Bind dest:apb.INT_TX tree:(Terminal apb.TX_EMPTY))",
+          "(Bind dest:apb.PRDATA tree:(Branch Cond:(Operator Eq Next:(Terminal apb.PADDR),(IntConst 32'd4)) True:(Terminal apb.READ_DATA_ON_RX) False:(Terminal apb.READ_DATA_ON_RX)))",
+          "(Bind dest:apb.PREADY tree:(Branch Cond:(Operator And Next:(Operator Or Next:(Operator Or Next:(Operator Or Next:(Operator Eq Next:(Terminal apb.WR_ENA),(IntConst 1'b1)),(Operator Eq Next:(Terminal apb.RD_ENA),(IntConst 1'b1))),(Operator Eq Next:(Terminal apb.PADDR),(IntConst 32'd8))),(Operator Eq Next:(Terminal apb.PADDR),(IntConst 32'd12))),(Operator And Next:(Operator Eq Next:(Terminal apb.PENABLE),(IntConst 1'b1)),(Operator Eq Next:(Terminal apb.PSELx),(IntConst 1'b1)))) True:(IntConst 1'b1) False:(IntConst 1'b0)))",
+          "(Bind dest:apb.PSLVERR tree:(Terminal apb.ERROR))",
+          "(Bind dest:apb.RD_ENA tree:(Branch Cond:(Operator And Next:(Operator And Next:(Operator And Next:(Operator Eq Next:(Terminal apb.PWRITE),(IntConst 1'b0)),(Operator Eq Next:(Terminal apb.PENABLE),(IntConst 1'b1))),(Operator Eq Next:(Terminal apb.PADDR),(IntConst 32'd4))),(Operator Eq Next:(Terminal apb.PSELx),(IntConst 1'b1))) True:(IntConst 1'b1) False:(IntConst 1'b0)))",
+          "(Bind dest:apb.WRITE_DATA_ON_TX tree:(Branch Cond:(Operator Eq Next:(Terminal apb.PADDR),(IntConst 32'd0)) True:(Terminal apb.PWDATA) False:(Terminal apb.PWDATA)))",
+          "(Bind dest:apb.WR_ENA tree:(Branch Cond:(Operator And Next:(Operator And Next:(Operator And Next:(Operator Eq Next:(Terminal apb.PWRITE),(IntConst 1'b1)),(Operator Eq Next:(Terminal apb.PENABLE),(IntConst 1'b1))),(Operator Eq Next:(Terminal apb.PADDR),(IntConst 32'd0))),(Operator Eq Next:(Terminal apb.PSELx),(IntConst 1'b1))) True:(IntConst 1'b1) False:(IntConst 1'b0)))"
+        ],
+        "parent_module": "apb"
+      }
+    ]
+  }
+}

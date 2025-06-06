@@ -1,0 +1,103 @@
+m255
+K4
+z2
+!s11f vlog 2024.1 2024.02, Feb  1 2024
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dc:/Users/huijie/Desktop/graphrag
+vapb
+2c:\Users\huijie\Desktop\graphrag\svtest\pre_rtl\apb.v
+!s110 1749196866
+!i10b 1
+!s100 g_61?WX5?Rb[4Ia5BPfDl2
+I;Q6leJJ5[E=2NBk8HnSl`2
+R0
+w1749182675
+8c:\Users\huijie\Desktop\graphrag\svtest\pre_rtl\apb.v
+Fc:\Users\huijie\Desktop\graphrag\svtest\pre_rtl\apb.v
+!i122 27
+L0 2 55
+Z1 VDg1SIo80bB@j0V0VzS_@n1
+Z2 OL;L;2024.1;79
+r1
+!s85 0
+31
+!s108 1749196865.000000
+!s107 c:\Users\huijie\Desktop\graphrag\svtest\pre_rtl\apb.v|
+!s90 -nologo|-work|work|c:\Users\huijie\Desktop\graphrag\svtest\pre_rtl\apb.v|
+!i113 0
+Z3 o-nologo -work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z4 tCvgOpt 0
+vfifo
+2c:\Users\huijie\Desktop\graphrag\svtest\pre_rtl\fifo.v
+!s110 1749127314
+!i10b 1
+!s100 1_;PBc6JT6PLcGd=OUC;L2
+IzXYJzE_SLV@od:bD2Mzof0
+R0
+w1749127292
+8c:\Users\huijie\Desktop\graphrag\svtest\pre_rtl\fifo.v
+Fc:\Users\huijie\Desktop\graphrag\svtest\pre_rtl\fifo.v
+!i122 26
+L0 2 68
+R1
+R2
+r1
+!s85 0
+31
+!s108 1749127314.000000
+!s107 c:\Users\huijie\Desktop\graphrag\svtest\pre_rtl\fifo.v|
+!s90 -nologo|-work|work|c:\Users\huijie\Desktop\graphrag\svtest\pre_rtl\fifo.v|
+!i113 0
+R3
+R4
+vi2c
+2c:\Users\huijie\Desktop\graphrag\svtest\pre_rtl\i2c.v
+!s110 1749127312
+!i10b 1
+!s100 CI3T8E2j8zBj[>I3DFz_;0
+I`A[11Q=M_h31]oQlN6ddX1
+R0
+w1749127293
+8c:\Users\huijie\Desktop\graphrag\svtest\pre_rtl\i2c.v
+Fc:\Users\huijie\Desktop\graphrag\svtest\pre_rtl\i2c.v
+!i122 25
+L0 2 104
+R1
+R2
+r1
+!s85 0
+31
+!s108 1749127312.000000
+!s107 c:\Users\huijie\Desktop\graphrag\svtest\pre_rtl\i2c.v|
+!s90 -nologo|-work|work|c:\Users\huijie\Desktop\graphrag\svtest\pre_rtl\i2c.v|
+!i113 0
+R3
+R4
+vmodule_i2c
+2c:\Users\huijie\Desktop\graphrag\svtest\rtl\module_i2c.v
+!s110 1748783485
+!i10b 1
+!s100 RPo6>kJJH>Qdf_V;_8@6D3
+I@XOAAo7lSHW5P:e=X:ICP1
+R0
+w1400865635
+8c:\Users\huijie\Desktop\graphrag\svtest\rtl\module_i2c.v
+Fc:\Users\huijie\Desktop\graphrag\svtest\rtl\module_i2c.v
+!i122 20
+L0 80 3303
+R1
+R2
+r1
+!s85 0
+31
+!s108 1748783485.000000
+!s107 c:\Users\huijie\Desktop\graphrag\svtest\rtl\module_i2c.v|
+!s90 -nologo|-work|work|c:\Users\huijie\Desktop\graphrag\svtest\rtl\module_i2c.v|
+!i113 0
+R3
+R4
