@@ -1,5 +1,5 @@
 {
-  "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v": {
+  "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\fifo.v": {
     "modules": [],
     "ports": [],
     "signals": [],
@@ -10,59 +10,116 @@
     "assigns": [],
     "always_blocks": [
       {
-        "lineno": 33,
+        "lineno": 20,
         "senlist": [
           {
             "edge": "posedge",
-            "sig": "PCLK"
+            "sig": "clock"
           }
         ],
         "ast": "Always",
-        "startline": 33,
-        "endline": 52,
+        "startline": 20,
+        "endline": 29,
         "logic_type": "sequential",
         "cfg_data": {
-          "INTERNAL_I2C_REGISTER_CONFIG": [
+          "wr_ptr": [
             {
-              "condition": "!PRESETn",
-              "line": 37,
+              "condition": "reset",
+              "line": 24,
               "logic_type": "sequential",
               "assignment_type": "non-blocking",
-              "right_expr": "14'd0"
+              "right_expr": "{AWIDTH{{1'b0}}}"
             },
             {
-              "condition": "!(!PRESETn) && ((((PADDR == 32'd8) && (PSELx == 1'b1)) && (PWRITE == 1'b1)) && (PREADY == 1'b1))",
-              "line": 44,
+              "condition": "!(reset) && (wr_en && !f_full)",
+              "line": 29,
               "logic_type": "sequential",
               "assignment_type": "non-blocking",
-              "right_expr": "PWDATA[13:0]"
-            },
-            {
-              "condition": "!(!PRESETn) && !(((((PADDR == 32'd8) && (PSELx == 1'b1)) && (PWRITE == 1'b1)) && (PREADY == 1'b1))) && !(((((PADDR == 32'd12) && (PSELx == 1'b1)) && (PWRITE == 1'b1)) && (PREADY == 1'b1)))",
-              "line": 52,
-              "logic_type": "sequential",
-              "assignment_type": "non-blocking",
-              "right_expr": "INTERNAL_I2C_REGISTER_CONFIG"
+              "right_expr": "wr"
             }
           ],
-          "INTERNAL_I2C_REGISTER_TIMEOUT": [
+          "mem[wr_ptr]": [
             {
-              "condition": "!PRESETn",
-              "line": 38,
+              "condition": "!(reset) && (wr_en && !f_full)",
+              "line": 28,
               "logic_type": "sequential",
               "assignment_type": "non-blocking",
-              "right_expr": "14'd0"
-            },
-            {
-              "condition": "!(!PRESETn) && !(((((PADDR == 32'd8) && (PSELx == 1'b1)) && (PWRITE == 1'b1)) && (PREADY == 1'b1))) && ((((PADDR == 32'd12) && (PSELx == 1'b1)) && (PWRITE == 1'b1)) && (PREADY == 1'b1))",
-              "line": 48,
-              "logic_type": "sequential",
-              "assignment_type": "non-blocking",
-              "right_expr": "PWDATA[13:0]"
+              "right_expr": "data_in"
             }
           ]
         },
-        "parent_module": "apb"
+        "parent_module": "fifo"
+      },
+      {
+        "lineno": 32,
+        "senlist": [
+          {
+            "edge": "posedge",
+            "sig": "clock"
+          }
+        ],
+        "ast": "Always",
+        "startline": 32,
+        "endline": 40,
+        "logic_type": "sequential",
+        "cfg_data": {
+          "rd_ptr": [
+            {
+              "condition": "reset",
+              "line": 36,
+              "logic_type": "sequential",
+              "assignment_type": "non-blocking",
+              "right_expr": "{AWIDTH{{1'b0}}}"
+            },
+            {
+              "condition": "!(reset) && (rd_en && !f_empty)",
+              "line": 40,
+              "logic_type": "sequential",
+              "assignment_type": "non-blocking",
+              "right_expr": "rd"
+            }
+          ]
+        },
+        "parent_module": "fifo"
+      },
+      {
+        "lineno": 43,
+        "senlist": [
+          {
+            "edge": "posedge",
+            "sig": "clock"
+          }
+        ],
+        "ast": "Always",
+        "startline": 43,
+        "endline": 57,
+        "logic_type": "sequential",
+        "cfg_data": {
+          "counter": [
+            {
+              "condition": "reset",
+              "line": 47,
+              "logic_type": "sequential",
+              "assignment_type": "non-blocking",
+              "right_expr": "{AWIDTH{{1'b0}}}"
+            },
+            {
+              "condition": "!(reset) && ((rd_en && !f_empty) && !wr_en)",
+              "line": 53,
+              "logic_type": "sequential",
+              "assignment_type": "non-blocking",
+              "right_expr": "w_counter"
+            },
+            {
+              "condition": "!(reset) && !(((rd_en && !f_empty) && !wr_en)) && ((wr_en && !f_full) && !rd_en)",
+              "line": 57,
+              "logic_type": "sequential",
+              "assignment_type": "non-blocking",
+              "right_expr": "w_counter"
+            }
+          ]
+        },
+        "parent_module": "fifo"
       }
     ],
     "initial_blocks": [],

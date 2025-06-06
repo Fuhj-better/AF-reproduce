@@ -905,9 +905,6 @@ class CollectRTLInfo:
                 "cfg_data":code_blocks["id_1"]["variable_assignments"],
                 "parent_module":module_name,
             })
-    def _parse_dataflow(self,filepath):
-        # 换为自己的方法
-        pass
     def _to_json(self,indent=2):
         return  json.dumps(self.parsed_data,indent=indent,default=str) 
     
@@ -1030,10 +1027,10 @@ if __name__ == "__main__":
     #     'C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v','C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\fifo.v','C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\i2c.v'
     # ]
     in_file_list=[
-        'C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\rtl\\apb.v'
+        'C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\rtl\\fifo.v'
         ]
     out_file_list=[
-        'C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v'
+        'C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\fifo.v'
     ]
     for inf,ouf in zip(in_file_list,out_file_list):
         remove_comments(inf,ouf) 
@@ -1047,6 +1044,6 @@ if __name__ == "__main__":
     json_dir='C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\json'
     os.makedirs( json_dir,exist_ok=True)
     with open(f'{json_dir}/data.json',"w",encoding='utf-8') as f:
-        f.write(vistor.collected_info.parse_node(filepath='C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v',type="always_blocks"))
+        f.write(vistor.collected_info.parse_node(filepath='C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\fifo.v',type="always_blocks"))
     
    
