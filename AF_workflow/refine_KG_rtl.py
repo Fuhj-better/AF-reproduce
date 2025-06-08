@@ -117,7 +117,6 @@ class CollectRTLInfo:
         self.instances = []     
         self.assigns = []       
         self.always_blocks = [] 
-        self.dataflow=[]
 
         self.current_filepath=None
 
@@ -132,7 +131,6 @@ class CollectRTLInfo:
             "assigns": [],
             "always_blocks": [],
             "initial_blocks": [],
-            "dataflow":[]
         })
         self.parsed_data = defaultdict(lambda: {
             "modules": [],
@@ -775,7 +773,7 @@ class CollectRTLInfo:
             self.parsed_data[filepath]["ports"].append({
                 "name":node.name,
                 "lineno":node.lineno,
-                "direcition":self._get_direction(node),
+                "direction":self._get_direction(node),
                 "msb":self._get_width(node.width)["msb"],
                 "lsb":self._get_width(node.width)["lsb"],
                 "signed":self._get_signed(node.signed),
@@ -891,10 +889,10 @@ class CollectRTLInfo:
                 "endline":self._find_last_line_number(node),
                 "parent_module":module_name
             })
+
     def _parse_always_blocks(self,filepath):
         for node,module_name in self.wait_nodes[filepath]["always_blocks"]:
             variable_paths,code_blocks=self._collect_structured_variable_paths(node)
-            print(code_blocks)
             self.parsed_data[filepath]["always_blocks"].append({
                 "lineno":node.lineno,
                 "senlist":self._get_senslist(node.sens_list),
@@ -1028,23 +1026,28 @@ if __name__ == "__main__":
     #     'C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v','C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\fifo.v','C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\i2c.v'
     # ]
     in_file_list=[
-        'C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\rtl\\fifo.v'
+        'C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\rtl\\i2c.v'
         ]
     out_file_list=[
-        'C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\fifo.v'
+        'C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\i2c.v'
     ]
     for inf,ouf in zip(in_file_list,out_file_list):
         remove_comments(inf,ouf) 
         #得到该文件的语法树
         ast,_=parse([str(ouf)])
-        ast.show()
+        # ast.show()
         #收集该语法树信息
         vistor.set_filepath(ouf)
         vistor.visit(ast)
         break
-    json_dir='C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\json'
-    os.makedirs( json_dir,exist_ok=True)
-    with open(f'{json_dir}/data.json',"w",encoding='utf-8') as f:
-        f.write(vistor.collected_info.parse_node(filepath='C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\fifo.v',type="always_blocks"))
+    static_dir='C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\static'
+    os.makedirs(static_dir,exist_ok=True)
+    with open(f'{static_dir}/data.json','w',encoding='utf-8') as f:
+        f.write(vistor.collected_info.parse_node(filepath='C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\i2c.v'))
     
-   
+    from KGBuilder import KGBuilder
+    kg=KGBuilder(vistor.collected_info)
+    kg_dir='C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\entities'
+    os.makedirs(kg_dir,exist_ok=True)
+    with open(f'{kg_dir}/entities.json','w',encoding='utf-8') as f:
+        f.write(kg.get_entities())

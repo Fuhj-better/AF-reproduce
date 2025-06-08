@@ -1,127 +1,303 @@
 {
-  "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\fifo.v": {
+  "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\i2c.v": {
     "modules": [],
     "ports": [],
     "signals": [],
     "registers": [],
     "wires": [],
     "parameters": [],
-    "instances": [],
-    "assigns": [],
-    "always_blocks": [
+    "instances": [
       {
-        "lineno": 20,
-        "senlist": [
+        "lineno": 40,
+        "module_name": "fifo",
+        "instance_name": "DUT_FIFO_TX",
+        "port_connections": [
           {
-            "edge": "posedge",
-            "sig": "clock"
+            "portname": "clock",
+            "argname": "PCLK"
+          },
+          {
+            "portname": "reset",
+            "argname": "RESET_N"
+          },
+          {
+            "portname": "wr_en",
+            "argname": "TX_WRITE_ENA"
+          },
+          {
+            "portname": "rd_en",
+            "argname": "TX_RD_EN"
+          },
+          {
+            "portname": "data_in",
+            "argname": "TX_DATA_IN"
+          },
+          {
+            "portname": "f_full",
+            "argname": "w_full"
+          },
+          {
+            "portname": "f_empty",
+            "argname": "TX_F_EMPTY"
+          },
+          {
+            "portname": "data_out",
+            "argname": "TX_DATA_OUT"
           }
         ],
-        "ast": "Always",
-        "startline": 20,
-        "endline": 29,
-        "logic_type": "sequential",
-        "cfg_data": {
-          "wr_ptr": [
-            {
-              "condition": "reset",
-              "line": 24,
-              "logic_type": "sequential",
-              "assignment_type": "non-blocking",
-              "right_expr": "{AWIDTH{{1'b0}}}"
-            },
-            {
-              "condition": "!(reset) && (wr_en && !f_full)",
-              "line": 29,
-              "logic_type": "sequential",
-              "assignment_type": "non-blocking",
-              "right_expr": "wr"
-            }
-          ],
-          "mem[wr_ptr]": [
-            {
-              "condition": "!(reset) && (wr_en && !f_full)",
-              "line": 28,
-              "logic_type": "sequential",
-              "assignment_type": "non-blocking",
-              "right_expr": "data_in"
-            }
-          ]
+        "parameter_connections": [],
+        "arrays": {
+          "msb": 0,
+          "lsb": 0
         },
-        "parent_module": "fifo"
+        "ast": "Instance",
+        "startline": 40,
+        "endline": 48,
+        "parent_module": "i2c"
       },
       {
-        "lineno": 32,
-        "senlist": [
+        "lineno": 51,
+        "module_name": "fifo",
+        "instance_name": "DUT_FIFO_RX",
+        "port_connections": [
           {
-            "edge": "posedge",
-            "sig": "clock"
+            "portname": "clock",
+            "argname": "PCLK"
+          },
+          {
+            "portname": "reset",
+            "argname": "RESET_N"
+          },
+          {
+            "portname": "wr_en",
+            "argname": "RX_WRITE_ENA"
+          },
+          {
+            "portname": "rd_en",
+            "argname": "RX_RD_EN"
+          },
+          {
+            "portname": "data_in",
+            "argname": "RX_DATA_IN"
+          },
+          {
+            "portname": "f_full",
+            "argname": "RX_F_FULL"
+          },
+          {
+            "portname": "f_empty",
+            "argname": "RX_F_EMPTY"
+          },
+          {
+            "portname": "data_out",
+            "argname": "RX_DATA_OUT"
           }
         ],
-        "ast": "Always",
-        "startline": 32,
-        "endline": 40,
-        "logic_type": "sequential",
-        "cfg_data": {
-          "rd_ptr": [
-            {
-              "condition": "reset",
-              "line": 36,
-              "logic_type": "sequential",
-              "assignment_type": "non-blocking",
-              "right_expr": "{AWIDTH{{1'b0}}}"
-            },
-            {
-              "condition": "!(reset) && (rd_en && !f_empty)",
-              "line": 40,
-              "logic_type": "sequential",
-              "assignment_type": "non-blocking",
-              "right_expr": "rd"
-            }
-          ]
+        "parameter_connections": [],
+        "arrays": {
+          "msb": 0,
+          "lsb": 0
         },
-        "parent_module": "fifo"
+        "ast": "Instance",
+        "startline": 51,
+        "endline": 59,
+        "parent_module": "i2c"
       },
       {
-        "lineno": 43,
-        "senlist": [
+        "lineno": 61,
+        "module_name": "apb",
+        "instance_name": "DUT_APB",
+        "port_connections": [
           {
-            "edge": "posedge",
-            "sig": "clock"
+            "portname": "PCLK",
+            "argname": "PCLK"
+          },
+          {
+            "portname": "PRESETn",
+            "argname": "PRESETn"
+          },
+          {
+            "portname": "PADDR",
+            "argname": "PADDR"
+          },
+          {
+            "portname": "PRDATA",
+            "argname": "PRDATA"
+          },
+          {
+            "portname": "PWDATA",
+            "argname": "PWDATA"
+          },
+          {
+            "portname": "PWRITE",
+            "argname": "PWRITE"
+          },
+          {
+            "portname": "PSELx",
+            "argname": "PSELx"
+          },
+          {
+            "portname": "PENABLE",
+            "argname": "PENABLE"
+          },
+          {
+            "portname": "PREADY",
+            "argname": "PREADY"
+          },
+          {
+            "portname": "PSLVERR",
+            "argname": "PSLVERR"
+          },
+          {
+            "portname": "READ_DATA_ON_RX",
+            "argname": "RX_DATA_OUT"
+          },
+          {
+            "portname": "INTERNAL_I2C_REGISTER_CONFIG",
+            "argname": "REGISTER_CONFIG"
+          },
+          {
+            "portname": "INTERNAL_I2C_REGISTER_TIMEOUT",
+            "argname": "TIMEOUT_CONFIG"
+          },
+          {
+            "portname": "INT_RX",
+            "argname": "INT_RX"
+          },
+          {
+            "portname": "WR_ENA",
+            "argname": "TX_WRITE_ENA"
+          },
+          {
+            "portname": "WRITE_DATA_ON_TX",
+            "argname": "TX_DATA_IN"
+          },
+          {
+            "portname": "RD_ENA",
+            "argname": "RX_RD_EN"
+          },
+          {
+            "portname": "INT_TX",
+            "argname": "INT_TX"
+          },
+          {
+            "portname": "TX_EMPTY",
+            "argname": "tx_empty"
+          },
+          {
+            "portname": "RX_EMPTY",
+            "argname": "rx_empty"
+          },
+          {
+            "portname": "ERROR",
+            "argname": "error"
           }
         ],
-        "ast": "Always",
-        "startline": 43,
-        "endline": 57,
-        "logic_type": "sequential",
-        "cfg_data": {
-          "counter": [
-            {
-              "condition": "reset",
-              "line": 47,
-              "logic_type": "sequential",
-              "assignment_type": "non-blocking",
-              "right_expr": "{AWIDTH{{1'b0}}}"
-            },
-            {
-              "condition": "!(reset) && ((rd_en && !f_empty) && !wr_en)",
-              "line": 53,
-              "logic_type": "sequential",
-              "assignment_type": "non-blocking",
-              "right_expr": "w_counter"
-            },
-            {
-              "condition": "!(reset) && !(((rd_en && !f_empty) && !wr_en)) && ((wr_en && !f_full) && !rd_en)",
-              "line": 57,
-              "logic_type": "sequential",
-              "assignment_type": "non-blocking",
-              "right_expr": "w_counter"
-            }
-          ]
+        "parameter_connections": [],
+        "arrays": {
+          "msb": 0,
+          "lsb": 0
         },
-        "parent_module": "fifo"
+        "ast": "Instance",
+        "startline": 61,
+        "endline": 82,
+        "parent_module": "i2c"
+      },
+      {
+        "lineno": 84,
+        "module_name": "module_i2c",
+        "instance_name": "DUT_I2C_INTERNAL_RX_TX",
+        "port_connections": [
+          {
+            "portname": "PCLK",
+            "argname": "PCLK"
+          },
+          {
+            "portname": "PRESETn",
+            "argname": "PRESETn"
+          },
+          {
+            "portname": "fifo_rx_wr_en",
+            "argname": "RX_WRITE_ENA"
+          },
+          {
+            "portname": "fifo_rx_f_empty",
+            "argname": "RX_F_EMPTY"
+          },
+          {
+            "portname": "fifo_rx_data_in",
+            "argname": "RX_DATA_IN"
+          },
+          {
+            "portname": "fifo_rx_f_full",
+            "argname": "RX_F_FULL"
+          },
+          {
+            "portname": "fifo_tx_f_full",
+            "argname": "TX_F_FULL"
+          },
+          {
+            "portname": "fifo_tx_f_empty",
+            "argname": "TX_F_EMPTY"
+          },
+          {
+            "portname": "fifo_tx_rd_en",
+            "argname": "TX_RD_EN"
+          },
+          {
+            "portname": "fifo_tx_data_out",
+            "argname": "TX_DATA_OUT"
+          },
+          {
+            "portname": "DATA_CONFIG_REG",
+            "argname": "REGISTER_CONFIG"
+          },
+          {
+            "portname": "TIMEOUT_TX",
+            "argname": "TIMEOUT_CONFIG"
+          },
+          {
+            "portname": "RX_EMPTY",
+            "argname": "rx_empty"
+          },
+          {
+            "portname": "TX_EMPTY",
+            "argname": "tx_empty"
+          },
+          {
+            "portname": "ERROR",
+            "argname": "error"
+          },
+          {
+            "portname": "ENABLE_SDA",
+            "argname": "SDA_ENABLE"
+          },
+          {
+            "portname": "ENABLE_SCL",
+            "argname": "SCL_ENABLE"
+          },
+          {
+            "portname": "SDA",
+            "argname": "SDA"
+          },
+          {
+            "portname": "SCL",
+            "argname": "SCL"
+          }
+        ],
+        "parameter_connections": [],
+        "arrays": {
+          "msb": 0,
+          "lsb": 0
+        },
+        "ast": "Instance",
+        "startline": 84,
+        "endline": 103,
+        "parent_module": "i2c"
       }
     ],
+    "assigns": [],
+    "always_blocks": [],
     "initial_blocks": [],
     "dataflow": []
   }
