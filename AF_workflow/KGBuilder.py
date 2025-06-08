@@ -73,9 +73,10 @@ class KGBuilder:
                 "x":0,
                 "y":0,
             }
+            self.entities.append(port_entity)
     def _build_assign(self,assign_parsed_data):
         for assign in assign_parsed_data:
-            port_entity={
+            assign_entity={
                 "id":str(uuid.uuid4()),
                 "human_readable_id":self._get_human_readable_id(),
                 "title":assign["name"],
@@ -87,6 +88,7 @@ class KGBuilder:
                 "x":0,
                 "y":0,
             }
+            self.entities.append(assign_entity)
     def _build_dataflow(self,dataflow):
         for d in dataflow:
             d_entity={
@@ -101,5 +103,6 @@ class KGBuilder:
                 "x":0,
                 "y":0,
             }
+            self.entities.append(d_entity)
     def _build_entity(self):
         pass
