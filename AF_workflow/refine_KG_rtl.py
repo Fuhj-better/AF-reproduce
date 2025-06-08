@@ -969,6 +969,7 @@ class RTLCollectorVisitor(NodeVisitor):
     def visit_Always(self,node):
         self.collected_info.add_always_block(node,self.current_module_name,self.current_filepath)
 
+
 def process_line(line, in_block_comment):
     """
     处理单行代码，去除注释并返回有效代码部分及块注释状态。
