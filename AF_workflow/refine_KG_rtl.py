@@ -1026,10 +1026,10 @@ if __name__ == "__main__":
     #     'C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v','C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\fifo.v','C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\i2c.v'
     # ]
     in_file_list=[
-        'C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\rtl\\i2c.v'
+        'C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\rtl\\apb.v'
         ]
     out_file_list=[
-        'C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\i2c.v'
+        'C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v'
     ]
     for inf,ouf in zip(in_file_list,out_file_list):
         remove_comments(inf,ouf) 
@@ -1043,11 +1043,14 @@ if __name__ == "__main__":
     static_dir='C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\static'
     os.makedirs(static_dir,exist_ok=True)
     with open(f'{static_dir}/data.json','w',encoding='utf-8') as f:
-        f.write(vistor.collected_info.parse_node(filepath='C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\i2c.v'))
+        f.write(vistor.collected_info.parse_node(filepath='C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v'))
     
     from KGBuilder import KGBuilder
     kg=KGBuilder(vistor.collected_info)
-    kg_dir='C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\entities'
+    entities,relationships=kg.get_kg()
+    kg_dir='C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\kg'
     os.makedirs(kg_dir,exist_ok=True)
     with open(f'{kg_dir}/entities.json','w',encoding='utf-8') as f:
-        f.write(kg.get_entities())
+        f.write(entities)
+    with open(f'{kg_dir}/relationships.json','w',encoding='utf-8') as f:
+        f.write(relationships)

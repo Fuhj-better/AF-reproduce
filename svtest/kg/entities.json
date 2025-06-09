@@ -1,0 +1,448 @@
+[
+  {
+    "id": "b28a5f67-eeab-4840-91c6-c7f88ca2f7bf",
+    "human_readable_id": 0,
+    "title": "apb",
+    "type": "MODULE",
+    "description": "Verilog module apb is defined in line 2",
+    "text_unit_ids": "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v:2:2.",
+    "frequency": 1,
+    "degree": 0,
+    "x": 0,
+    "y": 0
+  },
+  {
+    "id": "3921ff7b-d870-4571-8d7f-d6d0977be8c7",
+    "human_readable_id": 1,
+    "title": "PCLK",
+    "type": "PORT",
+    "description": "Verilog port 'PCLK' is defined within module 'apb' in file 'C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v'  from line 3 to line 3. Its direction is 'input'. It is a 1-bit signal. Its AST node type is 'Input'.",
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#3:3"
+    ],
+    "frequency": 1,
+    "degree": 0,
+    "x": 0,
+    "y": 0
+  },
+  {
+    "id": "4e048785-21da-4906-805b-e303ab078fae",
+    "human_readable_id": 3,
+    "title": "PRESETn",
+    "type": "PORT",
+    "description": "Verilog port 'PRESETn' is defined within module 'apb' in file 'C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v'  from line 4 to line 4. Its direction is 'input'. It is a 1-bit signal. Its AST node type is 'Input'.",
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#4:4"
+    ],
+    "frequency": 1,
+    "degree": 0,
+    "x": 0,
+    "y": 0
+  },
+  {
+    "id": "12978c25-e01d-4b6a-8361-1c85c4ee6cff",
+    "human_readable_id": 5,
+    "title": "PSELx",
+    "type": "PORT",
+    "description": "Verilog port 'PSELx' is defined within module 'apb' in file 'C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v'  from line 5 to line 5. Its direction is 'input'. It is a 1-bit signal. Its AST node type is 'Input'.",
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#5:5"
+    ],
+    "frequency": 1,
+    "degree": 0,
+    "x": 0,
+    "y": 0
+  },
+  {
+    "id": "9734f83d-f08c-42fd-8ba8-ecca97b48f32",
+    "human_readable_id": 7,
+    "title": "PWRITE",
+    "type": "PORT",
+    "description": "Verilog port 'PWRITE' is defined within module 'apb' in file 'C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v'  from line 6 to line 6. Its direction is 'input'. It is a 1-bit signal. Its AST node type is 'Input'.",
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#6:6"
+    ],
+    "frequency": 1,
+    "degree": 0,
+    "x": 0,
+    "y": 0
+  },
+  {
+    "id": "3c35fc81-e04f-4cca-920c-ceb08dbe0e0f",
+    "human_readable_id": 9,
+    "title": "PENABLE",
+    "type": "PORT",
+    "description": "Verilog port 'PENABLE' is defined within module 'apb' in file 'C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v'  from line 7 to line 7. Its direction is 'input'. It is a 1-bit signal. Its AST node type is 'Input'.",
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#7:7"
+    ],
+    "frequency": 1,
+    "degree": 0,
+    "x": 0,
+    "y": 0
+  },
+  {
+    "id": "aa86e520-2203-48b8-b636-485d2cdc1420",
+    "human_readable_id": 11,
+    "title": "PADDR",
+    "type": "PORT",
+    "description": "Verilog port 'PADDR' is defined within module 'apb' in file 'C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v'  from line 8 to line 8. Its direction is 'input'. Its bit-width is from MSB 31 to LSB 0. Its AST node type is 'Input'.",
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#8:8"
+    ],
+    "frequency": 1,
+    "degree": 0,
+    "x": 0,
+    "y": 0
+  },
+  {
+    "id": "92ecddea-2a5d-4501-8e80-849ec3dc801c",
+    "human_readable_id": 13,
+    "title": "PWDATA",
+    "type": "PORT",
+    "description": "Verilog port 'PWDATA' is defined within module 'apb' in file 'C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v'  from line 9 to line 9. Its direction is 'input'. Its bit-width is from MSB 31 to LSB 0. Its AST node type is 'Input'.",
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#9:9"
+    ],
+    "frequency": 1,
+    "degree": 0,
+    "x": 0,
+    "y": 0
+  },
+  {
+    "id": "b32eccaa-e554-4bd7-b1e8-c7d0ea6fb89f",
+    "human_readable_id": 15,
+    "title": "READ_DATA_ON_RX",
+    "type": "PORT",
+    "description": "Verilog port 'READ_DATA_ON_RX' is defined within module 'apb' in file 'C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v'  from line 10 to line 10. Its direction is 'input'. Its bit-width is from MSB 31 to LSB 0. Its AST node type is 'Input'.",
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#10:10"
+    ],
+    "frequency": 1,
+    "degree": 0,
+    "x": 0,
+    "y": 0
+  },
+  {
+    "id": "c23b9819-0671-484f-b750-25ca20a57b56",
+    "human_readable_id": 17,
+    "title": "ERROR",
+    "type": "PORT",
+    "description": "Verilog port 'ERROR' is defined within module 'apb' in file 'C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v'  from line 11 to line 11. Its direction is 'input'. It is a 1-bit signal. Its AST node type is 'Input'.",
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#11:11"
+    ],
+    "frequency": 1,
+    "degree": 0,
+    "x": 0,
+    "y": 0
+  },
+  {
+    "id": "d14d90b7-fb16-4912-ab9f-b8a0bbc82dff",
+    "human_readable_id": 19,
+    "title": "TX_EMPTY",
+    "type": "PORT",
+    "description": "Verilog port 'TX_EMPTY' is defined within module 'apb' in file 'C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v'  from line 12 to line 12. Its direction is 'input'. It is a 1-bit signal. Its AST node type is 'Input'.",
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#12:12"
+    ],
+    "frequency": 1,
+    "degree": 0,
+    "x": 0,
+    "y": 0
+  },
+  {
+    "id": "d2b4a9c5-9a0d-4f3c-aaf0-8d70fd92cd81",
+    "human_readable_id": 21,
+    "title": "RX_EMPTY",
+    "type": "PORT",
+    "description": "Verilog port 'RX_EMPTY' is defined within module 'apb' in file 'C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v'  from line 13 to line 13. Its direction is 'input'. It is a 1-bit signal. Its AST node type is 'Input'.",
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#13:13"
+    ],
+    "frequency": 1,
+    "degree": 0,
+    "x": 0,
+    "y": 0
+  },
+  {
+    "id": "fc20d6ea-dfb3-4669-bded-fe65c069154d",
+    "human_readable_id": 23,
+    "title": "PRDATA",
+    "type": "PORT",
+    "description": "Verilog port 'PRDATA' is defined within module 'apb' in file 'C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v'  from line 14 to line 14. Its direction is 'output'. Its bit-width is from MSB 31 to LSB 0. Its AST node type is 'Output'.",
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#14:14"
+    ],
+    "frequency": 1,
+    "degree": 0,
+    "x": 0,
+    "y": 0
+  },
+  {
+    "id": "a726e38b-d560-4883-a0aa-803a850be7f5",
+    "human_readable_id": 25,
+    "title": "INTERNAL_I2C_REGISTER_CONFIG",
+    "type": "PORT",
+    "description": "Verilog port 'INTERNAL_I2C_REGISTER_CONFIG' is defined within module 'apb' in file 'C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v'  from line 15 to line 15. Its direction is 'output'. Its bit-width is from MSB 13 to LSB 0. Its AST node type is 'Output'.",
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#15:15"
+    ],
+    "frequency": 1,
+    "degree": 0,
+    "x": 0,
+    "y": 0
+  },
+  {
+    "id": "b1095dab-b312-43a4-8575-cca215e4f152",
+    "human_readable_id": 27,
+    "title": "INTERNAL_I2C_REGISTER_TIMEOUT",
+    "type": "PORT",
+    "description": "Verilog port 'INTERNAL_I2C_REGISTER_TIMEOUT' is defined within module 'apb' in file 'C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v'  from line 16 to line 16. Its direction is 'output'. Its bit-width is from MSB 13 to LSB 0. Its AST node type is 'Output'.",
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#16:16"
+    ],
+    "frequency": 1,
+    "degree": 0,
+    "x": 0,
+    "y": 0
+  },
+  {
+    "id": "b33db507-52b3-40e0-ae16-65979efc2d6d",
+    "human_readable_id": 29,
+    "title": "WRITE_DATA_ON_TX",
+    "type": "PORT",
+    "description": "Verilog port 'WRITE_DATA_ON_TX' is defined within module 'apb' in file 'C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v'  from line 17 to line 17. Its direction is 'output'. Its bit-width is from MSB 31 to LSB 0. Its AST node type is 'Output'.",
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#17:17"
+    ],
+    "frequency": 1,
+    "degree": 0,
+    "x": 0,
+    "y": 0
+  },
+  {
+    "id": "63694fd2-b01d-4992-848e-3e4ef62c65f1",
+    "human_readable_id": 31,
+    "title": "WR_ENA",
+    "type": "PORT",
+    "description": "Verilog port 'WR_ENA' is defined within module 'apb' in file 'C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v'  from line 18 to line 18. Its direction is 'output'. It is a 1-bit signal. Its AST node type is 'Output'.",
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#18:18"
+    ],
+    "frequency": 1,
+    "degree": 0,
+    "x": 0,
+    "y": 0
+  },
+  {
+    "id": "4d7b9a6e-61aa-4af7-82b3-4a43f4141f64",
+    "human_readable_id": 33,
+    "title": "RD_ENA",
+    "type": "PORT",
+    "description": "Verilog port 'RD_ENA' is defined within module 'apb' in file 'C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v'  from line 19 to line 19. Its direction is 'output'. It is a 1-bit signal. Its AST node type is 'Output'.",
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#19:19"
+    ],
+    "frequency": 1,
+    "degree": 0,
+    "x": 0,
+    "y": 0
+  },
+  {
+    "id": "80a88262-47db-4285-8c5e-c2d9772c0b96",
+    "human_readable_id": 35,
+    "title": "PREADY",
+    "type": "PORT",
+    "description": "Verilog port 'PREADY' is defined within module 'apb' in file 'C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v'  from line 20 to line 20. Its direction is 'output'. It is a 1-bit signal. Its AST node type is 'Output'.",
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#20:20"
+    ],
+    "frequency": 1,
+    "degree": 0,
+    "x": 0,
+    "y": 0
+  },
+  {
+    "id": "f1b4df13-f825-4f0c-bc68-8c9b82bb9287",
+    "human_readable_id": 37,
+    "title": "PSLVERR",
+    "type": "PORT",
+    "description": "Verilog port 'PSLVERR' is defined within module 'apb' in file 'C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v'  from line 21 to line 21. Its direction is 'output'. It is a 1-bit signal. Its AST node type is 'Output'.",
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#21:21"
+    ],
+    "frequency": 1,
+    "degree": 0,
+    "x": 0,
+    "y": 0
+  },
+  {
+    "id": "081f5706-0232-467f-b411-1425dfde7a7e",
+    "human_readable_id": 39,
+    "title": "INT_RX",
+    "type": "PORT",
+    "description": "Verilog port 'INT_RX' is defined within module 'apb' in file 'C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v'  from line 22 to line 22. Its direction is 'output'. It is a 1-bit signal. Its AST node type is 'Output'.",
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#22:22"
+    ],
+    "frequency": 1,
+    "degree": 0,
+    "x": 0,
+    "y": 0
+  },
+  {
+    "id": "e1bad1e9-4c51-41bf-aced-2a564b858f3b",
+    "human_readable_id": 41,
+    "title": "INT_TX",
+    "type": "PORT",
+    "description": "Verilog port 'INT_TX' is defined within module 'apb' in file 'C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v'  from line 23 to line 23. Its direction is 'output'. It is a 1-bit signal. Its AST node type is 'Output'.",
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#23:23"
+    ],
+    "frequency": 1,
+    "degree": 0,
+    "x": 0,
+    "y": 0
+  },
+  {
+    "id": "a7bce775-c686-421f-8c0f-be4d97137d7f",
+    "human_readable_id": 43,
+    "title": "INTERNAL_I2C_REGISTER_CONFIG",
+    "type": "REGISTER",
+    "description": "Verilog **register** 'INTERNAL_I2C_REGISTER_CONFIG' is defined within module 'apb'  in file 'C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v' from line 15 to line 15. Its **bit-width** is from MSB 13 to LSB 0. It is an **unsigned** register. Its **AST node type** is 'Reg'.",
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#15:15"
+    ],
+    "frequency": 1,
+    "degree": 0,
+    "x": 0,
+    "y": 0
+  },
+  {
+    "id": "5da0c645-519a-45b7-b57b-a4b2ad7868ab",
+    "human_readable_id": 45,
+    "title": "INTERNAL_I2C_REGISTER_TIMEOUT",
+    "type": "REGISTER",
+    "description": "Verilog **register** 'INTERNAL_I2C_REGISTER_TIMEOUT' is defined within module 'apb'  in file 'C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v' from line 16 to line 16. Its **bit-width** is from MSB 13 to LSB 0. It is an **unsigned** register. Its **AST node type** is 'Reg'.",
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#16:16"
+    ],
+    "frequency": 1,
+    "degree": 0,
+    "x": 0,
+    "y": 0
+  },
+  {
+    "id": "8a809231-d3bf-46c0-9170-315a72eb3402",
+    "human_readable_id": 47,
+    "title": "Assign: WR_ENA = (((((PWRITE == 1'b1) & (PENABLE == 1'b1)) & (PADDR == 32'd0)) & (PSELx == 1'b1)))? 1'b1:1'b0",
+    "type": "ASSIGNMENT",
+    "description": "This is an **assignment statement** defined in module 'apb'  in file 'C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v' from line 25 to line 25. The **left-hand side (LHS)** is 'WR_ENA' and the **right-hand side (RHS)** is '(((((PWRITE == 1'b1) & (PENABLE == 1'b1)) & (PADDR == 32'd0)) & (PSELx == 1'b1)))? 1'b1:1'b0'. It has a **left-hand side (LHS) delay** of 'None'. It has a **right-hand side (RHS) delay** of 'None'. Its **AST node type** is 'Assign'.",
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#25:25"
+    ],
+    "frequency": 1,
+    "degree": 0,
+    "x": 0,
+    "y": 0
+  },
+  {
+    "id": "fe05e661-fe87-4cbc-bab0-da52bbf44fc5",
+    "human_readable_id": 52,
+    "title": "Assign: RD_ENA = (((((PWRITE == 1'b0) & (PENABLE == 1'b1)) & (PADDR == 32'd4)) & (PSELx == 1'b1)))? 1'b1:1'b0",
+    "type": "ASSIGNMENT",
+    "description": "This is an **assignment statement** defined in module 'apb'  in file 'C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v' from line 26 to line 26. The **left-hand side (LHS)** is 'RD_ENA' and the **right-hand side (RHS)** is '(((((PWRITE == 1'b0) & (PENABLE == 1'b1)) & (PADDR == 32'd4)) & (PSELx == 1'b1)))? 1'b1:1'b0'. It has a **left-hand side (LHS) delay** of 'None'. It has a **right-hand side (RHS) delay** of 'None'. Its **AST node type** is 'Assign'.",
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#26:26"
+    ],
+    "frequency": 1,
+    "degree": 0,
+    "x": 0,
+    "y": 0
+  },
+  {
+    "id": "b056b122-3385-4ce5-a287-5e351e885119",
+    "human_readable_id": 57,
+    "title": "Assign: PREADY = ((((((WR_ENA == 1'b1) | (RD_ENA == 1'b1)) | (PADDR == 32'd8)) | (PADDR == 32'd12)) & ((PENABLE == 1'b1) & (PSELx == 1'b1))))? 1'b1:1'b0",
+    "type": "ASSIGNMENT",
+    "description": "This is an **assignment statement** defined in module 'apb'  in file 'C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v' from line 27 to line 27. The **left-hand side (LHS)** is 'PREADY' and the **right-hand side (RHS)** is '((((((WR_ENA == 1'b1) | (RD_ENA == 1'b1)) | (PADDR == 32'd8)) | (PADDR == 32'd12)) & ((PENABLE == 1'b1) & (PSELx == 1'b1))))? 1'b1:1'b0'. It has a **left-hand side (LHS) delay** of 'None'. It has a **right-hand side (RHS) delay** of 'None'. Its **AST node type** is 'Assign'.",
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#27:27"
+    ],
+    "frequency": 1,
+    "degree": 0,
+    "x": 0,
+    "y": 0
+  },
+  {
+    "id": "4f61ef15-27b2-45c3-9950-861e5ae2639a",
+    "human_readable_id": 62,
+    "title": "Assign: WRITE_DATA_ON_TX = ((PADDR == 32'd0))? PWDATA:PWDATA",
+    "type": "ASSIGNMENT",
+    "description": "This is an **assignment statement** defined in module 'apb'  in file 'C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v' from line 28 to line 28. The **left-hand side (LHS)** is 'WRITE_DATA_ON_TX' and the **right-hand side (RHS)** is '((PADDR == 32'd0))? PWDATA:PWDATA'. It has a **left-hand side (LHS) delay** of 'None'. It has a **right-hand side (RHS) delay** of 'None'. Its **AST node type** is 'Assign'.",
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#28:28"
+    ],
+    "frequency": 1,
+    "degree": 0,
+    "x": 0,
+    "y": 0
+  },
+  {
+    "id": "7cd786f1-2d4f-4c58-9444-1af045fda487",
+    "human_readable_id": 67,
+    "title": "Assign: PRDATA = ((PADDR == 32'd4))? READ_DATA_ON_RX:READ_DATA_ON_RX",
+    "type": "ASSIGNMENT",
+    "description": "This is an **assignment statement** defined in module 'apb'  in file 'C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v' from line 29 to line 29. The **left-hand side (LHS)** is 'PRDATA' and the **right-hand side (RHS)** is '((PADDR == 32'd4))? READ_DATA_ON_RX:READ_DATA_ON_RX'. It has a **left-hand side (LHS) delay** of 'None'. It has a **right-hand side (RHS) delay** of 'None'. Its **AST node type** is 'Assign'.",
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#29:29"
+    ],
+    "frequency": 1,
+    "degree": 0,
+    "x": 0,
+    "y": 0
+  },
+  {
+    "id": "1471b8bf-bb85-4c72-8cd6-940f7dd16a8a",
+    "human_readable_id": 72,
+    "title": "Assign: PSLVERR = ERROR",
+    "type": "ASSIGNMENT",
+    "description": "This is an **assignment statement** defined in module 'apb'  in file 'C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v' from line 30 to line 30. The **left-hand side (LHS)** is 'PSLVERR' and the **right-hand side (RHS)** is 'ERROR'. It has a **left-hand side (LHS) delay** of 'None'. It has a **right-hand side (RHS) delay** of 'None'. Its **AST node type** is 'Assign'.",
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#30:30"
+    ],
+    "frequency": 1,
+    "degree": 0,
+    "x": 0,
+    "y": 0
+  },
+  {
+    "id": "8e8680f8-a4ac-4c1c-954d-f5f9badf68e8",
+    "human_readable_id": 77,
+    "title": "Assign: INT_TX = TX_EMPTY",
+    "type": "ASSIGNMENT",
+    "description": "This is an **assignment statement** defined in module 'apb'  in file 'C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v' from line 31 to line 31. The **left-hand side (LHS)** is 'INT_TX' and the **right-hand side (RHS)** is 'TX_EMPTY'. It has a **left-hand side (LHS) delay** of 'None'. It has a **right-hand side (RHS) delay** of 'None'. Its **AST node type** is 'Assign'.",
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#31:31"
+    ],
+    "frequency": 1,
+    "degree": 0,
+    "x": 0,
+    "y": 0
+  },
+  {
+    "id": "6382b28e-07a8-43d4-bb85-a570d954ba00",
+    "human_readable_id": 82,
+    "title": "Assign: INT_RX = RX_EMPTY",
+    "type": "ASSIGNMENT",
+    "description": "This is an **assignment statement** defined in module 'apb'  in file 'C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v' from line 32 to line 32. The **left-hand side (LHS)** is 'INT_RX' and the **right-hand side (RHS)** is 'RX_EMPTY'. It has a **left-hand side (LHS) delay** of 'None'. It has a **right-hand side (RHS) delay** of 'None'. Its **AST node type** is 'Assign'.",
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#32:32"
+    ],
+    "frequency": 1,
+    "degree": 0,
+    "x": 0,
+    "y": 0
+  }
+]

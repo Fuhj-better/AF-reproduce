@@ -1,8 +1,8 @@
 {
-  "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\i2c.v": {
+  "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v": {
     "modules": [
       {
-        "name": "i2c",
+        "name": "apb",
         "lineno": 2,
         "ast": "ModuleDef",
         "startline": 2,
@@ -22,7 +22,7 @@
         "ast": "Input",
         "startline": 3,
         "endline": 3,
-        "parent_module": "i2c"
+        "parent_module": "apb"
       },
       {
         "name": "PRESETn",
@@ -36,38 +36,38 @@
         "ast": "Input",
         "startline": 4,
         "endline": 4,
-        "parent_module": "i2c"
+        "parent_module": "apb"
       },
       {
-        "name": "PADDR",
+        "name": "PSELx",
         "lineno": 5,
         "direction": "input",
-        "msb": "31",
-        "lsb": "0",
+        "msb": 0,
+        "lsb": 0,
         "signed": false,
         "dimensions": [],
         "value": "None",
         "ast": "Input",
         "startline": 5,
         "endline": 5,
-        "parent_module": "i2c"
+        "parent_module": "apb"
       },
       {
-        "name": "PWDATA",
+        "name": "PWRITE",
         "lineno": 6,
         "direction": "input",
-        "msb": "31",
-        "lsb": "0",
+        "msb": 0,
+        "lsb": 0,
         "signed": false,
         "dimensions": [],
         "value": "None",
         "ast": "Input",
         "startline": 6,
         "endline": 6,
-        "parent_module": "i2c"
+        "parent_module": "apb"
       },
       {
-        "name": "PWRITE",
+        "name": "PENABLE",
         "lineno": 7,
         "direction": "input",
         "msb": 0,
@@ -78,25 +78,53 @@
         "ast": "Input",
         "startline": 7,
         "endline": 7,
-        "parent_module": "i2c"
+        "parent_module": "apb"
       },
       {
-        "name": "PSELx",
+        "name": "PADDR",
         "lineno": 8,
         "direction": "input",
-        "msb": 0,
-        "lsb": 0,
+        "msb": "31",
+        "lsb": "0",
         "signed": false,
         "dimensions": [],
         "value": "None",
         "ast": "Input",
         "startline": 8,
         "endline": 8,
-        "parent_module": "i2c"
+        "parent_module": "apb"
       },
       {
-        "name": "PENABLE",
+        "name": "PWDATA",
         "lineno": 9,
+        "direction": "input",
+        "msb": "31",
+        "lsb": "0",
+        "signed": false,
+        "dimensions": [],
+        "value": "None",
+        "ast": "Input",
+        "startline": 9,
+        "endline": 9,
+        "parent_module": "apb"
+      },
+      {
+        "name": "READ_DATA_ON_RX",
+        "lineno": 10,
+        "direction": "input",
+        "msb": "31",
+        "lsb": "0",
+        "signed": false,
+        "dimensions": [],
+        "value": "None",
+        "ast": "Input",
+        "startline": 10,
+        "endline": 10,
+        "parent_module": "apb"
+      },
+      {
+        "name": "ERROR",
+        "lineno": 11,
         "direction": "input",
         "msb": 0,
         "lsb": 0,
@@ -104,65 +132,37 @@
         "dimensions": [],
         "value": "None",
         "ast": "Input",
-        "startline": 9,
-        "endline": 9,
-        "parent_module": "i2c"
-      },
-      {
-        "name": "PREADY",
-        "lineno": 10,
-        "direction": "output",
-        "msb": 0,
-        "lsb": 0,
-        "signed": false,
-        "dimensions": [],
-        "value": "None",
-        "ast": "Output",
-        "startline": 10,
-        "endline": 10,
-        "parent_module": "i2c"
-      },
-      {
-        "name": "PSLVERR",
-        "lineno": 11,
-        "direction": "output",
-        "msb": 0,
-        "lsb": 0,
-        "signed": false,
-        "dimensions": [],
-        "value": "None",
-        "ast": "Output",
         "startline": 11,
         "endline": 11,
-        "parent_module": "i2c"
+        "parent_module": "apb"
       },
       {
-        "name": "INT_RX",
+        "name": "TX_EMPTY",
         "lineno": 12,
-        "direction": "output",
+        "direction": "input",
         "msb": 0,
         "lsb": 0,
         "signed": false,
         "dimensions": [],
         "value": "None",
-        "ast": "Output",
+        "ast": "Input",
         "startline": 12,
         "endline": 12,
-        "parent_module": "i2c"
+        "parent_module": "apb"
       },
       {
-        "name": "INT_TX",
+        "name": "RX_EMPTY",
         "lineno": 13,
-        "direction": "output",
+        "direction": "input",
         "msb": 0,
         "lsb": 0,
         "signed": false,
         "dimensions": [],
         "value": "None",
-        "ast": "Output",
+        "ast": "Input",
         "startline": 13,
         "endline": 13,
-        "parent_module": "i2c"
+        "parent_module": "apb"
       },
       {
         "name": "PRDATA",
@@ -176,25 +176,53 @@
         "ast": "Output",
         "startline": 14,
         "endline": 14,
-        "parent_module": "i2c"
+        "parent_module": "apb"
       },
       {
-        "name": "SDA_ENABLE",
+        "name": "INTERNAL_I2C_REGISTER_CONFIG",
         "lineno": 15,
         "direction": "output",
-        "msb": 0,
-        "lsb": 0,
+        "msb": "13",
+        "lsb": "0",
         "signed": false,
         "dimensions": [],
         "value": "None",
         "ast": "Output",
         "startline": 15,
         "endline": 15,
-        "parent_module": "i2c"
+        "parent_module": "apb"
       },
       {
-        "name": "SCL_ENABLE",
+        "name": "INTERNAL_I2C_REGISTER_TIMEOUT",
         "lineno": 16,
+        "direction": "output",
+        "msb": "13",
+        "lsb": "0",
+        "signed": false,
+        "dimensions": [],
+        "value": "None",
+        "ast": "Output",
+        "startline": 16,
+        "endline": 16,
+        "parent_module": "apb"
+      },
+      {
+        "name": "WRITE_DATA_ON_TX",
+        "lineno": 17,
+        "direction": "output",
+        "msb": "31",
+        "lsb": "0",
+        "signed": false,
+        "dimensions": [],
+        "value": "None",
+        "ast": "Output",
+        "startline": 17,
+        "endline": 17,
+        "parent_module": "apb"
+      },
+      {
+        "name": "WR_ENA",
+        "lineno": 18,
         "direction": "output",
         "msb": 0,
         "lsb": 0,
@@ -202,606 +230,260 @@
         "dimensions": [],
         "value": "None",
         "ast": "Output",
-        "startline": 16,
-        "endline": 16,
-        "parent_module": "i2c"
-      },
-      {
-        "name": "SDA",
-        "lineno": 17,
-        "direction": "inout",
-        "msb": 0,
-        "lsb": 0,
-        "signed": false,
-        "dimensions": [],
-        "value": "None",
-        "ast": "Inout",
-        "startline": 17,
-        "endline": 17,
-        "parent_module": "i2c"
-      },
-      {
-        "name": "SCL",
-        "lineno": 18,
-        "direction": "inout",
-        "msb": 0,
-        "lsb": 0,
-        "signed": false,
-        "dimensions": [],
-        "value": "None",
-        "ast": "Inout",
         "startline": 18,
         "endline": 18,
-        "parent_module": "i2c"
+        "parent_module": "apb"
+      },
+      {
+        "name": "RD_ENA",
+        "lineno": 19,
+        "direction": "output",
+        "msb": 0,
+        "lsb": 0,
+        "signed": false,
+        "dimensions": [],
+        "value": "None",
+        "ast": "Output",
+        "startline": 19,
+        "endline": 19,
+        "parent_module": "apb"
+      },
+      {
+        "name": "PREADY",
+        "lineno": 20,
+        "direction": "output",
+        "msb": 0,
+        "lsb": 0,
+        "signed": false,
+        "dimensions": [],
+        "value": "None",
+        "ast": "Output",
+        "startline": 20,
+        "endline": 20,
+        "parent_module": "apb"
+      },
+      {
+        "name": "PSLVERR",
+        "lineno": 21,
+        "direction": "output",
+        "msb": 0,
+        "lsb": 0,
+        "signed": false,
+        "dimensions": [],
+        "value": "None",
+        "ast": "Output",
+        "startline": 21,
+        "endline": 21,
+        "parent_module": "apb"
+      },
+      {
+        "name": "INT_RX",
+        "lineno": 22,
+        "direction": "output",
+        "msb": 0,
+        "lsb": 0,
+        "signed": false,
+        "dimensions": [],
+        "value": "None",
+        "ast": "Output",
+        "startline": 22,
+        "endline": 22,
+        "parent_module": "apb"
+      },
+      {
+        "name": "INT_TX",
+        "lineno": 23,
+        "direction": "output",
+        "msb": 0,
+        "lsb": 0,
+        "signed": false,
+        "dimensions": [],
+        "value": "None",
+        "ast": "Output",
+        "startline": 23,
+        "endline": 23,
+        "parent_module": "apb"
       }
     ],
     "signals": [],
-    "registers": [],
-    "wires": [
+    "registers": [
       {
-        "name": "RESET_N",
-        "lineno": 20,
-        "msb": 0,
-        "lsb": 0,
-        "signed": false,
-        "dimensions": [],
-        "value": "None",
-        "ast": "Wire",
-        "startline": 20,
-        "endline": 20,
-        "parent_module": "i2c"
-      },
-      {
-        "name": "TX_RD_EN",
-        "lineno": 22,
-        "msb": 0,
-        "lsb": 0,
-        "signed": false,
-        "dimensions": [],
-        "value": "None",
-        "ast": "Wire",
-        "startline": 22,
-        "endline": 22,
-        "parent_module": "i2c"
-      },
-      {
-        "name": "TX_F_EMPTY",
-        "lineno": 23,
-        "msb": 0,
-        "lsb": 0,
-        "signed": false,
-        "dimensions": [],
-        "value": "None",
-        "ast": "Wire",
-        "startline": 23,
-        "endline": 23,
-        "parent_module": "i2c"
-      },
-      {
-        "name": "TX_F_FULL",
-        "lineno": 24,
-        "msb": 0,
-        "lsb": 0,
-        "signed": false,
-        "dimensions": [],
-        "value": "None",
-        "ast": "Wire",
-        "startline": 24,
-        "endline": 24,
-        "parent_module": "i2c"
-      },
-      {
-        "name": "TX_DATA_IN",
-        "lineno": 25,
-        "msb": "31",
-        "lsb": "0",
-        "signed": false,
-        "dimensions": [],
-        "value": "None",
-        "ast": "Wire",
-        "startline": 25,
-        "endline": 25,
-        "parent_module": "i2c"
-      },
-      {
-        "name": "TX_DATA_OUT",
-        "lineno": 26,
-        "msb": "31",
-        "lsb": "0",
-        "signed": false,
-        "dimensions": [],
-        "value": "None",
-        "ast": "Wire",
-        "startline": 26,
-        "endline": 26,
-        "parent_module": "i2c"
-      },
-      {
-        "name": "TX_WRITE_ENA",
-        "lineno": 27,
-        "msb": 0,
-        "lsb": 0,
-        "signed": false,
-        "dimensions": [],
-        "value": "None",
-        "ast": "Wire",
-        "startline": 27,
-        "endline": 27,
-        "parent_module": "i2c"
-      },
-      {
-        "name": "RX_RD_EN",
-        "lineno": 28,
-        "msb": 0,
-        "lsb": 0,
-        "signed": false,
-        "dimensions": [],
-        "value": "None",
-        "ast": "Wire",
-        "startline": 28,
-        "endline": 28,
-        "parent_module": "i2c"
-      },
-      {
-        "name": "RX_F_EMPTY",
-        "lineno": 29,
-        "msb": 0,
-        "lsb": 0,
-        "signed": false,
-        "dimensions": [],
-        "value": "None",
-        "ast": "Wire",
-        "startline": 29,
-        "endline": 29,
-        "parent_module": "i2c"
-      },
-      {
-        "name": "RX_F_FULL",
-        "lineno": 30,
-        "msb": 0,
-        "lsb": 0,
-        "signed": false,
-        "dimensions": [],
-        "value": "None",
-        "ast": "Wire",
-        "startline": 30,
-        "endline": 30,
-        "parent_module": "i2c"
-      },
-      {
-        "name": "RX_DATA_IN",
-        "lineno": 31,
-        "msb": "31",
-        "lsb": "0",
-        "signed": false,
-        "dimensions": [],
-        "value": "None",
-        "ast": "Wire",
-        "startline": 31,
-        "endline": 31,
-        "parent_module": "i2c"
-      },
-      {
-        "name": "RX_DATA_OUT",
-        "lineno": 32,
-        "msb": "31",
-        "lsb": "0",
-        "signed": false,
-        "dimensions": [],
-        "value": "None",
-        "ast": "Wire",
-        "startline": 32,
-        "endline": 32,
-        "parent_module": "i2c"
-      },
-      {
-        "name": "RX_WRITE_ENA",
-        "lineno": 33,
-        "msb": 0,
-        "lsb": 0,
-        "signed": false,
-        "dimensions": [],
-        "value": "None",
-        "ast": "Wire",
-        "startline": 33,
-        "endline": 33,
-        "parent_module": "i2c"
-      },
-      {
-        "name": "REGISTER_CONFIG",
-        "lineno": 34,
+        "name": "INTERNAL_I2C_REGISTER_CONFIG",
+        "lineno": 15,
         "msb": "13",
         "lsb": "0",
         "signed": false,
         "dimensions": [],
         "value": "None",
-        "ast": "Wire",
-        "startline": 34,
-        "endline": 34,
-        "parent_module": "i2c"
+        "ast": "Reg",
+        "startline": 15,
+        "endline": 15,
+        "parent_module": "apb"
       },
       {
-        "name": "TIMEOUT_CONFIG",
-        "lineno": 35,
+        "name": "INTERNAL_I2C_REGISTER_TIMEOUT",
+        "lineno": 16,
         "msb": "13",
         "lsb": "0",
         "signed": false,
         "dimensions": [],
         "value": "None",
-        "ast": "Wire",
-        "startline": 35,
-        "endline": 35,
-        "parent_module": "i2c"
-      },
-      {
-        "name": "error",
-        "lineno": 36,
-        "msb": 0,
-        "lsb": 0,
-        "signed": false,
-        "dimensions": [],
-        "value": "None",
-        "ast": "Wire",
-        "startline": 36,
-        "endline": 36,
-        "parent_module": "i2c"
-      },
-      {
-        "name": "tx_empty",
-        "lineno": 37,
-        "msb": 0,
-        "lsb": 0,
-        "signed": false,
-        "dimensions": [],
-        "value": "None",
-        "ast": "Wire",
-        "startline": 37,
-        "endline": 37,
-        "parent_module": "i2c"
-      },
-      {
-        "name": "rx_empty",
-        "lineno": 38,
-        "msb": 0,
-        "lsb": 0,
-        "signed": false,
-        "dimensions": [],
-        "value": "None",
-        "ast": "Wire",
-        "startline": 38,
-        "endline": 38,
-        "parent_module": "i2c"
-      },
-      {
-        "name": "w_full",
-        "lineno": 39,
-        "msb": 0,
-        "lsb": 0,
-        "signed": false,
-        "dimensions": [],
-        "value": "None",
-        "ast": "Wire",
-        "startline": 39,
-        "endline": 39,
-        "parent_module": "i2c"
+        "ast": "Reg",
+        "startline": 16,
+        "endline": 16,
+        "parent_module": "apb"
       }
     ],
+    "wires": [],
     "parameters": [],
-    "instances": [
-      {
-        "lineno": 40,
-        "module_name": "fifo",
-        "instance_name": "DUT_FIFO_TX",
-        "port_connections": [
-          {
-            "portname": "clock",
-            "argname": "PCLK"
-          },
-          {
-            "portname": "reset",
-            "argname": "RESET_N"
-          },
-          {
-            "portname": "wr_en",
-            "argname": "TX_WRITE_ENA"
-          },
-          {
-            "portname": "rd_en",
-            "argname": "TX_RD_EN"
-          },
-          {
-            "portname": "data_in",
-            "argname": "TX_DATA_IN"
-          },
-          {
-            "portname": "f_full",
-            "argname": "w_full"
-          },
-          {
-            "portname": "f_empty",
-            "argname": "TX_F_EMPTY"
-          },
-          {
-            "portname": "data_out",
-            "argname": "TX_DATA_OUT"
-          }
-        ],
-        "parameter_connections": [],
-        "arrays": {
-          "msb": 0,
-          "lsb": 0
-        },
-        "ast": "Instance",
-        "startline": 40,
-        "endline": 48,
-        "parent_module": "i2c"
-      },
-      {
-        "lineno": 51,
-        "module_name": "fifo",
-        "instance_name": "DUT_FIFO_RX",
-        "port_connections": [
-          {
-            "portname": "clock",
-            "argname": "PCLK"
-          },
-          {
-            "portname": "reset",
-            "argname": "RESET_N"
-          },
-          {
-            "portname": "wr_en",
-            "argname": "RX_WRITE_ENA"
-          },
-          {
-            "portname": "rd_en",
-            "argname": "RX_RD_EN"
-          },
-          {
-            "portname": "data_in",
-            "argname": "RX_DATA_IN"
-          },
-          {
-            "portname": "f_full",
-            "argname": "RX_F_FULL"
-          },
-          {
-            "portname": "f_empty",
-            "argname": "RX_F_EMPTY"
-          },
-          {
-            "portname": "data_out",
-            "argname": "RX_DATA_OUT"
-          }
-        ],
-        "parameter_connections": [],
-        "arrays": {
-          "msb": 0,
-          "lsb": 0
-        },
-        "ast": "Instance",
-        "startline": 51,
-        "endline": 59,
-        "parent_module": "i2c"
-      },
-      {
-        "lineno": 61,
-        "module_name": "apb",
-        "instance_name": "DUT_APB",
-        "port_connections": [
-          {
-            "portname": "PCLK",
-            "argname": "PCLK"
-          },
-          {
-            "portname": "PRESETn",
-            "argname": "PRESETn"
-          },
-          {
-            "portname": "PADDR",
-            "argname": "PADDR"
-          },
-          {
-            "portname": "PRDATA",
-            "argname": "PRDATA"
-          },
-          {
-            "portname": "PWDATA",
-            "argname": "PWDATA"
-          },
-          {
-            "portname": "PWRITE",
-            "argname": "PWRITE"
-          },
-          {
-            "portname": "PSELx",
-            "argname": "PSELx"
-          },
-          {
-            "portname": "PENABLE",
-            "argname": "PENABLE"
-          },
-          {
-            "portname": "PREADY",
-            "argname": "PREADY"
-          },
-          {
-            "portname": "PSLVERR",
-            "argname": "PSLVERR"
-          },
-          {
-            "portname": "READ_DATA_ON_RX",
-            "argname": "RX_DATA_OUT"
-          },
-          {
-            "portname": "INTERNAL_I2C_REGISTER_CONFIG",
-            "argname": "REGISTER_CONFIG"
-          },
-          {
-            "portname": "INTERNAL_I2C_REGISTER_TIMEOUT",
-            "argname": "TIMEOUT_CONFIG"
-          },
-          {
-            "portname": "INT_RX",
-            "argname": "INT_RX"
-          },
-          {
-            "portname": "WR_ENA",
-            "argname": "TX_WRITE_ENA"
-          },
-          {
-            "portname": "WRITE_DATA_ON_TX",
-            "argname": "TX_DATA_IN"
-          },
-          {
-            "portname": "RD_ENA",
-            "argname": "RX_RD_EN"
-          },
-          {
-            "portname": "INT_TX",
-            "argname": "INT_TX"
-          },
-          {
-            "portname": "TX_EMPTY",
-            "argname": "tx_empty"
-          },
-          {
-            "portname": "RX_EMPTY",
-            "argname": "rx_empty"
-          },
-          {
-            "portname": "ERROR",
-            "argname": "error"
-          }
-        ],
-        "parameter_connections": [],
-        "arrays": {
-          "msb": 0,
-          "lsb": 0
-        },
-        "ast": "Instance",
-        "startline": 61,
-        "endline": 82,
-        "parent_module": "i2c"
-      },
-      {
-        "lineno": 84,
-        "module_name": "module_i2c",
-        "instance_name": "DUT_I2C_INTERNAL_RX_TX",
-        "port_connections": [
-          {
-            "portname": "PCLK",
-            "argname": "PCLK"
-          },
-          {
-            "portname": "PRESETn",
-            "argname": "PRESETn"
-          },
-          {
-            "portname": "fifo_rx_wr_en",
-            "argname": "RX_WRITE_ENA"
-          },
-          {
-            "portname": "fifo_rx_f_empty",
-            "argname": "RX_F_EMPTY"
-          },
-          {
-            "portname": "fifo_rx_data_in",
-            "argname": "RX_DATA_IN"
-          },
-          {
-            "portname": "fifo_rx_f_full",
-            "argname": "RX_F_FULL"
-          },
-          {
-            "portname": "fifo_tx_f_full",
-            "argname": "TX_F_FULL"
-          },
-          {
-            "portname": "fifo_tx_f_empty",
-            "argname": "TX_F_EMPTY"
-          },
-          {
-            "portname": "fifo_tx_rd_en",
-            "argname": "TX_RD_EN"
-          },
-          {
-            "portname": "fifo_tx_data_out",
-            "argname": "TX_DATA_OUT"
-          },
-          {
-            "portname": "DATA_CONFIG_REG",
-            "argname": "REGISTER_CONFIG"
-          },
-          {
-            "portname": "TIMEOUT_TX",
-            "argname": "TIMEOUT_CONFIG"
-          },
-          {
-            "portname": "RX_EMPTY",
-            "argname": "rx_empty"
-          },
-          {
-            "portname": "TX_EMPTY",
-            "argname": "tx_empty"
-          },
-          {
-            "portname": "ERROR",
-            "argname": "error"
-          },
-          {
-            "portname": "ENABLE_SDA",
-            "argname": "SDA_ENABLE"
-          },
-          {
-            "portname": "ENABLE_SCL",
-            "argname": "SCL_ENABLE"
-          },
-          {
-            "portname": "SDA",
-            "argname": "SDA"
-          },
-          {
-            "portname": "SCL",
-            "argname": "SCL"
-          }
-        ],
-        "parameter_connections": [],
-        "arrays": {
-          "msb": 0,
-          "lsb": 0
-        },
-        "ast": "Instance",
-        "startline": 84,
-        "endline": 103,
-        "parent_module": "i2c"
-      }
-    ],
+    "instances": [],
     "assigns": [
       {
-        "lineno": 21,
-        "left": "RESET_N",
-        "right": "((PRESETn == 0))? 1'b1:1'b0",
+        "lineno": 25,
+        "left": "WR_ENA",
+        "right": "(((((PWRITE == 1'b1) & (PENABLE == 1'b1)) & (PADDR == 32'd0)) & (PSELx == 1'b1)))? 1'b1:1'b0",
         "ldelay": "None",
         "rdelay": "None",
         "ast": "Assign",
-        "startline": 21,
-        "endline": 21,
-        "parent_module": "i2c"
+        "startline": 25,
+        "endline": 25,
+        "parent_module": "apb"
       },
       {
-        "lineno": 50,
-        "left": "TX_F_FULL",
-        "right": "w_full",
+        "lineno": 26,
+        "left": "RD_ENA",
+        "right": "(((((PWRITE == 1'b0) & (PENABLE == 1'b1)) & (PADDR == 32'd4)) & (PSELx == 1'b1)))? 1'b1:1'b0",
         "ldelay": "None",
         "rdelay": "None",
         "ast": "Assign",
-        "startline": 50,
-        "endline": 50,
-        "parent_module": "i2c"
+        "startline": 26,
+        "endline": 26,
+        "parent_module": "apb"
+      },
+      {
+        "lineno": 27,
+        "left": "PREADY",
+        "right": "((((((WR_ENA == 1'b1) | (RD_ENA == 1'b1)) | (PADDR == 32'd8)) | (PADDR == 32'd12)) & ((PENABLE == 1'b1) & (PSELx == 1'b1))))? 1'b1:1'b0",
+        "ldelay": "None",
+        "rdelay": "None",
+        "ast": "Assign",
+        "startline": 27,
+        "endline": 27,
+        "parent_module": "apb"
+      },
+      {
+        "lineno": 28,
+        "left": "WRITE_DATA_ON_TX",
+        "right": "((PADDR == 32'd0))? PWDATA:PWDATA",
+        "ldelay": "None",
+        "rdelay": "None",
+        "ast": "Assign",
+        "startline": 28,
+        "endline": 28,
+        "parent_module": "apb"
+      },
+      {
+        "lineno": 29,
+        "left": "PRDATA",
+        "right": "((PADDR == 32'd4))? READ_DATA_ON_RX:READ_DATA_ON_RX",
+        "ldelay": "None",
+        "rdelay": "None",
+        "ast": "Assign",
+        "startline": 29,
+        "endline": 29,
+        "parent_module": "apb"
+      },
+      {
+        "lineno": 30,
+        "left": "PSLVERR",
+        "right": "ERROR",
+        "ldelay": "None",
+        "rdelay": "None",
+        "ast": "Assign",
+        "startline": 30,
+        "endline": 30,
+        "parent_module": "apb"
+      },
+      {
+        "lineno": 31,
+        "left": "INT_TX",
+        "right": "TX_EMPTY",
+        "ldelay": "None",
+        "rdelay": "None",
+        "ast": "Assign",
+        "startline": 31,
+        "endline": 31,
+        "parent_module": "apb"
+      },
+      {
+        "lineno": 32,
+        "left": "INT_RX",
+        "right": "RX_EMPTY",
+        "ldelay": "None",
+        "rdelay": "None",
+        "ast": "Assign",
+        "startline": 32,
+        "endline": 32,
+        "parent_module": "apb"
       }
     ],
-    "always_blocks": [],
+    "always_blocks": [
+      {
+        "lineno": 33,
+        "senlist": [
+          {
+            "edge": "posedge",
+            "sig": "PCLK"
+          }
+        ],
+        "ast": "Always",
+        "startline": 33,
+        "endline": 52,
+        "logic_type": "sequential",
+        "cfg_data": {
+          "INTERNAL_I2C_REGISTER_CONFIG": [
+            {
+              "condition": "!PRESETn",
+              "line": 37,
+              "logic_type": "sequential",
+              "assignment_type": "non-blocking",
+              "right_expr": "14'd0"
+            },
+            {
+              "condition": "!(!PRESETn) && ((((PADDR == 32'd8) && (PSELx == 1'b1)) && (PWRITE == 1'b1)) && (PREADY == 1'b1))",
+              "line": 44,
+              "logic_type": "sequential",
+              "assignment_type": "non-blocking",
+              "right_expr": "PWDATA[13:0]"
+            },
+            {
+              "condition": "!(!PRESETn) && !(((((PADDR == 32'd8) && (PSELx == 1'b1)) && (PWRITE == 1'b1)) && (PREADY == 1'b1))) && !(((((PADDR == 32'd12) && (PSELx == 1'b1)) && (PWRITE == 1'b1)) && (PREADY == 1'b1)))",
+              "line": 52,
+              "logic_type": "sequential",
+              "assignment_type": "non-blocking",
+              "right_expr": "INTERNAL_I2C_REGISTER_CONFIG"
+            }
+          ],
+          "INTERNAL_I2C_REGISTER_TIMEOUT": [
+            {
+              "condition": "!PRESETn",
+              "line": 38,
+              "logic_type": "sequential",
+              "assignment_type": "non-blocking",
+              "right_expr": "14'd0"
+            },
+            {
+              "condition": "!(!PRESETn) && !(((((PADDR == 32'd8) && (PSELx == 1'b1)) && (PWRITE == 1'b1)) && (PREADY == 1'b1))) && ((((PADDR == 32'd12) && (PSELx == 1'b1)) && (PWRITE == 1'b1)) && (PREADY == 1'b1))",
+              "line": 48,
+              "logic_type": "sequential",
+              "assignment_type": "non-blocking",
+              "right_expr": "PWDATA[13:0]"
+            }
+          ]
+        },
+        "parent_module": "apb"
+      }
+    ],
     "initial_blocks": [],
     "dataflow": []
   }

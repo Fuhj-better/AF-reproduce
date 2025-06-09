@@ -1,0 +1,717 @@
+[
+  {
+    "id": "428147c3-b7cb-4a12-be9a-ce434adf1bd1",
+    "human_readable_id": 2,
+    "source": "apb",
+    "target": "PCLK",
+    "type": "CONTAINS_PORT",
+    "description": "apb contains port PCLK.",
+    "weight": 1,
+    "combined_degree": 0,
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#3:3"
+    ]
+  },
+  {
+    "id": "5e84e4b9-a644-4afc-b768-fb0606fbb601",
+    "human_readable_id": 4,
+    "source": "apb",
+    "target": "PRESETn",
+    "type": "CONTAINS_PORT",
+    "description": "apb contains port PRESETn.",
+    "weight": 1,
+    "combined_degree": 0,
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#4:4"
+    ]
+  },
+  {
+    "id": "bb2d199f-20c1-47df-813d-02f39b233400",
+    "human_readable_id": 6,
+    "source": "apb",
+    "target": "PSELx",
+    "type": "CONTAINS_PORT",
+    "description": "apb contains port PSELx.",
+    "weight": 1,
+    "combined_degree": 0,
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#5:5"
+    ]
+  },
+  {
+    "id": "fe8dde6e-c509-44b1-9181-b6803df942d5",
+    "human_readable_id": 8,
+    "source": "apb",
+    "target": "PWRITE",
+    "type": "CONTAINS_PORT",
+    "description": "apb contains port PWRITE.",
+    "weight": 1,
+    "combined_degree": 0,
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#6:6"
+    ]
+  },
+  {
+    "id": "64ab3207-13b2-42f7-9b42-28ab4b9d8cc4",
+    "human_readable_id": 10,
+    "source": "apb",
+    "target": "PENABLE",
+    "type": "CONTAINS_PORT",
+    "description": "apb contains port PENABLE.",
+    "weight": 1,
+    "combined_degree": 0,
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#7:7"
+    ]
+  },
+  {
+    "id": "686316b5-8882-415b-a81e-8dbfed03cbe0",
+    "human_readable_id": 12,
+    "source": "apb",
+    "target": "PADDR",
+    "type": "CONTAINS_PORT",
+    "description": "apb contains port PADDR.",
+    "weight": 1,
+    "combined_degree": 0,
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#8:8"
+    ]
+  },
+  {
+    "id": "62ad596a-60e2-4a83-a747-961e501c70a5",
+    "human_readable_id": 14,
+    "source": "apb",
+    "target": "PWDATA",
+    "type": "CONTAINS_PORT",
+    "description": "apb contains port PWDATA.",
+    "weight": 1,
+    "combined_degree": 0,
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#9:9"
+    ]
+  },
+  {
+    "id": "d9f52f91-21b3-4e44-8bf8-8853d51fe55b",
+    "human_readable_id": 16,
+    "source": "apb",
+    "target": "READ_DATA_ON_RX",
+    "type": "CONTAINS_PORT",
+    "description": "apb contains port READ_DATA_ON_RX.",
+    "weight": 1,
+    "combined_degree": 0,
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#10:10"
+    ]
+  },
+  {
+    "id": "a098d5f5-dee9-484b-9499-95840cf19a6b",
+    "human_readable_id": 18,
+    "source": "apb",
+    "target": "ERROR",
+    "type": "CONTAINS_PORT",
+    "description": "apb contains port ERROR.",
+    "weight": 1,
+    "combined_degree": 0,
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#11:11"
+    ]
+  },
+  {
+    "id": "701499c7-46c2-4402-b5e2-725a7a3d7e8b",
+    "human_readable_id": 20,
+    "source": "apb",
+    "target": "TX_EMPTY",
+    "type": "CONTAINS_PORT",
+    "description": "apb contains port TX_EMPTY.",
+    "weight": 1,
+    "combined_degree": 0,
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#12:12"
+    ]
+  },
+  {
+    "id": "a1b78d25-c093-4096-b1a8-31a0a76088b1",
+    "human_readable_id": 22,
+    "source": "apb",
+    "target": "RX_EMPTY",
+    "type": "CONTAINS_PORT",
+    "description": "apb contains port RX_EMPTY.",
+    "weight": 1,
+    "combined_degree": 0,
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#13:13"
+    ]
+  },
+  {
+    "id": "9da4a8e6-e978-4756-b226-418a508b68f0",
+    "human_readable_id": 24,
+    "source": "apb",
+    "target": "PRDATA",
+    "type": "CONTAINS_PORT",
+    "description": "apb contains port PRDATA.",
+    "weight": 1,
+    "combined_degree": 0,
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#14:14"
+    ]
+  },
+  {
+    "id": "fa7da9af-d6ea-4ea4-ab36-6457e23b00aa",
+    "human_readable_id": 26,
+    "source": "apb",
+    "target": "INTERNAL_I2C_REGISTER_CONFIG",
+    "type": "CONTAINS_PORT",
+    "description": "apb contains port INTERNAL_I2C_REGISTER_CONFIG.",
+    "weight": 1,
+    "combined_degree": 0,
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#15:15"
+    ]
+  },
+  {
+    "id": "2d9f5c45-5812-4ba3-ace6-1c3e1b458cc2",
+    "human_readable_id": 28,
+    "source": "apb",
+    "target": "INTERNAL_I2C_REGISTER_TIMEOUT",
+    "type": "CONTAINS_PORT",
+    "description": "apb contains port INTERNAL_I2C_REGISTER_TIMEOUT.",
+    "weight": 1,
+    "combined_degree": 0,
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#16:16"
+    ]
+  },
+  {
+    "id": "ebf42d07-f4ec-4699-9b25-b303abb3ed80",
+    "human_readable_id": 30,
+    "source": "apb",
+    "target": "WRITE_DATA_ON_TX",
+    "type": "CONTAINS_PORT",
+    "description": "apb contains port WRITE_DATA_ON_TX.",
+    "weight": 1,
+    "combined_degree": 0,
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#17:17"
+    ]
+  },
+  {
+    "id": "d3191262-a529-4dfb-a4ed-4fc85c127461",
+    "human_readable_id": 32,
+    "source": "apb",
+    "target": "WR_ENA",
+    "type": "CONTAINS_PORT",
+    "description": "apb contains port WR_ENA.",
+    "weight": 1,
+    "combined_degree": 0,
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#18:18"
+    ]
+  },
+  {
+    "id": "87c54e14-455d-4169-b8b2-19d4b31417d8",
+    "human_readable_id": 34,
+    "source": "apb",
+    "target": "RD_ENA",
+    "type": "CONTAINS_PORT",
+    "description": "apb contains port RD_ENA.",
+    "weight": 1,
+    "combined_degree": 0,
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#19:19"
+    ]
+  },
+  {
+    "id": "5af67792-2bc6-4cd4-9850-f3e1efb36d07",
+    "human_readable_id": 36,
+    "source": "apb",
+    "target": "PREADY",
+    "type": "CONTAINS_PORT",
+    "description": "apb contains port PREADY.",
+    "weight": 1,
+    "combined_degree": 0,
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#20:20"
+    ]
+  },
+  {
+    "id": "7f902df8-81e0-497e-a007-89c6bd6c97c0",
+    "human_readable_id": 38,
+    "source": "apb",
+    "target": "PSLVERR",
+    "type": "CONTAINS_PORT",
+    "description": "apb contains port PSLVERR.",
+    "weight": 1,
+    "combined_degree": 0,
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#21:21"
+    ]
+  },
+  {
+    "id": "c54f4655-96fe-40a3-9a55-012cf9979d3b",
+    "human_readable_id": 40,
+    "source": "apb",
+    "target": "INT_RX",
+    "type": "CONTAINS_PORT",
+    "description": "apb contains port INT_RX.",
+    "weight": 1,
+    "combined_degree": 0,
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#22:22"
+    ]
+  },
+  {
+    "id": "eba6b3ae-9989-4861-b7d4-521a24949064",
+    "human_readable_id": 42,
+    "source": "apb",
+    "target": "INT_TX",
+    "type": "CONTAINS_PORT",
+    "description": "apb contains port INT_TX.",
+    "weight": 1,
+    "combined_degree": 0,
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#23:23"
+    ]
+  },
+  {
+    "id": "ccab5c59-1b0b-4dca-a809-c6a5548f271b",
+    "human_readable_id": 44,
+    "source": "apb",
+    "target": "INTERNAL_I2C_REGISTER_CONFIG",
+    "type": "CONTAINS_REGISTER",
+    "description": "apb contains register INTERNAL_I2C_REGISTER_CONFIG.",
+    "weight": 1,
+    "combined_degree": 0,
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#15:15"
+    ]
+  },
+  {
+    "id": "4e3f0060-ae85-470b-b427-26579f89a86e",
+    "human_readable_id": 46,
+    "source": "apb",
+    "target": "INTERNAL_I2C_REGISTER_TIMEOUT",
+    "type": "CONTAINS_REGISTER",
+    "description": "apb contains register INTERNAL_I2C_REGISTER_TIMEOUT.",
+    "weight": 1,
+    "combined_degree": 0,
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#16:16"
+    ]
+  },
+  {
+    "id": "bfdcd248-3091-4125-b8dd-7f2c93bb06e0",
+    "human_readable_id": 48,
+    "source": "apb",
+    "target": "Assign: WR_ENA = (((((PWRITE == 1'b1) & (PENABLE == 1'b1)) & (PADDR == 32'd0)) & (PSELx == 1'b1)))? 1'b1:1'b0",
+    "type": "CONTAINS_ASSIGNMENT",
+    "description": "Module 'apb' contains assignment 'Assign: WR_ENA = (((((PWRITE == 1'b1) & (PENABLE == 1'b1)) & (PADDR == 32'd0)) & (PSELx == 1'b1)))? 1'b1:1'b0'.",
+    "weight": 1,
+    "combined_degree": 0,
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#25:25"
+    ]
+  },
+  {
+    "id": "c48e8b11-cd7c-42dc-8636-169466767275",
+    "human_readable_id": 49,
+    "source": "(((((PWRITE == 1'b1) & (PENABLE == 1'b1)) & (PADDR == 32'd0)) & (PSELx == 1'b1)))? 1'b1:1'b0",
+    "target": "WR_ENA",
+    "type": "DRIVES",
+    "description": "The expression/signal '(((((PWRITE == 1'b1) & (PENABLE == 1'b1)) & (PADDR == 32'd0)) & (PSELx == 1'b1)))? 1'b1:1'b0' **drives** the signal 'WR_ENA' via assignment 'Assign: WR_ENA = (((((PWRITE == 1'b1) & (PENABLE == 1'b1)) & (PADDR == 32'd0)) & (PSELx == 1'b1)))? 1'b1:1'b0'.",
+    "weight": 2,
+    "combined_degree": 0,
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#25:25"
+    ]
+  },
+  {
+    "id": "79071160-96a9-4d9a-8989-44072f6d2e6b",
+    "human_readable_id": 50,
+    "source": "Assign: WR_ENA = (((((PWRITE == 1'b1) & (PENABLE == 1'b1)) & (PADDR == 32'd0)) & (PSELx == 1'b1)))? 1'b1:1'b0",
+    "target": "WR_ENA",
+    "type": "MODIFIES_SIGNAL",
+    "description": "Assignment 'Assign: WR_ENA = (((((PWRITE == 1'b1) & (PENABLE == 1'b1)) & (PADDR == 32'd0)) & (PSELx == 1'b1)))? 1'b1:1'b0' **modifies** the signal 'WR_ENA'.",
+    "weight": 1,
+    "combined_degree": 0,
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#25:25#LHS"
+    ]
+  },
+  {
+    "id": "f25488c0-f933-4890-a939-1ed49a1825e1",
+    "human_readable_id": 51,
+    "source": "Assign: WR_ENA = (((((PWRITE == 1'b1) & (PENABLE == 1'b1)) & (PADDR == 32'd0)) & (PSELx == 1'b1)))? 1'b1:1'b0",
+    "target": "(((((PWRITE == 1'b1) & (PENABLE == 1'b1)) & (PADDR == 32'd0)) & (PSELx == 1'b1)))? 1'b1:1'b0",
+    "type": "USES_EXPRESSION_OR_SIGNAL",
+    "description": "Assignment 'Assign: WR_ENA = (((((PWRITE == 1'b1) & (PENABLE == 1'b1)) & (PADDR == 32'd0)) & (PSELx == 1'b1)))? 1'b1:1'b0' **uses** the expression/signal '(((((PWRITE == 1'b1) & (PENABLE == 1'b1)) & (PADDR == 32'd0)) & (PSELx == 1'b1)))? 1'b1:1'b0' as its source.",
+    "weight": 1,
+    "combined_degree": 0,
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#25:25#RHS"
+    ]
+  },
+  {
+    "id": "86bda3f7-1abb-401b-9b13-0bfbd8e90c58",
+    "human_readable_id": 53,
+    "source": "apb",
+    "target": "Assign: RD_ENA = (((((PWRITE == 1'b0) & (PENABLE == 1'b1)) & (PADDR == 32'd4)) & (PSELx == 1'b1)))? 1'b1:1'b0",
+    "type": "CONTAINS_ASSIGNMENT",
+    "description": "Module 'apb' contains assignment 'Assign: RD_ENA = (((((PWRITE == 1'b0) & (PENABLE == 1'b1)) & (PADDR == 32'd4)) & (PSELx == 1'b1)))? 1'b1:1'b0'.",
+    "weight": 1,
+    "combined_degree": 0,
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#26:26"
+    ]
+  },
+  {
+    "id": "081e066a-6907-4d79-a011-0114101942ad",
+    "human_readable_id": 54,
+    "source": "(((((PWRITE == 1'b0) & (PENABLE == 1'b1)) & (PADDR == 32'd4)) & (PSELx == 1'b1)))? 1'b1:1'b0",
+    "target": "RD_ENA",
+    "type": "DRIVES",
+    "description": "The expression/signal '(((((PWRITE == 1'b0) & (PENABLE == 1'b1)) & (PADDR == 32'd4)) & (PSELx == 1'b1)))? 1'b1:1'b0' **drives** the signal 'RD_ENA' via assignment 'Assign: RD_ENA = (((((PWRITE == 1'b0) & (PENABLE == 1'b1)) & (PADDR == 32'd4)) & (PSELx == 1'b1)))? 1'b1:1'b0'.",
+    "weight": 2,
+    "combined_degree": 0,
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#26:26"
+    ]
+  },
+  {
+    "id": "7e320385-c23c-404f-84e4-f53ed7cba2ce",
+    "human_readable_id": 55,
+    "source": "Assign: RD_ENA = (((((PWRITE == 1'b0) & (PENABLE == 1'b1)) & (PADDR == 32'd4)) & (PSELx == 1'b1)))? 1'b1:1'b0",
+    "target": "RD_ENA",
+    "type": "MODIFIES_SIGNAL",
+    "description": "Assignment 'Assign: RD_ENA = (((((PWRITE == 1'b0) & (PENABLE == 1'b1)) & (PADDR == 32'd4)) & (PSELx == 1'b1)))? 1'b1:1'b0' **modifies** the signal 'RD_ENA'.",
+    "weight": 1,
+    "combined_degree": 0,
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#26:26#LHS"
+    ]
+  },
+  {
+    "id": "470b344f-7937-43ef-879c-dba886e37f37",
+    "human_readable_id": 56,
+    "source": "Assign: RD_ENA = (((((PWRITE == 1'b0) & (PENABLE == 1'b1)) & (PADDR == 32'd4)) & (PSELx == 1'b1)))? 1'b1:1'b0",
+    "target": "(((((PWRITE == 1'b0) & (PENABLE == 1'b1)) & (PADDR == 32'd4)) & (PSELx == 1'b1)))? 1'b1:1'b0",
+    "type": "USES_EXPRESSION_OR_SIGNAL",
+    "description": "Assignment 'Assign: RD_ENA = (((((PWRITE == 1'b0) & (PENABLE == 1'b1)) & (PADDR == 32'd4)) & (PSELx == 1'b1)))? 1'b1:1'b0' **uses** the expression/signal '(((((PWRITE == 1'b0) & (PENABLE == 1'b1)) & (PADDR == 32'd4)) & (PSELx == 1'b1)))? 1'b1:1'b0' as its source.",
+    "weight": 1,
+    "combined_degree": 0,
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#26:26#RHS"
+    ]
+  },
+  {
+    "id": "b0bb4920-3719-43be-ac87-d095249f86e6",
+    "human_readable_id": 58,
+    "source": "apb",
+    "target": "Assign: PREADY = ((((((WR_ENA == 1'b1) | (RD_ENA == 1'b1)) | (PADDR == 32'd8)) | (PADDR == 32'd12)) & ((PENABLE == 1'b1) & (PSELx == 1'b1))))? 1'b1:1'b0",
+    "type": "CONTAINS_ASSIGNMENT",
+    "description": "Module 'apb' contains assignment 'Assign: PREADY = ((((((WR_ENA == 1'b1) | (RD_ENA == 1'b1)) | (PADDR == 32'd8)) | (PADDR == 32'd12)) & ((PENABLE == 1'b1) & (PSELx == 1'b1))))? 1'b1:1'b0'.",
+    "weight": 1,
+    "combined_degree": 0,
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#27:27"
+    ]
+  },
+  {
+    "id": "bf88c5b4-63fa-4f6b-a09d-07d84f13ffe1",
+    "human_readable_id": 59,
+    "source": "((((((WR_ENA == 1'b1) | (RD_ENA == 1'b1)) | (PADDR == 32'd8)) | (PADDR == 32'd12)) & ((PENABLE == 1'b1) & (PSELx == 1'b1))))? 1'b1:1'b0",
+    "target": "PREADY",
+    "type": "DRIVES",
+    "description": "The expression/signal '((((((WR_ENA == 1'b1) | (RD_ENA == 1'b1)) | (PADDR == 32'd8)) | (PADDR == 32'd12)) & ((PENABLE == 1'b1) & (PSELx == 1'b1))))? 1'b1:1'b0' **drives** the signal 'PREADY' via assignment 'Assign: PREADY = ((((((WR_ENA == 1'b1) | (RD_ENA == 1'b1)) | (PADDR == 32'd8)) | (PADDR == 32'd12)) & ((PENABLE == 1'b1) & (PSELx == 1'b1))))? 1'b1:1'b0'.",
+    "weight": 2,
+    "combined_degree": 0,
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#27:27"
+    ]
+  },
+  {
+    "id": "e5281c39-dcbb-47ff-8934-52f7fb76f8a8",
+    "human_readable_id": 60,
+    "source": "Assign: PREADY = ((((((WR_ENA == 1'b1) | (RD_ENA == 1'b1)) | (PADDR == 32'd8)) | (PADDR == 32'd12)) & ((PENABLE == 1'b1) & (PSELx == 1'b1))))? 1'b1:1'b0",
+    "target": "PREADY",
+    "type": "MODIFIES_SIGNAL",
+    "description": "Assignment 'Assign: PREADY = ((((((WR_ENA == 1'b1) | (RD_ENA == 1'b1)) | (PADDR == 32'd8)) | (PADDR == 32'd12)) & ((PENABLE == 1'b1) & (PSELx == 1'b1))))? 1'b1:1'b0' **modifies** the signal 'PREADY'.",
+    "weight": 1,
+    "combined_degree": 0,
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#27:27#LHS"
+    ]
+  },
+  {
+    "id": "32489d90-59db-43dd-9a2b-1c3db246c3bc",
+    "human_readable_id": 61,
+    "source": "Assign: PREADY = ((((((WR_ENA == 1'b1) | (RD_ENA == 1'b1)) | (PADDR == 32'd8)) | (PADDR == 32'd12)) & ((PENABLE == 1'b1) & (PSELx == 1'b1))))? 1'b1:1'b0",
+    "target": "((((((WR_ENA == 1'b1) | (RD_ENA == 1'b1)) | (PADDR == 32'd8)) | (PADDR == 32'd12)) & ((PENABLE == 1'b1) & (PSELx == 1'b1))))? 1'b1:1'b0",
+    "type": "USES_EXPRESSION_OR_SIGNAL",
+    "description": "Assignment 'Assign: PREADY = ((((((WR_ENA == 1'b1) | (RD_ENA == 1'b1)) | (PADDR == 32'd8)) | (PADDR == 32'd12)) & ((PENABLE == 1'b1) & (PSELx == 1'b1))))? 1'b1:1'b0' **uses** the expression/signal '((((((WR_ENA == 1'b1) | (RD_ENA == 1'b1)) | (PADDR == 32'd8)) | (PADDR == 32'd12)) & ((PENABLE == 1'b1) & (PSELx == 1'b1))))? 1'b1:1'b0' as its source.",
+    "weight": 1,
+    "combined_degree": 0,
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#27:27#RHS"
+    ]
+  },
+  {
+    "id": "718df960-b388-447e-b451-49984a52d1bf",
+    "human_readable_id": 63,
+    "source": "apb",
+    "target": "Assign: WRITE_DATA_ON_TX = ((PADDR == 32'd0))? PWDATA:PWDATA",
+    "type": "CONTAINS_ASSIGNMENT",
+    "description": "Module 'apb' contains assignment 'Assign: WRITE_DATA_ON_TX = ((PADDR == 32'd0))? PWDATA:PWDATA'.",
+    "weight": 1,
+    "combined_degree": 0,
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#28:28"
+    ]
+  },
+  {
+    "id": "cfc32805-5f27-4436-bf09-13dc21146f7b",
+    "human_readable_id": 64,
+    "source": "((PADDR == 32'd0))? PWDATA:PWDATA",
+    "target": "WRITE_DATA_ON_TX",
+    "type": "DRIVES",
+    "description": "The expression/signal '((PADDR == 32'd0))? PWDATA:PWDATA' **drives** the signal 'WRITE_DATA_ON_TX' via assignment 'Assign: WRITE_DATA_ON_TX = ((PADDR == 32'd0))? PWDATA:PWDATA'.",
+    "weight": 2,
+    "combined_degree": 0,
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#28:28"
+    ]
+  },
+  {
+    "id": "5126c927-ceae-4519-80bd-05156e56feac",
+    "human_readable_id": 65,
+    "source": "Assign: WRITE_DATA_ON_TX = ((PADDR == 32'd0))? PWDATA:PWDATA",
+    "target": "WRITE_DATA_ON_TX",
+    "type": "MODIFIES_SIGNAL",
+    "description": "Assignment 'Assign: WRITE_DATA_ON_TX = ((PADDR == 32'd0))? PWDATA:PWDATA' **modifies** the signal 'WRITE_DATA_ON_TX'.",
+    "weight": 1,
+    "combined_degree": 0,
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#28:28#LHS"
+    ]
+  },
+  {
+    "id": "2ecd2425-ecf9-4bb6-ade0-3b0e06ee7334",
+    "human_readable_id": 66,
+    "source": "Assign: WRITE_DATA_ON_TX = ((PADDR == 32'd0))? PWDATA:PWDATA",
+    "target": "((PADDR == 32'd0))? PWDATA:PWDATA",
+    "type": "USES_EXPRESSION_OR_SIGNAL",
+    "description": "Assignment 'Assign: WRITE_DATA_ON_TX = ((PADDR == 32'd0))? PWDATA:PWDATA' **uses** the expression/signal '((PADDR == 32'd0))? PWDATA:PWDATA' as its source.",
+    "weight": 1,
+    "combined_degree": 0,
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#28:28#RHS"
+    ]
+  },
+  {
+    "id": "b3a94cb6-f826-45e4-a977-5f13abacc828",
+    "human_readable_id": 68,
+    "source": "apb",
+    "target": "Assign: PRDATA = ((PADDR == 32'd4))? READ_DATA_ON_RX:READ_DATA_ON_RX",
+    "type": "CONTAINS_ASSIGNMENT",
+    "description": "Module 'apb' contains assignment 'Assign: PRDATA = ((PADDR == 32'd4))? READ_DATA_ON_RX:READ_DATA_ON_RX'.",
+    "weight": 1,
+    "combined_degree": 0,
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#29:29"
+    ]
+  },
+  {
+    "id": "5d92e9c5-c0a0-4355-84c3-2ffb488c883f",
+    "human_readable_id": 69,
+    "source": "((PADDR == 32'd4))? READ_DATA_ON_RX:READ_DATA_ON_RX",
+    "target": "PRDATA",
+    "type": "DRIVES",
+    "description": "The expression/signal '((PADDR == 32'd4))? READ_DATA_ON_RX:READ_DATA_ON_RX' **drives** the signal 'PRDATA' via assignment 'Assign: PRDATA = ((PADDR == 32'd4))? READ_DATA_ON_RX:READ_DATA_ON_RX'.",
+    "weight": 2,
+    "combined_degree": 0,
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#29:29"
+    ]
+  },
+  {
+    "id": "4bdf1000-6ab9-41b2-a8eb-5ab12a2a19f4",
+    "human_readable_id": 70,
+    "source": "Assign: PRDATA = ((PADDR == 32'd4))? READ_DATA_ON_RX:READ_DATA_ON_RX",
+    "target": "PRDATA",
+    "type": "MODIFIES_SIGNAL",
+    "description": "Assignment 'Assign: PRDATA = ((PADDR == 32'd4))? READ_DATA_ON_RX:READ_DATA_ON_RX' **modifies** the signal 'PRDATA'.",
+    "weight": 1,
+    "combined_degree": 0,
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#29:29#LHS"
+    ]
+  },
+  {
+    "id": "20ffa2b0-523b-4db2-9200-204bbf299067",
+    "human_readable_id": 71,
+    "source": "Assign: PRDATA = ((PADDR == 32'd4))? READ_DATA_ON_RX:READ_DATA_ON_RX",
+    "target": "((PADDR == 32'd4))? READ_DATA_ON_RX:READ_DATA_ON_RX",
+    "type": "USES_EXPRESSION_OR_SIGNAL",
+    "description": "Assignment 'Assign: PRDATA = ((PADDR == 32'd4))? READ_DATA_ON_RX:READ_DATA_ON_RX' **uses** the expression/signal '((PADDR == 32'd4))? READ_DATA_ON_RX:READ_DATA_ON_RX' as its source.",
+    "weight": 1,
+    "combined_degree": 0,
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#29:29#RHS"
+    ]
+  },
+  {
+    "id": "0d235531-0adc-45db-ad13-f5c1533187d9",
+    "human_readable_id": 73,
+    "source": "apb",
+    "target": "Assign: PSLVERR = ERROR",
+    "type": "CONTAINS_ASSIGNMENT",
+    "description": "Module 'apb' contains assignment 'Assign: PSLVERR = ERROR'.",
+    "weight": 1,
+    "combined_degree": 0,
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#30:30"
+    ]
+  },
+  {
+    "id": "4192593c-4ac3-43b3-8b05-50cee1b6faa4",
+    "human_readable_id": 74,
+    "source": "ERROR",
+    "target": "PSLVERR",
+    "type": "DRIVES",
+    "description": "The expression/signal 'ERROR' **drives** the signal 'PSLVERR' via assignment 'Assign: PSLVERR = ERROR'.",
+    "weight": 2,
+    "combined_degree": 0,
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#30:30"
+    ]
+  },
+  {
+    "id": "cc767b55-5f19-45b1-9d1e-5b6d107bb02c",
+    "human_readable_id": 75,
+    "source": "Assign: PSLVERR = ERROR",
+    "target": "PSLVERR",
+    "type": "MODIFIES_SIGNAL",
+    "description": "Assignment 'Assign: PSLVERR = ERROR' **modifies** the signal 'PSLVERR'.",
+    "weight": 1,
+    "combined_degree": 0,
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#30:30#LHS"
+    ]
+  },
+  {
+    "id": "ceca0a63-4871-44ed-9892-0ed93f8d3437",
+    "human_readable_id": 76,
+    "source": "Assign: PSLVERR = ERROR",
+    "target": "ERROR",
+    "type": "USES_EXPRESSION_OR_SIGNAL",
+    "description": "Assignment 'Assign: PSLVERR = ERROR' **uses** the expression/signal 'ERROR' as its source.",
+    "weight": 1,
+    "combined_degree": 0,
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#30:30#RHS"
+    ]
+  },
+  {
+    "id": "1e131d3a-d82c-4db6-8397-f1d8e784ab1f",
+    "human_readable_id": 78,
+    "source": "apb",
+    "target": "Assign: INT_TX = TX_EMPTY",
+    "type": "CONTAINS_ASSIGNMENT",
+    "description": "Module 'apb' contains assignment 'Assign: INT_TX = TX_EMPTY'.",
+    "weight": 1,
+    "combined_degree": 0,
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#31:31"
+    ]
+  },
+  {
+    "id": "a93e3a33-1121-4165-bdf4-e3bc4da36cda",
+    "human_readable_id": 79,
+    "source": "TX_EMPTY",
+    "target": "INT_TX",
+    "type": "DRIVES",
+    "description": "The expression/signal 'TX_EMPTY' **drives** the signal 'INT_TX' via assignment 'Assign: INT_TX = TX_EMPTY'.",
+    "weight": 2,
+    "combined_degree": 0,
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#31:31"
+    ]
+  },
+  {
+    "id": "435c9561-85d7-4ee9-a6ac-c01ad65541fd",
+    "human_readable_id": 80,
+    "source": "Assign: INT_TX = TX_EMPTY",
+    "target": "INT_TX",
+    "type": "MODIFIES_SIGNAL",
+    "description": "Assignment 'Assign: INT_TX = TX_EMPTY' **modifies** the signal 'INT_TX'.",
+    "weight": 1,
+    "combined_degree": 0,
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#31:31#LHS"
+    ]
+  },
+  {
+    "id": "3fa0f650-14a1-42e8-b20a-9a60511e9029",
+    "human_readable_id": 81,
+    "source": "Assign: INT_TX = TX_EMPTY",
+    "target": "TX_EMPTY",
+    "type": "USES_EXPRESSION_OR_SIGNAL",
+    "description": "Assignment 'Assign: INT_TX = TX_EMPTY' **uses** the expression/signal 'TX_EMPTY' as its source.",
+    "weight": 1,
+    "combined_degree": 0,
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#31:31#RHS"
+    ]
+  },
+  {
+    "id": "17f4c139-195c-428c-a5ed-55fb4ba99d34",
+    "human_readable_id": 83,
+    "source": "apb",
+    "target": "Assign: INT_RX = RX_EMPTY",
+    "type": "CONTAINS_ASSIGNMENT",
+    "description": "Module 'apb' contains assignment 'Assign: INT_RX = RX_EMPTY'.",
+    "weight": 1,
+    "combined_degree": 0,
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#32:32"
+    ]
+  },
+  {
+    "id": "a599ba8e-3b98-459c-8210-c829e080bbc0",
+    "human_readable_id": 84,
+    "source": "RX_EMPTY",
+    "target": "INT_RX",
+    "type": "DRIVES",
+    "description": "The expression/signal 'RX_EMPTY' **drives** the signal 'INT_RX' via assignment 'Assign: INT_RX = RX_EMPTY'.",
+    "weight": 2,
+    "combined_degree": 0,
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#32:32"
+    ]
+  },
+  {
+    "id": "c2e555e8-c54d-488f-9848-0b05faa75b6d",
+    "human_readable_id": 85,
+    "source": "Assign: INT_RX = RX_EMPTY",
+    "target": "INT_RX",
+    "type": "MODIFIES_SIGNAL",
+    "description": "Assignment 'Assign: INT_RX = RX_EMPTY' **modifies** the signal 'INT_RX'.",
+    "weight": 1,
+    "combined_degree": 0,
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#32:32#LHS"
+    ]
+  },
+  {
+    "id": "9e5df483-5a8c-4b2e-8760-3bbafad8001c",
+    "human_readable_id": 86,
+    "source": "Assign: INT_RX = RX_EMPTY",
+    "target": "RX_EMPTY",
+    "type": "USES_EXPRESSION_OR_SIGNAL",
+    "description": "Assignment 'Assign: INT_RX = RX_EMPTY' **uses** the expression/signal 'RX_EMPTY' as its source.",
+    "weight": 1,
+    "combined_degree": 0,
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#32:32#RHS"
+    ]
+  }
+]
