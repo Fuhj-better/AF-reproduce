@@ -494,8 +494,8 @@ def visualize_graph_from_data(entities_data: list, relationships_data: list, out
             node_description = "\n".join(node_description)
         
         # 限制描述长度，避免工具提示过长
-        if len(node_description) > 200:
-            node_description = node_description[:200] + "..."
+        # if len(node_description) > 200:
+        #     node_description = node_description[:200] + "..."
 
         node_degree = row.get('degree', 1) # 默认度数为1，避免大小为0
 
@@ -509,10 +509,10 @@ def visualize_graph_from_data(entities_data: list, relationships_data: list, out
 
         # 创建更丰富的工具提示 HTML
         tooltip_html = f"""
-            <b>Title:</b> {node_label}<br>
-            <b>Type:</b> {node_type}<br>
-            <b>Connections:</b> {node_degree_val}<br>
-            <b>Description:</b> {node_description}
+            Title:{node_label}
+            Type:{node_type}
+            Connections:{node_degree_val}
+            Description:{node_description}
         """
 
         net.add_node(
@@ -548,8 +548,8 @@ def visualize_graph_from_data(entities_data: list, relationships_data: list, out
             relationship_description = "\n".join(relationship_description)
             
         # 限制关系描述长度
-        if len(relationship_description) > 100:
-            relationship_description = relationship_description[:100] + "..."
+        # if len(relationship_description) > 100:
+        #     relationship_description = relationship_description[:100] + "..."
 
         relationship_weight = row.get('weight', 1) # 默认权重为1，确保有值
 
@@ -571,10 +571,10 @@ def visualize_graph_from_data(entities_data: list, relationships_data: list, out
                 edge_color = "#6c7086"  # 低权重 - 灰色
 
             edge_tooltip_html = f"""
-                <b>From:</b> {source_title_from_rel}<br>
-                <b>To:</b> {target_title_from_rel}<br>
-                <b>Weight:</b> {edge_weight_val:.2f}<br>
-                <b>Relationship:</b> {relationship_description}
+                From: {source_title_from_rel}
+                To: {target_title_from_rel}
+                Weight: {edge_weight_val:.2f}
+                Relationship: {relationship_description}
             """
             net.add_edge(
                 source_id,
