@@ -1,6 +1,6 @@
 [
   {
-    "id": "e8f937f6-1672-4e25-a80a-ecc373f641e5",
+    "id": "591ea184-1dda-47fa-9fae-7643008ef134",
     "human_readable_id": 2,
     "source": "apb",
     "target": "PCLK",
@@ -13,7 +13,7 @@
     ]
   },
   {
-    "id": "6af70e91-2073-4ee7-b16c-c10f87d64299",
+    "id": "f339c291-3335-40e1-a398-724dc4b35f74",
     "human_readable_id": 4,
     "source": "apb",
     "target": "PRESETn",
@@ -26,7 +26,7 @@
     ]
   },
   {
-    "id": "05d6e192-b9ee-4f87-b273-c0bd7f9d66b0",
+    "id": "c041c47f-ae46-4026-ab8e-437734df2ca1",
     "human_readable_id": 6,
     "source": "apb",
     "target": "PSELx",
@@ -39,7 +39,7 @@
     ]
   },
   {
-    "id": "51a98d7c-426f-4f14-ba3f-537cd7873119",
+    "id": "e439ae5c-f51e-4134-ab76-7bd3c58fdcf2",
     "human_readable_id": 8,
     "source": "apb",
     "target": "PWRITE",
@@ -52,7 +52,7 @@
     ]
   },
   {
-    "id": "ce7a6963-1c69-4737-a694-5c60e87ea251",
+    "id": "e5ea5045-8515-4ffe-b384-462c39621262",
     "human_readable_id": 10,
     "source": "apb",
     "target": "PENABLE",
@@ -65,7 +65,7 @@
     ]
   },
   {
-    "id": "c6834c61-9461-4df6-a154-f569a68f9ab0",
+    "id": "e7c09269-9f1b-490e-bb14-217d0307eb8a",
     "human_readable_id": 12,
     "source": "apb",
     "target": "PADDR",
@@ -78,7 +78,7 @@
     ]
   },
   {
-    "id": "1afff703-acec-4e41-8cdf-239a3656f5ca",
+    "id": "931057e5-a5b7-40a5-b223-5f0c7fdf71ec",
     "human_readable_id": 14,
     "source": "apb",
     "target": "PWDATA",
@@ -91,7 +91,7 @@
     ]
   },
   {
-    "id": "83ec2ae9-9c54-4302-af5c-d8a1bbc3e7a7",
+    "id": "9f070dde-4548-4f0c-8785-3daa95fb75c8",
     "human_readable_id": 16,
     "source": "apb",
     "target": "READ_DATA_ON_RX",
@@ -104,7 +104,7 @@
     ]
   },
   {
-    "id": "a187aefa-8562-4e11-afb0-d16ee37a0a00",
+    "id": "929050e8-a368-4f35-9b11-4dccc60fd3a5",
     "human_readable_id": 18,
     "source": "apb",
     "target": "ERROR",
@@ -117,7 +117,7 @@
     ]
   },
   {
-    "id": "19202421-b03f-4c16-9be8-76581f46907a",
+    "id": "14d1d1ab-07f1-47e9-a093-b3b6fa638917",
     "human_readable_id": 20,
     "source": "apb",
     "target": "TX_EMPTY",
@@ -130,7 +130,7 @@
     ]
   },
   {
-    "id": "6ce9506e-e788-46bb-913d-475183b98144",
+    "id": "1dd2a2c6-674e-4206-831d-e6336615f12f",
     "human_readable_id": 22,
     "source": "apb",
     "target": "RX_EMPTY",
@@ -143,7 +143,7 @@
     ]
   },
   {
-    "id": "3bea2d05-ddb0-490d-8d94-8043bb2337aa",
+    "id": "707d6c21-8659-4188-a757-4359ed8c0ce5",
     "human_readable_id": 24,
     "source": "apb",
     "target": "PRDATA",
@@ -156,7 +156,7 @@
     ]
   },
   {
-    "id": "e5a2ccca-687c-4617-badc-814fb9a6787c",
+    "id": "9e576612-40dd-468c-b97a-6f00d9a3768c",
     "human_readable_id": 26,
     "source": "apb",
     "target": "INTERNAL_I2C_REGISTER_CONFIG",
@@ -169,7 +169,7 @@
     ]
   },
   {
-    "id": "1ceab93d-0505-454b-bb78-cfb381f3b464",
+    "id": "88384cdb-7fc5-4b3a-bc93-90eaaae439ba",
     "human_readable_id": 28,
     "source": "apb",
     "target": "INTERNAL_I2C_REGISTER_TIMEOUT",
@@ -182,7 +182,7 @@
     ]
   },
   {
-    "id": "e70f5aa5-59c7-4067-a8d3-43dbd0514a9d",
+    "id": "65b5081d-f0ec-43a3-9bb5-182cb0e2c93a",
     "human_readable_id": 30,
     "source": "apb",
     "target": "WRITE_DATA_ON_TX",
@@ -195,7 +195,7 @@
     ]
   },
   {
-    "id": "541795d5-7740-4082-8052-7ab6e1101002",
+    "id": "e804e198-bf19-4e57-958f-20eb3eba03d2",
     "human_readable_id": 32,
     "source": "apb",
     "target": "WR_ENA",
@@ -208,7 +208,7 @@
     ]
   },
   {
-    "id": "824bfbf4-7626-45f1-82ab-321986479277",
+    "id": "d40dd92f-3108-490a-bfd7-277a6c1be5e2",
     "human_readable_id": 34,
     "source": "apb",
     "target": "RD_ENA",
@@ -221,7 +221,7 @@
     ]
   },
   {
-    "id": "64fe7f05-ac1b-462b-b6e4-2e2a2d53d620",
+    "id": "7218b51a-949a-4351-9627-d95598cde24b",
     "human_readable_id": 36,
     "source": "apb",
     "target": "PREADY",
@@ -234,7 +234,7 @@
     ]
   },
   {
-    "id": "9f1d72f2-df30-47ed-b57c-f77edbf5440e",
+    "id": "a8ac3280-347d-47dc-b92c-63839c4e6ac8",
     "human_readable_id": 38,
     "source": "apb",
     "target": "PSLVERR",
@@ -247,7 +247,7 @@
     ]
   },
   {
-    "id": "fd774a4e-935f-4a80-96ea-d74f402778c3",
+    "id": "b2bf365d-3ff1-4774-85f4-70d89f236eea",
     "human_readable_id": 40,
     "source": "apb",
     "target": "INT_RX",
@@ -260,7 +260,7 @@
     ]
   },
   {
-    "id": "e5ea7340-f697-4eee-b2d8-8ea6f527e04e",
+    "id": "7c2fdca4-f361-4619-a673-4c5598f19b49",
     "human_readable_id": 42,
     "source": "apb",
     "target": "INT_TX",
@@ -273,7 +273,7 @@
     ]
   },
   {
-    "id": "4d0f9741-b1fb-40ef-bb62-8088ddfaeb33",
+    "id": "7b36333c-0d97-4cad-a450-720bec90f768",
     "human_readable_id": 44,
     "source": "apb",
     "target": "INTERNAL_I2C_REGISTER_CONFIG",
@@ -286,7 +286,7 @@
     ]
   },
   {
-    "id": "ac9cdde1-2f7b-4f7d-9a3a-66666b8a5eeb",
+    "id": "861647f5-3f3d-4c5e-a1ba-54895e222446",
     "human_readable_id": 46,
     "source": "apb",
     "target": "INTERNAL_I2C_REGISTER_TIMEOUT",
@@ -299,7 +299,7 @@
     ]
   },
   {
-    "id": "524f8d5a-6ee6-402b-bade-400dcdb841c8",
+    "id": "7fdfd08c-9e66-4020-a0eb-c46b50382880",
     "human_readable_id": 49,
     "source": "apb",
     "target": "Assign: WR_ENA = (((((PWRITE == 1'b1) & (PENABLE == 1'b1)) & (PADDR == 32'd0)) & (PSELx == 1'b1)))? 1'b1:1'b0",
@@ -312,8 +312,34 @@
     ]
   },
   {
-    "id": "d266beb8-094d-4239-be22-c5d54c475f96",
+    "id": "5a5d3263-457b-41e8-82e4-05eb7383bc4f",
     "human_readable_id": 50,
+    "source": "Assign: WR_ENA = (((((PWRITE == 1'b1) & (PENABLE == 1'b1)) & (PADDR == 32'd0)) & (PSELx == 1'b1)))? 1'b1:1'b0",
+    "target": "WR_ENA",
+    "type": "ASSIGNMENT_LHS",
+    "description": "Assign: WR_ENA = (((((PWRITE == 1'b1) & (PENABLE == 1'b1)) & (PADDR == 32'd0)) & (PSELx == 1'b1)))? 1'b1:1'b0 has left hand side WR_ENA",
+    "weight": 1,
+    "combined_degree": 0,
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#25:25#lhs"
+    ]
+  },
+  {
+    "id": "f72b5bde-294f-4fa2-802c-400affb7bd4d",
+    "human_readable_id": 51,
+    "source": "Assign: WR_ENA = (((((PWRITE == 1'b1) & (PENABLE == 1'b1)) & (PADDR == 32'd0)) & (PSELx == 1'b1)))? 1'b1:1'b0",
+    "target": "(((((PWRITE == 1'b1) & (PENABLE == 1'b1)) & (PADDR == 32'd0)) & (PSELx == 1'b1)))? 1'b1:1'b0",
+    "type": "ASSIGNMENT_RHS",
+    "description": "Assign: WR_ENA = (((((PWRITE == 1'b1) & (PENABLE == 1'b1)) & (PADDR == 32'd0)) & (PSELx == 1'b1)))? 1'b1:1'b0 has right hand side (((((PWRITE == 1'b1) & (PENABLE == 1'b1)) & (PADDR == 32'd0)) & (PSELx == 1'b1)))? 1'b1:1'b0",
+    "weight": 1,
+    "combined_degree": 0,
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#25:25#rhs"
+    ]
+  },
+  {
+    "id": "bc2be103-ac52-4218-bf45-87ff1db4435d",
+    "human_readable_id": 52,
     "source": "(((((PWRITE == 1'b1) & (PENABLE == 1'b1)) & (PADDR == 32'd0)) & (PSELx == 1'b1)))? 1'b1:1'b0",
     "target": "WR_ENA",
     "type": "DRIVES",
@@ -325,8 +351,8 @@
     ]
   },
   {
-    "id": "2e9f9e97-affd-478b-945a-e824b3fb99da",
-    "human_readable_id": 53,
+    "id": "fc7dd361-726c-4bae-b760-8dc305cd0730",
+    "human_readable_id": 55,
     "source": "apb",
     "target": "Assign: RD_ENA = (((((PWRITE == 1'b0) & (PENABLE == 1'b1)) & (PADDR == 32'd4)) & (PSELx == 1'b1)))? 1'b1:1'b0",
     "type": "CONTAINS_ASSIGNMENT",
@@ -338,8 +364,34 @@
     ]
   },
   {
-    "id": "b4a395f4-8d85-47be-bf66-f8dd3b7854fd",
-    "human_readable_id": 54,
+    "id": "7a70f453-6d6a-46bb-8162-7f66293be957",
+    "human_readable_id": 56,
+    "source": "Assign: RD_ENA = (((((PWRITE == 1'b0) & (PENABLE == 1'b1)) & (PADDR == 32'd4)) & (PSELx == 1'b1)))? 1'b1:1'b0",
+    "target": "RD_ENA",
+    "type": "ASSIGNMENT_LHS",
+    "description": "Assign: RD_ENA = (((((PWRITE == 1'b0) & (PENABLE == 1'b1)) & (PADDR == 32'd4)) & (PSELx == 1'b1)))? 1'b1:1'b0 has left hand side RD_ENA",
+    "weight": 1,
+    "combined_degree": 0,
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#26:26#lhs"
+    ]
+  },
+  {
+    "id": "8f729e11-cd71-449d-9a0a-e716bc079ba9",
+    "human_readable_id": 57,
+    "source": "Assign: RD_ENA = (((((PWRITE == 1'b0) & (PENABLE == 1'b1)) & (PADDR == 32'd4)) & (PSELx == 1'b1)))? 1'b1:1'b0",
+    "target": "(((((PWRITE == 1'b0) & (PENABLE == 1'b1)) & (PADDR == 32'd4)) & (PSELx == 1'b1)))? 1'b1:1'b0",
+    "type": "ASSIGNMENT_RHS",
+    "description": "Assign: RD_ENA = (((((PWRITE == 1'b0) & (PENABLE == 1'b1)) & (PADDR == 32'd4)) & (PSELx == 1'b1)))? 1'b1:1'b0 has right hand side (((((PWRITE == 1'b0) & (PENABLE == 1'b1)) & (PADDR == 32'd4)) & (PSELx == 1'b1)))? 1'b1:1'b0",
+    "weight": 1,
+    "combined_degree": 0,
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#26:26#rhs"
+    ]
+  },
+  {
+    "id": "872540dd-21b1-4a29-9efa-6b81937d37d7",
+    "human_readable_id": 58,
     "source": "(((((PWRITE == 1'b0) & (PENABLE == 1'b1)) & (PADDR == 32'd4)) & (PSELx == 1'b1)))? 1'b1:1'b0",
     "target": "RD_ENA",
     "type": "DRIVES",
@@ -351,8 +403,8 @@
     ]
   },
   {
-    "id": "6aa9bd4c-b451-4daa-94eb-c967a0b2c570",
-    "human_readable_id": 57,
+    "id": "2fbf613d-ce8e-4da5-8c4a-e48a70f66c5c",
+    "human_readable_id": 61,
     "source": "apb",
     "target": "Assign: PREADY = ((((((WR_ENA == 1'b1) | (RD_ENA == 1'b1)) | (PADDR == 32'd8)) | (PADDR == 32'd12)) & ((PENABLE == 1'b1) & (PSELx == 1'b1))))? 1'b1:1'b0",
     "type": "CONTAINS_ASSIGNMENT",
@@ -364,8 +416,34 @@
     ]
   },
   {
-    "id": "e027f764-dfe1-4a6b-98e9-a290f1104b6d",
-    "human_readable_id": 58,
+    "id": "491181a8-2f72-4afa-95aa-f0ebdb008771",
+    "human_readable_id": 62,
+    "source": "Assign: PREADY = ((((((WR_ENA == 1'b1) | (RD_ENA == 1'b1)) | (PADDR == 32'd8)) | (PADDR == 32'd12)) & ((PENABLE == 1'b1) & (PSELx == 1'b1))))? 1'b1:1'b0",
+    "target": "PREADY",
+    "type": "ASSIGNMENT_LHS",
+    "description": "Assign: PREADY = ((((((WR_ENA == 1'b1) | (RD_ENA == 1'b1)) | (PADDR == 32'd8)) | (PADDR == 32'd12)) & ((PENABLE == 1'b1) & (PSELx == 1'b1))))? 1'b1:1'b0 has left hand side PREADY",
+    "weight": 1,
+    "combined_degree": 0,
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#27:27#lhs"
+    ]
+  },
+  {
+    "id": "ea812c48-83e5-4ba0-8d78-1d1abdc780f4",
+    "human_readable_id": 63,
+    "source": "Assign: PREADY = ((((((WR_ENA == 1'b1) | (RD_ENA == 1'b1)) | (PADDR == 32'd8)) | (PADDR == 32'd12)) & ((PENABLE == 1'b1) & (PSELx == 1'b1))))? 1'b1:1'b0",
+    "target": "((((((WR_ENA == 1'b1) | (RD_ENA == 1'b1)) | (PADDR == 32'd8)) | (PADDR == 32'd12)) & ((PENABLE == 1'b1) & (PSELx == 1'b1))))? 1'b1:1'b0",
+    "type": "ASSIGNMENT_RHS",
+    "description": "Assign: PREADY = ((((((WR_ENA == 1'b1) | (RD_ENA == 1'b1)) | (PADDR == 32'd8)) | (PADDR == 32'd12)) & ((PENABLE == 1'b1) & (PSELx == 1'b1))))? 1'b1:1'b0 has right hand side ((((((WR_ENA == 1'b1) | (RD_ENA == 1'b1)) | (PADDR == 32'd8)) | (PADDR == 32'd12)) & ((PENABLE == 1'b1) & (PSELx == 1'b1))))? 1'b1:1'b0",
+    "weight": 1,
+    "combined_degree": 0,
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#27:27#rhs"
+    ]
+  },
+  {
+    "id": "b6120e2a-e4ee-4c7a-ae37-1eef20c22c26",
+    "human_readable_id": 64,
     "source": "((((((WR_ENA == 1'b1) | (RD_ENA == 1'b1)) | (PADDR == 32'd8)) | (PADDR == 32'd12)) & ((PENABLE == 1'b1) & (PSELx == 1'b1))))? 1'b1:1'b0",
     "target": "PREADY",
     "type": "DRIVES",
@@ -377,8 +455,8 @@
     ]
   },
   {
-    "id": "afe02c43-7f57-452b-bde0-c65b970f4af4",
-    "human_readable_id": 61,
+    "id": "7a73aaff-00ba-48c0-9a4c-95483d061de3",
+    "human_readable_id": 67,
     "source": "apb",
     "target": "Assign: WRITE_DATA_ON_TX = ((PADDR == 32'd0))? PWDATA:PWDATA",
     "type": "CONTAINS_ASSIGNMENT",
@@ -390,8 +468,34 @@
     ]
   },
   {
-    "id": "ebb94006-9029-4f61-adb9-1c7811647f75",
-    "human_readable_id": 62,
+    "id": "f4aba45a-259c-4212-a170-b9a8a2af8d1c",
+    "human_readable_id": 68,
+    "source": "Assign: WRITE_DATA_ON_TX = ((PADDR == 32'd0))? PWDATA:PWDATA",
+    "target": "WRITE_DATA_ON_TX",
+    "type": "ASSIGNMENT_LHS",
+    "description": "Assign: WRITE_DATA_ON_TX = ((PADDR == 32'd0))? PWDATA:PWDATA has left hand side WRITE_DATA_ON_TX",
+    "weight": 1,
+    "combined_degree": 0,
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#28:28#lhs"
+    ]
+  },
+  {
+    "id": "2ff17d69-0392-46c8-94d8-dd43e2f0a96a",
+    "human_readable_id": 69,
+    "source": "Assign: WRITE_DATA_ON_TX = ((PADDR == 32'd0))? PWDATA:PWDATA",
+    "target": "((PADDR == 32'd0))? PWDATA:PWDATA",
+    "type": "ASSIGNMENT_RHS",
+    "description": "Assign: WRITE_DATA_ON_TX = ((PADDR == 32'd0))? PWDATA:PWDATA has right hand side ((PADDR == 32'd0))? PWDATA:PWDATA",
+    "weight": 1,
+    "combined_degree": 0,
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#28:28#rhs"
+    ]
+  },
+  {
+    "id": "8e916161-fcb7-4912-8168-a9d5c06f7b5a",
+    "human_readable_id": 70,
     "source": "((PADDR == 32'd0))? PWDATA:PWDATA",
     "target": "WRITE_DATA_ON_TX",
     "type": "DRIVES",
@@ -403,8 +507,8 @@
     ]
   },
   {
-    "id": "4e05b6f7-ae28-4836-9dcf-6fa1f56c0faf",
-    "human_readable_id": 65,
+    "id": "f52a8054-97d4-45a5-b954-436a45d3ffb5",
+    "human_readable_id": 73,
     "source": "apb",
     "target": "Assign: PRDATA = ((PADDR == 32'd4))? READ_DATA_ON_RX:READ_DATA_ON_RX",
     "type": "CONTAINS_ASSIGNMENT",
@@ -416,8 +520,34 @@
     ]
   },
   {
-    "id": "16ed18da-4925-40fb-ab74-881b3a044af8",
-    "human_readable_id": 66,
+    "id": "f55cd7d3-cfd4-4475-a2e8-cdcc4f6f6380",
+    "human_readable_id": 74,
+    "source": "Assign: PRDATA = ((PADDR == 32'd4))? READ_DATA_ON_RX:READ_DATA_ON_RX",
+    "target": "PRDATA",
+    "type": "ASSIGNMENT_LHS",
+    "description": "Assign: PRDATA = ((PADDR == 32'd4))? READ_DATA_ON_RX:READ_DATA_ON_RX has left hand side PRDATA",
+    "weight": 1,
+    "combined_degree": 0,
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#29:29#lhs"
+    ]
+  },
+  {
+    "id": "935150bf-c61f-470a-aed2-174a158401ff",
+    "human_readable_id": 75,
+    "source": "Assign: PRDATA = ((PADDR == 32'd4))? READ_DATA_ON_RX:READ_DATA_ON_RX",
+    "target": "((PADDR == 32'd4))? READ_DATA_ON_RX:READ_DATA_ON_RX",
+    "type": "ASSIGNMENT_RHS",
+    "description": "Assign: PRDATA = ((PADDR == 32'd4))? READ_DATA_ON_RX:READ_DATA_ON_RX has right hand side ((PADDR == 32'd4))? READ_DATA_ON_RX:READ_DATA_ON_RX",
+    "weight": 1,
+    "combined_degree": 0,
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#29:29#rhs"
+    ]
+  },
+  {
+    "id": "341cb4ea-1a35-4e26-8ba2-86c072811f19",
+    "human_readable_id": 76,
     "source": "((PADDR == 32'd4))? READ_DATA_ON_RX:READ_DATA_ON_RX",
     "target": "PRDATA",
     "type": "DRIVES",
@@ -429,8 +559,8 @@
     ]
   },
   {
-    "id": "6f9e2903-e75c-4f92-b5b7-e402c6c9d4fd",
-    "human_readable_id": 68,
+    "id": "986d0bc8-0b8a-4b51-bfa4-f21f7e4b71c5",
+    "human_readable_id": 78,
     "source": "apb",
     "target": "Assign: PSLVERR = ERROR",
     "type": "CONTAINS_ASSIGNMENT",
@@ -442,8 +572,34 @@
     ]
   },
   {
-    "id": "efecd0dc-8a84-481d-b1b7-a017307b3831",
-    "human_readable_id": 69,
+    "id": "63621c87-014c-4059-bb81-3a82e1eb844d",
+    "human_readable_id": 79,
+    "source": "Assign: PSLVERR = ERROR",
+    "target": "PSLVERR",
+    "type": "ASSIGNMENT_LHS",
+    "description": "Assign: PSLVERR = ERROR has left hand side PSLVERR",
+    "weight": 1,
+    "combined_degree": 0,
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#30:30#lhs"
+    ]
+  },
+  {
+    "id": "daa108ba-4cab-40ba-9515-b73e8657d742",
+    "human_readable_id": 80,
+    "source": "Assign: PSLVERR = ERROR",
+    "target": "ERROR",
+    "type": "ASSIGNMENT_RHS",
+    "description": "Assign: PSLVERR = ERROR has right hand side ERROR",
+    "weight": 1,
+    "combined_degree": 0,
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#30:30#rhs"
+    ]
+  },
+  {
+    "id": "87e95699-4195-487f-8a2f-f71aa04da827",
+    "human_readable_id": 81,
     "source": "ERROR",
     "target": "PSLVERR",
     "type": "DRIVES",
@@ -455,8 +611,8 @@
     ]
   },
   {
-    "id": "47fc1d3f-cf3c-4dd8-9f0c-775aba6e851b",
-    "human_readable_id": 71,
+    "id": "12f884fc-a407-4bf9-b078-0ce6e7543fe6",
+    "human_readable_id": 83,
     "source": "apb",
     "target": "Assign: INT_TX = TX_EMPTY",
     "type": "CONTAINS_ASSIGNMENT",
@@ -468,8 +624,34 @@
     ]
   },
   {
-    "id": "52f87afb-037c-4271-9cd8-bd41eef8a283",
-    "human_readable_id": 72,
+    "id": "d4114e77-9e3d-4dd8-981e-93cce0bda1b0",
+    "human_readable_id": 84,
+    "source": "Assign: INT_TX = TX_EMPTY",
+    "target": "INT_TX",
+    "type": "ASSIGNMENT_LHS",
+    "description": "Assign: INT_TX = TX_EMPTY has left hand side INT_TX",
+    "weight": 1,
+    "combined_degree": 0,
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#31:31#lhs"
+    ]
+  },
+  {
+    "id": "f4cf35fb-6c8f-45b2-9dff-4b425eea3e3e",
+    "human_readable_id": 85,
+    "source": "Assign: INT_TX = TX_EMPTY",
+    "target": "TX_EMPTY",
+    "type": "ASSIGNMENT_RHS",
+    "description": "Assign: INT_TX = TX_EMPTY has right hand side TX_EMPTY",
+    "weight": 1,
+    "combined_degree": 0,
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#31:31#rhs"
+    ]
+  },
+  {
+    "id": "2796e540-8cb5-4ecf-a2df-2b752267cca5",
+    "human_readable_id": 86,
     "source": "TX_EMPTY",
     "target": "INT_TX",
     "type": "DRIVES",
@@ -481,8 +663,8 @@
     ]
   },
   {
-    "id": "5566a75a-4516-4825-a727-592fe665c6f3",
-    "human_readable_id": 74,
+    "id": "d6a343ee-64f2-4a23-8534-79341cc4f827",
+    "human_readable_id": 88,
     "source": "apb",
     "target": "Assign: INT_RX = RX_EMPTY",
     "type": "CONTAINS_ASSIGNMENT",
@@ -494,8 +676,34 @@
     ]
   },
   {
-    "id": "11fd69a4-a635-45cc-a9be-4fdb71270892",
-    "human_readable_id": 75,
+    "id": "57cc317a-a9fb-453b-8288-d7dc95b1918b",
+    "human_readable_id": 89,
+    "source": "Assign: INT_RX = RX_EMPTY",
+    "target": "INT_RX",
+    "type": "ASSIGNMENT_LHS",
+    "description": "Assign: INT_RX = RX_EMPTY has left hand side INT_RX",
+    "weight": 1,
+    "combined_degree": 0,
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#32:32#lhs"
+    ]
+  },
+  {
+    "id": "00655b66-4022-47fa-83aa-59e0a1180352",
+    "human_readable_id": 90,
+    "source": "Assign: INT_RX = RX_EMPTY",
+    "target": "RX_EMPTY",
+    "type": "ASSIGNMENT_RHS",
+    "description": "Assign: INT_RX = RX_EMPTY has right hand side RX_EMPTY",
+    "weight": 1,
+    "combined_degree": 0,
+    "text_unit_ids": [
+      "C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v#32:32#rhs"
+    ]
+  },
+  {
+    "id": "b93b48b2-0711-42bc-a993-5295c1877da4",
+    "human_readable_id": 91,
     "source": "RX_EMPTY",
     "target": "INT_RX",
     "type": "DRIVES",
@@ -507,8 +715,8 @@
     ]
   },
   {
-    "id": "800a14de-f77f-461e-9f54-4977a6273c22",
-    "human_readable_id": 77,
+    "id": "adbf2400-9bbe-4cfa-8a9d-d37393decc76",
+    "human_readable_id": 93,
     "source": "apb",
     "target": "Always Block (sequential) @ (posedge PCLK)",
     "type": "CONTAINS_ALWAYS_BLOCK",
@@ -520,8 +728,8 @@
     ]
   },
   {
-    "id": "492c91cd-c042-4cab-a734-289f05d3ebfc",
-    "human_readable_id": 78,
+    "id": "362811e3-e2bc-4a26-b121-40b9b1584743",
+    "human_readable_id": 94,
     "source": "Always Block (sequential) @ (posedge PCLK)",
     "target": "PCLK",
     "type": "HAS_SENSITIVE_SIGNAL",
@@ -533,8 +741,8 @@
     ]
   },
   {
-    "id": "b2086b20-088f-41e1-a9d1-ce1cf3b85456",
-    "human_readable_id": 79,
+    "id": "4b03893a-530e-417d-9d74-8515d7f07d18",
+    "human_readable_id": 95,
     "source": "Always Block (sequential) @ (posedge PCLK)",
     "target": "INTERNAL_I2C_REGISTER_CONFIG",
     "type": "OUTPUTS_SIGNAL_VIA_LHS",
@@ -546,8 +754,8 @@
     ]
   },
   {
-    "id": "a388fd18-f331-49ef-9984-4642e5e6b726",
-    "human_readable_id": 81,
+    "id": "64b979d5-338f-4cd3-a3c3-be0b81acc58c",
+    "human_readable_id": 97,
     "source": "14'd0",
     "target": "INTERNAL_I2C_REGISTER_CONFIG",
     "type": "non-blocking",
@@ -559,8 +767,8 @@
     ]
   },
   {
-    "id": "001b21da-5085-45f1-82ba-7e55d029cd79",
-    "human_readable_id": 83,
+    "id": "db2931f4-0b8a-43ff-880d-a5030247f6c6",
+    "human_readable_id": 99,
     "source": "PWDATA[13:0]",
     "target": "INTERNAL_I2C_REGISTER_CONFIG",
     "type": "non-blocking",
@@ -572,8 +780,8 @@
     ]
   },
   {
-    "id": "5e5f028d-62a5-4b3e-b05f-f2ee460da300",
-    "human_readable_id": 84,
+    "id": "b256dc36-554c-449b-b60b-f97e9d553d85",
+    "human_readable_id": 100,
     "source": "INTERNAL_I2C_REGISTER_CONFIG",
     "target": "INTERNAL_I2C_REGISTER_CONFIG",
     "type": "non-blocking",
@@ -585,8 +793,8 @@
     ]
   },
   {
-    "id": "0664b240-446c-4b90-93f6-026b1233e687",
-    "human_readable_id": 85,
+    "id": "d4882cae-0798-4313-aaf5-56c73d29be1d",
+    "human_readable_id": 101,
     "source": "Always Block (sequential) @ (posedge PCLK)",
     "target": "INTERNAL_I2C_REGISTER_TIMEOUT",
     "type": "OUTPUTS_SIGNAL_VIA_LHS",
@@ -598,8 +806,8 @@
     ]
   },
   {
-    "id": "896e66bc-f1cc-4a0b-9799-50de2ec7cabb",
-    "human_readable_id": 86,
+    "id": "9c83d9ea-6226-4f10-82a9-3c9817b0212e",
+    "human_readable_id": 102,
     "source": "14'd0",
     "target": "INTERNAL_I2C_REGISTER_TIMEOUT",
     "type": "non-blocking",
@@ -611,8 +819,8 @@
     ]
   },
   {
-    "id": "83dec65d-305a-4b45-8af7-a4c439358025",
-    "human_readable_id": 87,
+    "id": "c180527e-9c89-4d56-b7b2-8919c62a83f2",
+    "human_readable_id": 103,
     "source": "PWDATA[13:0]",
     "target": "INTERNAL_I2C_REGISTER_TIMEOUT",
     "type": "non-blocking",

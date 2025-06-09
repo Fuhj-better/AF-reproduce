@@ -482,7 +482,9 @@ class KGBuilder:
                     f"in file '{filepath}' from line {assign_startline} to line {assign_endline}."
                 )
                 if new_desc_part not in rhs_signal_entity["description"]:
-                    rhs_signal_entity["description"] += new_desc_part    
+                    rhs_signal_entity["description"] += new_desc_part  
+
+        assert(lhs_signal_entity is not None and rhs_signal_entity is not None)  
         # --- 2. 构建关系 ---
 
         # 关系 A: Module CONTAINS Assignment (模块包含赋值语句)
@@ -497,11 +499,31 @@ class KGBuilder:
             "text_unit_ids": [f"{filepath}#{self._get_text_unit_ids(assign)}"],
         })
 
+        self.relationships.append({
+            "id": str(uuid.uuid4()),
+            "human_readable_id": self._get_human_readable_id(),
+            "source": assign_entity['title'],
+            "target": lhs_signal_entity["title"],
+            "type": "ASSIGNMENT_LHS",
+            "description": f"{assign_entity['title']} has left hand side {lhs_signal_entity['title']}",
+            "weight": 1, "combined_degree": 0,
+            "text_unit_ids": [f"{filepath}#{self._get_text_unit_ids(assign)}#lhs"],
+        })
+
+        self.relationships.append({
+            "id": str(uuid.uuid4()),
+            "human_readable_id": self._get_human_readable_id(),
+            "source": assign_entity['title'],
+            "target": rhs_signal_entity["title"],
+            "type": "ASSIGNMENT_RHS",
+            "description": f"{assign_entity['title']} has right hand side {rhs_signal_entity['title']}",
+            "weight": 1, "combined_degree": 0,
+            "text_unit_ids": [f"{filepath}#{self._get_text_unit_ids(assign)}#rhs"],
+        })
 
         # 关系 B: Data Flow - RHS DRIVES LHS (右侧驱动左侧)
         # 这里的 source 和 target 直接使用 assign['right'] 和 assign['left'] 的名称。
         # 假设这些名称能够与图谱中已有的 PORT/WIRE/REGISTER 实体匹配。
-        assert(rhs_signal_entity is not None and lhs_signal_entity is not None)
         if assign_left != 'N/A' and assign_right != 'N/A':
             self.relationships.append({
                 "id": str(uuid.uuid4()),
