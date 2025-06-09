@@ -1,3 +1,6 @@
+import networkx as nx
+from networkx.drawing.nx_pylab import draw_networkx_nodes, draw_networkx_edges, draw_networkx_labels, draw_networkx_edge_labels
+import matplotlib.pyplot as plt
 import json
 import uuid
 
@@ -27,11 +30,11 @@ class KGBuilder:
     # 它们需要在你的 _build_port, _build_wire, _build_register 方法中被调用
     # 来填充 self._signal_name_to_title_map。
     
-    def _add_signal_to_map(self, signal_name, signal_entity, parent_module_name):
+    def _add_signal_to_map(self, parent_module_name, signal_name, signal_entity):
         key = (parent_module_name, signal_name)
         self.signal_name_to_entity_map[key] = signal_entity
 
-    def _get_signal_entity(self, signal_name, parent_module_name):
+    def _get_signal_entity(self, parent_module_name, signal_name):
         key = (parent_module_name, signal_name)
         return self.signal_name_to_entity_map.get(key)
 
@@ -71,7 +74,7 @@ class KGBuilder:
         port_lsb = port.get('lsb', 'N/A')
         port_dimensions = port.get('dimensions', 'N/A')
         port_ast = port.get('ast', 'N/A')
-        parent_module=port.get('parent_module','unknown')
+        parent_module_name=port.get('parent_module','unknown')
 
         description_parts = [
             f"Verilog port '{port['name']}' is defined within module '{port['parent_module']}' in file '{filepath}' ",
@@ -112,16 +115,17 @@ class KGBuilder:
         module_contain_port={
             "id": str(uuid.uuid4()), # 关系的唯一 ID
             "human_readable_id": self._get_human_readable_id(), # 关系的易读 ID
-            "source": parent_module,     # 父模块的名称
+            "source": parent_module_name,     # 父模块的名称
             "target": port_entity["title"],   # 当前端口的名称
             "type": "CONTAINS_PORT",          # 关系类型
-            "description": f"{parent_module} contains port {port_entity['title']}.", # 关系的描述
+            "description": f"{parent_module_name} contains port {port_entity['title']}.", # 关系的描述
             "weight": 1, # 可以自定义权重，这里给个默认值
             "combined_degree": 0, # 如果需要，可以在构建完图谱后计算
             "text_unit_ids": [f"{filepath}#{self._get_text_unit_ids(port)}"], # 关系可能与端口代码位置关联
         }
         self.relationships.append(module_contain_port)
-        return port_entity # 返回端口实体，以便后续可能需要它的 ID
+
+        self._add_signal_to_map(parent_module_name,port["name"],port_entity)
     
     def _build_wire(self, filepath, wire):
         """
@@ -206,6 +210,7 @@ class KGBuilder:
         }
         self.relationships.append(module_contain_wire)
 
+        self._add_signal_to_map(parent_module_name,wire["name"],wire_entity)
 
     def _build_register(self, filepath, register):
         """
@@ -290,7 +295,85 @@ class KGBuilder:
             "combined_degree": 0, # 如果需要，可以在构建完图谱后计算
             "text_unit_ids": [f"{filepath}#{self._get_text_unit_ids(register)}"], # 关系可能与寄存器代码位置关联  
         }
-        self.relationships.append(module_contain_register)    
+        self.relationships.append(module_contain_register)   
+
+        self._add_signal_to_map(parent_module_name,register["name"],register_entity)
+
+    def _build_parameter(self, filepath, parameter):
+        """
+        构建 Verilog 参数 (Parameter) 实体，并添加与父模块的包含关系。
+
+        Args:
+            filepath (str): Verilog 文件路径。
+            parameter (dict): 包含参数信息的字典，来自 _parse_parameters。
+        """
+        param_name = parameter.get('name', 'N/A')
+        parent_module_name = parameter.get('parent_module', 'unknown')
+        param_value = parameter.get('value', 'N/A')
+        param_msb = parameter.get('msb', 'N/A')
+        param_lsb = parameter.get('lsb', 'N/A')
+        param_signed = parameter.get('signed', False)
+        param_dimensions = parameter.get('dimensions', [])
+        param_ast = parameter.get('ast', 'N/A')
+        param_startline = parameter.get('startline', parameter.get('lineno', -1))
+        param_endline = parameter.get('endline', parameter.get('lineno', -1))
+
+        # --- 1. 构建 PARAMETER 实体 ---
+        description_parts = [
+            f"This is a **parameter** '{param_name}' defined in module '{parent_module_name}' ",
+            f"in file '{filepath}' from line {param_startline} to line {param_endline}."
+        ]
+
+        if param_value != 'N/A':
+            description_parts.append(f"Its **value** is '{param_value}'.")
+        
+        if param_msb != 'N/A' and param_lsb != 'N/A':
+            description_parts.append(f"It has a **bit width** from MSB={param_msb} to LSB={param_lsb}.")
+        elif param_msb != 'N/A' or param_lsb != 'N/A': # If only one is available, mention it
+            description_parts.append(f"It has a **bit width** related to MSB={param_msb} or LSB={param_lsb}.")
+        
+        if param_signed:
+            description_parts.append("It is a **signed** parameter.")
+        else:
+            description_parts.append("It is an **unsigned** parameter.") # Parameters are often unsigned by default
+
+        if param_dimensions:
+            dim_str = ", ".join([f"{dim[0]}:{dim[1]}" for dim in param_dimensions])
+            description_parts.append(f"It has **dimensions** {dim_str}.")
+        
+        if param_ast != 'N/A':
+            description_parts.append(f"Its **AST node type** is '{param_ast}'.")
+
+        parameter_entity = {
+            "id": str(uuid.uuid4()),
+            "human_readable_id": self._get_human_readable_id(),
+            "title": param_name, # 包含名称和值，更具描述性
+            "type": "PARAMETER",
+            "description": " ".join(description_parts),
+            "text_unit_ids": [f"{filepath}#{self._get_text_unit_ids(parameter)}"],
+            "frequency": 1,
+            "degree": 0,
+            "x": 0, "y": 0,
+        }
+        self.entities.append(parameter_entity)
+
+        # --- 2. 构建关系：Module CONTAINS_PARAMETER ---
+        self.relationships.append({
+            "id": str(uuid.uuid4()),
+            "human_readable_id": self._get_human_readable_id(),
+            "source": parent_module_name, # 父模块的标题
+            "target": parameter_entity["title"],
+            "type": "CONTAINS_PARAMETER",
+            "description": f"Module '{parent_module_name}' contains parameter '{parameter_entity['title']}'.",
+            "weight": 1, # 可以根据重要性调整权重
+            "combined_degree": 0,
+            "text_unit_ids": [f"{filepath}#{self._get_text_unit_ids(parameter)}"],
+        })
+
+        # --- 3. 将参数实体加入 signal_name_to_entity_map ---
+        # 尽管是参数，但它也可能在表达式中被引用，作为一种“信号”
+        # 所以也将其加入映射，方便后续查找
+        self._add_signal_to_map(parent_module_name, param_name, parameter_entity)
 
     def _build_assign(self, filepath, assign):
         """
@@ -345,6 +428,61 @@ class KGBuilder:
         }
         self.entities.append(assign_entity)
 
+        #构建left hand side
+        lhs_signal_entity = None
+        if assign_left != 'N/A':
+            lhs_signal_entity = self._get_signal_entity(parent_module_name, assign_left)
+            if lhs_signal_entity is None:
+                new_lhs_entity = {
+                        "id": str(uuid.uuid4()),
+                        "human_readable_id": self._get_human_readable_id(),
+                        "title": f"{assign_left}",
+                        "type": "LHS_ASSIGN", # 推断为 WIRE
+                        "description": (
+                            f"An signal '{assign_left}' in module '{parent_module_name}'. "
+                            f"It is left hand side in assignment {assign_entity['title']} in file {filepath} from line {assign_startline} to line {assign_endline}."
+                        ),
+                        "text_unit_ids": [f"{filepath}#{self._get_text_unit_ids(assign)}#LHS"],
+                        "frequency": 1, "degree": 0, "x": 0, "y": 0,
+                    }
+                self.entities.append(new_lhs_entity)
+                self._add_signal_to_map(parent_module_name,assign_left,new_lhs_entity)
+                lhs_signal_entity = new_lhs_entity # 将新创建的实体赋给 lhs_signal_entity
+            else:
+                new_desc_part = (
+                    f" It is also left hand side in assignment '{assign_entity['title']}' "
+                    f"in file '{filepath}' from line {assign_startline} to line {assign_endline}."
+                )
+                if new_desc_part not in lhs_signal_entity["description"]:
+                    lhs_signal_entity["description"] += new_desc_part
+                
+        #构建left hand side
+        rhs_signal_entity = None
+        if assign_left != 'N/A':
+            rhs_signal_entity = self._get_signal_entity(parent_module_name, assign_right)
+            if rhs_signal_entity is None:
+                new_rhs_entity = {
+                        "id": str(uuid.uuid4()),
+                        "human_readable_id": self._get_human_readable_id(),
+                        "title": f"{assign_right}",
+                        "type": "RHS_ASSIGN", # 推断为 WIRE
+                        "description": (
+                            f"An signal '{assign_right}' in module '{parent_module_name}'. "
+                            f"It is right hand side in assignment {assign_entity['title']} in file {filepath} from line {assign_startline} to line {assign_endline}."
+                        ),
+                        "text_unit_ids": [f"{filepath}#{self._get_text_unit_ids(assign)}#RHS"],
+                        "frequency": 1, "degree": 0, "x": 0, "y": 0,
+                    }
+                self.entities.append(new_rhs_entity)
+                self._add_signal_to_map(parent_module_name,assign_right,new_rhs_entity)
+                rhs_signal_entity = new_rhs_entity # 将新创建的实体赋给 rhs_signal_entity
+            else:
+                new_desc_part = (
+                    f" It is also right hand side in assignment '{assign_entity['title']}' "
+                    f"in file '{filepath}' from line {assign_startline} to line {assign_endline}."
+                )
+                if new_desc_part not in rhs_signal_entity["description"]:
+                    rhs_signal_entity["description"] += new_desc_part    
         # --- 2. 构建关系 ---
 
         # 关系 A: Module CONTAINS Assignment (模块包含赋值语句)
@@ -359,50 +497,25 @@ class KGBuilder:
             "text_unit_ids": [f"{filepath}#{self._get_text_unit_ids(assign)}"],
         })
 
+
         # 关系 B: Data Flow - RHS DRIVES LHS (右侧驱动左侧)
         # 这里的 source 和 target 直接使用 assign['right'] 和 assign['left'] 的名称。
         # 假设这些名称能够与图谱中已有的 PORT/WIRE/REGISTER 实体匹配。
+        assert(rhs_signal_entity is not None and lhs_signal_entity is not None)
         if assign_left != 'N/A' and assign_right != 'N/A':
             self.relationships.append({
                 "id": str(uuid.uuid4()),
                 "human_readable_id": self._get_human_readable_id(),
-                "source": assign_right, # 赋值的源头（通常是信号名或表达式）
-                "target": assign_left,   # 赋值的目标（通常是信号名）
+                "source": f"{rhs_signal_entity['title']}", # 赋值的源头（通常是信号名或表达式）
+                "target": f"{lhs_signal_entity['title']}",   # 赋值的目标（通常是信号名）
                 "type": "DRIVES",       # 关系类型：表示数据流从源头驱动目标
                 "description": f"The expression/signal '{assign_right}' **drives** the signal '{assign_left}' via assignment '{assign_entity['title']}'.",
                 "weight": 2, # 数据流关系通常比包含关系更重要，可以给更高权重
                 "combined_degree": 0,
                 "text_unit_ids": [f"{filepath}#{self._get_text_unit_ids(assign)}"],
             })
-        
-        # 关系 C: Assignment MODIFIES LHS (赋值语句修改了左侧信号) - 这是一个更直接的事件关系
-        # 或者使用 USES_LHS / USES_RHS，更明确赋值这个行为本身和信号的交互。
-        if assign_left != 'N/A':
-            self.relationships.append({
-                "id": str(uuid.uuid4()),
-                "human_readable_id": self._get_human_readable_id(),
-                "source": assign_entity["title"], # 赋值语句本身
-                "target": assign_left,            # 被修改的信号
-                "type": "MODIFIES_SIGNAL",        # 关系类型：赋值语句修改了信号
-                "description": f"Assignment '{assign_entity['title']}' **modifies** the signal '{assign_left}'.",
-                "weight": 1, "combined_degree": 0,
-                "text_unit_ids": [f"{filepath}#{self._get_text_unit_ids(assign)}#LHS"],
-            })
 
-        # 关系 D: Assignment USES RHS (赋值语句使用了右侧表达式/信号)
-        if assign_right != 'N/A':
-            self.relationships.append({
-                "id": str(uuid.uuid4()),
-                "human_readable_id": self._get_human_readable_id(),
-                "source": assign_entity["title"],  # 赋值语句本身
-                "target": assign_right,            # 使用的信号/表达式
-                "type": "USES_EXPRESSION_OR_SIGNAL", # 关系类型：赋值语句使用了某个表达式或信号
-                "description": f"Assignment '{assign_entity['title']}' **uses** the expression/signal '{assign_right}' as its source.",
-                "weight": 1, "combined_degree": 0,
-                "text_unit_ids": [f"{filepath}#{self._get_text_unit_ids(assign)}#RHS"],
-            })
-
-
+    # 这个里面存在大问题 
     def _build_instance(self, filepath, instance):
         """
         构建 Verilog 模块实例 (instance) 实体，并添加与父模块的包含关系，
@@ -486,6 +599,14 @@ class KGBuilder:
             port_name = port_conn.get("portname", "N/A") # 被实例化模块的端口名称
             arg_name = port_conn.get("argname", "N/A")   # 父模块中连接的信号名称
 
+            # 这里不用管，因为arg_name一定是父模块中的一个信号
+            arg_entity=self._get_signal_entity(parent_module_name,arg_name)
+            assert(arg_entity is not None)
+            new_desc_part = (
+                    f" It is also a arg in instance '{instance_entity['title']}' "
+                )
+            if new_desc_part not in arg_entity["description"]:
+                    arg_entity["description"] += new_desc_part
             if port_name != 'N/A' and arg_name != 'N/A':
                 # 关系类型可以考虑：
                 # 1. INSTANCE_PORT_MAPS_TO (实例的端口映射到父模块的信号)
@@ -499,7 +620,7 @@ class KGBuilder:
                 self.relationships.append({
                     "id": str(uuid.uuid4()),
                     "human_readable_id": self._get_human_readable_id(),
-                    "source": f"Instance Port: {instance_name}.{port_name}", # 更明确的实例内部端口概念
+                    "source": port_name, # 更明确的实例内部端口概念
                     "target": arg_name, # 父模块中的信号名称
                     "type": "CONNECTS_TO", # 简单通用的连接关系
                     "description": f"Instance '{instance_name}'s port '{port_name}' **connects to** signal '{arg_name}' in module '{parent_module_name}'.",
@@ -507,248 +628,177 @@ class KGBuilder:
                     "text_unit_ids": [f"{filepath}#{self._get_text_unit_ids(instance)}"],
                 })
 
-                # 你也可以进一步添加从父模块信号到实例端口的连接，取决于你如何建模信号流
-                # 例如: (arg_name) -> CONNECTS_TO_INSTANCE_PORT -> (f"Instance Port: {instance_name}.{port_name}")
-
-
         # 关系 D: Parameter Overrides (参数覆盖)
         for param_conn in parameter_connections:
             param_name = param_conn.get("paramname", "N/A") # 被实例化模块的参数名
             arg_value = param_conn.get("argname", "N/A")    # 实例化的值
 
+            arg_entity=self._get_signal_entity(parent_module_name,arg_value)
+            assert(arg_entity is not None)
+            new_desc_part = (
+                    f" It is also a parameter arg in instance '{instance_entity['title']}' "
+                )
+            if new_desc_part not in arg_entity["description"]:
+                    arg_entity["description"] += new_desc_part
             if param_name != 'N/A' and arg_value != 'N/A':
                 self.relationships.append({
                     "id": str(uuid.uuid4()),
                     "human_readable_id": self._get_human_readable_id(),
                     "source": instance_entity["title"], # 实例实体
-                    "target": f"Parameter: {module_name_instantiated}.{param_name}", # 被实例化模块的参数概念
+                    "target": param_name, # 被实例化模块的参数概念
                     "type": "OVERRIDE_PARAMETER",
                     "description": f"Instance '{instance_entity['title']}' **overrides** parameter '{param_name}' of module '{module_name_instantiated}' with value '{arg_value}'.",
                     "weight": 1, "combined_degree": 0,
                     "text_unit_ids": [f"{filepath}#{self._get_text_unit_ids(instance)}"],
                 })
         
-    # def _build_always_block(self, filepath, always_block):
-    #     """
-    #     构建 Verilog Always Block 实体，并添加其内部的控制流和赋值信息。
+    def _build_always_block(self, filepath, always_block):
+        """
+        构建 Verilog Always Block 实体，并添加其内部的控制流和赋值信息。
 
-    #     Args:
-    #         filepath (str): Verilog 文件路径。
-    #         always_block (dict): 包含 Always Block 信息的字典，来自 _parse_always_blocks。
-    #         parent_module_name (str): Always Block 所属父模块的名称。
-    #     """
-    #     lineno = always_block.get('lineno', -1)
-    #     startline = always_block.get('startline', lineno)
-    #     endline = always_block.get('endline', lineno)
-    #     sens_list = always_block.get('senlist', [])
-    #     logic_type = always_block.get('logic_type', 'unknown')
-    #     ast = always_block.get('ast', 'Always')
-    #     cfg_data = always_block.get('cfg_data', {}) # 关键数据，包含 target: condition -> assignment
+        Args:
+            filepath (str): Verilog 文件路径。
+            always_block (dict): 包含 Always Block 信息的字典，来自 _parse_always_blocks。
+            parent_module_name (str): Always Block 所属父模块的名称。
+        """
+        lineno = always_block.get('lineno', -1)
+        startline = always_block.get('startline', lineno)
+        endline = always_block.get('endline', lineno)
+        sens_list = always_block.get('senlist', [])
+        logic_type = always_block.get('logic_type', 'unknown')
+        ast = always_block.get('ast', 'Always')
+        cfg_data = always_block.get('cfg_data', {}) # 关键数据，包含 target: condition -> assignment
 
-    #     senslist_summary = self._get_senslist_summary(sens_list)
-    #     parent_module_name=always_block['parent_module']
-    #     # --- 1. 构建 ALWAYS_BLOCK 实体 ---
-    #     always_block_entity = {
-    #         "id": str(uuid.uuid4()),
-    #         "human_readable_id": self._get_human_readable_id(),
-    #         "title": f"Always Block ({logic_type}) @ ({senslist_summary})",
-    #         "type": "ALWAYS_BLOCK",
-    #         "description": (
-    #             f"An **always block** ({logic_type} logic) in module '{parent_module_name}' "
-    #             f"from file '{filepath}' lines {startline}-{endline}. "
-    #             f"It is sensitive to: {senslist_summary}. "
-    #             f"Its AST node type is '{ast}'."
-    #         ),
-    #         "text_unit_ids": [f"{filepath}#{self._get_text_unit_ids(always_block)}"],
-    #         "frequency": 1, "degree": 0, "x": 0, "y": 0,
-    #     }
-    #     self.entities.append(always_block_entity)
+        senslist_summary = self._get_senslist_summary(sens_list)
+        parent_module_name=always_block['parent_module']
+        # --- 1. 构建 ALWAYS_BLOCK 实体 ---
+        always_block_entity = {
+            "id": str(uuid.uuid4()),
+            "human_readable_id": self._get_human_readable_id(),
+            "title": f"Always Block ({logic_type}) @ ({senslist_summary})",
+            "type": "ALWAYS_BLOCK",
+            "description": (
+                f"An **always block** ({logic_type} logic) in module '{parent_module_name}' "
+                f"from file '{filepath}' lines {startline}-{endline}. "
+                f"It is sensitive to: {senslist_summary}. "
+                f"Its AST node type is '{ast}'."
+            ),
+            "text_unit_ids": [f"{filepath}#{self._get_text_unit_ids(always_block)}"],
+            "frequency": 1, "degree": 0, "x": 0, "y": 0,
+        }
+        self.entities.append(always_block_entity)
 
-    #     # --- 2. 构建关系 A: Module CONTAINS Always Block ---
-    #     self.relationships.append({
-    #         "id": str(uuid.uuid4()),
-    #         "human_readable_id": self._get_human_readable_id(),
-    #         "source": parent_module_name, # 父模块实体标题
-    #         "target": always_block_entity["title"],
-    #         "type": "CONTAINS_ALWAYS_BLOCK",
-    #         "description": f"Module '{parent_module_name}' contains always block '{always_block_entity['title']}'.",
-    #         "weight": 1, "combined_degree": 0,
-    #         "text_unit_ids": [f"{filepath}#{self._get_text_unit_ids(always_block)}"],
-    #     })
+        # --- 2. 构建关系 A: Module CONTAINS Always Block ---
+        self.relationships.append({
+            "id": str(uuid.uuid4()),
+            "human_readable_id": self._get_human_readable_id(),
+            "source": parent_module_name, # 父模块实体标题
+            "target": always_block_entity["title"],
+            "type": "CONTAINS_ALWAYS_BLOCK",
+            "description": f"Module '{parent_module_name}' contains always block '{always_block_entity['title']}'.",
+            "weight": 1, "combined_degree": 0,
+            "text_unit_ids": [f"{filepath}#{self._get_text_unit_ids(always_block)}"],
+        })
 
-    #     # --- 3. 构建关系 B: ALWAYS_BLOCK HAS_SENSITIVE_SIGNAL ---
-    #     # always 块对哪些信号敏感
-    #     for sen_item in sens_list:
-    #         sensitive_signal_name = sen_item.get('sig')
-    #         edge_type = sen_item.get('edge')
-    #         if sensitive_signal_name:
-    #             # 尝试链接到已存在的信号实体（PORT, WIRE, REGISTER）
-    #             sensitive_signal_entity_title = self._get_signal_entity_title_by_name(sensitive_signal_name, parent_module_name)
-                
-    #             self.relationships.append({
-    #                 "id": str(uuid.uuid4()),
-    #                 "human_readable_id": self._get_human_readable_id(),
-    #                 "source": always_block_entity["title"],
-    #                 "target": sensitive_signal_entity_title if sensitive_signal_entity_title else sensitive_signal_name, # 如果找到实体，则链接到实体；否则链接到名称字符串
-    #                 "type": "HAS_SENSITIVE_SIGNAL",
-    #                 "description": (
-    #                     f"Always block '{always_block_entity['title']}' is sensitive to "
-    #                     f"{edge_type + ' ' if edge_type else ''}signal '{sensitive_signal_name}'."
-    #                 ),
-    #                 "weight": 1, "combined_degree": 0,
-    #                 "text_unit_ids": [f"{filepath}#{self._get_text_unit_ids(always_block, f'sens_{sensitive_signal_name}')}"],
-    #             })
+        # --- 3. 构建关系 B: ALWAYS_BLOCK HAS_SENSITIVE_SIGNAL ---
+        # always 块对哪些信号敏感
+        for sen_item in sens_list:
+            sensitive_signal_name = sen_item.get('sig')
+            edge_type = sen_item.get('edge')
+            if sensitive_signal_name:
+                # 尝试链接到已存在的信号实体（PORT, WIRE, REGISTER）
+                sensitive_signal_entity=self._get_signal_entity(parent_module_name,sensitive_signal_name)
+                assert(sensitive_signal_entity is not None)
+                self.relationships.append({
+                    "id": str(uuid.uuid4()),
+                    "human_readable_id": self._get_human_readable_id(),
+                    "source": always_block_entity["title"],
+                    "target": sensitive_signal_entity['title'], # 如果找到实体，则链接到实体；否则链接到名称字符串
+                    "type": "HAS_SENSITIVE_SIGNAL",
+                    "description": (
+                        f"Always block '{always_block_entity['title']}' is sensitive to "
+                        f"{edge_type + ' ' if edge_type else ''}signal '{sensitive_signal_name}'."
+                    ),
+                    "weight": 1, "combined_degree": 0,
+                    "text_unit_ids": [f"{filepath}#{self._get_text_unit_ids(always_block)}# sens_{sensitive_signal_name}"],
+                })
+                new_desc_part = f" It is also a sensitive signal within an always block in module '{parent_module_name}'."
+                if new_desc_part not in sensitive_signal_entity["description"]:
+                    sensitive_signal_entity["description"] += new_desc_part
+
+        # --- 4. 遍历 cfg_data 构建内部的 CONTROL_FLOW_CONDITION 和 INTERNAL_ASSIGNMENT 实体及关系 ---
+        # cfg_data 包含了 always 块内部的条件和赋值逻辑
+        for target_signal_name, assignments in cfg_data.items():
+            lhs_signal_entity = self._get_signal_entity(parent_module_name, target_signal_name)
+            if lhs_signal_entity is None:
+            # 如果 LHS 信号不存在，我们在这里创建一个。
+            # always 块内部的左值通常是 register
+                lhs_signal_entity = {
+                    "id": str(uuid.uuid4()),
+                    "human_readable_id": self._get_human_readable_id(),
+                    "title": target_signal_name,
+                    "type": "LHS_ALWASY", # 内部赋值的 LHS 通常是 REGISTER
+                    "description": (
+                        f"It is a left hand side in always block which is in {parent_module_name} in {filepath} from line {startline} to line {endline}"
+                    ),
+                    "text_unit_ids": [f"{filepath}#LHS_ALWAYS_{target_signal_name}"],
+                    "frequency": 1, "degree": 0, "x": 0, "y": 0,
+                }
+                self.entities.append(lhs_signal_entity)
+                self._add_signal_to_map(parent_module_name, target_signal_name, lhs_signal_entity)
+            else:
+                new_desc_part = f" It is also driven as the left-hand side within an always block in module '{parent_module_name}'."
+                if new_desc_part not in lhs_signal_entity["description"]:
+                    lhs_signal_entity["description"] += new_desc_part
+            
+            self.relationships.append({
+                "id": str(uuid.uuid4()),
+                "human_readable_id": self._get_human_readable_id(),
+                "source": always_block_entity["title"],
+                "target": lhs_signal_entity["title"],
+                "type": "OUTPUTS_SIGNAL_VIA_LHS",
+                "description": f"Always block '{always_block_entity['title']}' assigns values to signal '{lhs_signal_entity['title']}'.",
+                "weight": 2, "combined_degree": 0,
+                "text_unit_ids": [f"{filepath}#always_output_{target_signal_name}"],
+            })
+            for assign_info in assignments:
+                condition_expr = assign_info.get('condition')
+                assign_line = assign_info.get('line')
+                right_expr = assign_info.get('right_expr')
+                assignment_type = assign_info.get('assignment_type')
+                rhs_signal_entity = self._get_signal_entity(parent_module_name, right_expr)
+                if rhs_signal_entity is None:
+                # 如果 LHS 信号不存在，我们在这里创建一个。
+                # always 块内部的左值通常是 register
+                    rhs_signal_entity = {
+                        "id": str(uuid.uuid4()),
+                        "human_readable_id": self._get_human_readable_id(),
+                        "title": right_expr,
+                        "type": "RHS_ALWASY", # 内部赋值的 LHS 通常是 REGISTER
+                        "description": (
+                            f"It is a right hand side in always block which is at {assign_line} in {parent_module_name} in {filepath} from line {startline} to line {endline}"
+                        ),
+                        "text_unit_ids": [f"{filepath}#RHS_ALWAYS_{target_signal_name}"],
+                        "frequency": 1, "degree": 0, "x": 0, "y": 0,
+                    }
+                    self.entities.append(rhs_signal_entity)
+                    self._add_signal_to_map(parent_module_name, right_expr, rhs_signal_entity)
+                else:
+                    new_desc_part = f" It is also  as the left-hand side within an always block at line {assign_line} in module '{parent_module_name}'."
+                    if new_desc_part not in rhs_signal_entity["description"]:
+                        rhs_signal_entity["description"] += new_desc_part
+
+                self.relationships.append({
+                    "id": str(uuid.uuid4()),
+                    "human_readable_id": self._get_human_readable_id(),
+                    "source": rhs_signal_entity["title"],
+                    "target": lhs_signal_entity["title"],
+                    "type": assignment_type,
+                    "description": f"In always block '{always_block_entity['title']}' {rhs_signal_entity['title']} is assigned to {lhs_signal_entity['title']},the assignment condition is {condition_expr}",
+                    "weight": 2, "combined_degree": 0,
+                    "text_unit_ids": [f"{filepath}#always_output_{target_signal_name}"],
+                })
         
-    #     # --- 4. 遍历 cfg_data 构建内部的 CONTROL_FLOW_CONDITION 和 INTERNAL_ASSIGNMENT 实体及关系 ---
-    #     # cfg_data 包含了 always 块内部的条件和赋值逻辑
-    #     for target_signal_name, assignments in cfg_data.items():
-    #         for assign_info in assignments:
-    #             condition_expr = assign_info.get('condition')
-    #             assign_line = assign_info.get('line')
-    #             right_expr = assign_info.get('right_expr')
-    #             assignment_type = assign_info.get('assignment_type')
-
-    #             # 构建 CONTROL_FLOW_CONDITION 实体
-    #             # 对相同的条件表达式进行去重，避免冗余实体
-    #             condition_title = f"Condition: {condition_expr}" 
-    #             if condition_expr not in self._condition_entity_map:
-    #                 condition_entity = {
-    #                     "id": str(uuid.uuid4()),
-    #                     "human_readable_id": self._get_human_readable_id(),
-    #                     "title": condition_title,
-    #                     "type": "CONTROL_FLOW_CONDITION",
-    #                     "description": (
-    #                         f"Control flow condition '{condition_expr}' within an always block, "
-    #                         f"defined in module '{parent_module_name}' in file '{filepath}' at line {assign_line}. "
-    #                         f"This condition leads to assignments of '{target_signal_name}'."
-    #                     ),
-    #                     "text_unit_ids": [f"{filepath}#{self._get_text_unit_ids(assign_info, f'cond_{condition_expr}')}"],
-    #                     "frequency": 1, "degree": 0, "x": 0, "y": 0,
-    #                 }
-    #                 self.entities.append(condition_entity)
-    #                 self._condition_entity_map[condition_expr] = condition_entity
-    #             else:
-    #                 condition_entity = self._condition_entity_map[condition_expr]
-                
-    #             # 构建 INTERNAL_ASSIGNMENT 实体
-    #             # 代表 always 块内部的每一次具体赋值行为
-    #             internal_assign_title = f"Internal Assign: {target_signal_name} {assignment_type} {right_expr}"
-    #             internal_assign_entity = {
-    #                 "id": str(uuid.uuid4()),
-    #                 "human_readable_id": self._get_human_readable_id(),
-    #                 "title": internal_assign_title,
-    #                 "type": "INTERNAL_ASSIGNMENT",
-    #                 "description": (
-    #                     f"An internal assignment within an always block: '{target_signal_name}' {assignment_type} '{right_expr}'. "
-    #                     f"Defined in module '{parent_module_name}' in file '{filepath}' at line {assign_line}. "
-    #                     f"This assignment is {assignment_type} and affects '{target_signal_name}'."
-    #                 ),
-    #                 "text_unit_ids": [f"{filepath}#{self._get_text_unit_ids(assign_info, f'assign_{target_signal_name}_{assign_line}')}"],
-    #                 "frequency": 1, "degree": 0, "x": 0, "y": 0,
-    #             }
-    #             self.entities.append(internal_assign_entity)
-
-    #             # 关系 C: Always Block CONTROLS_BY_CONDITION Control Flow Condition
-    #             # always 块包含某个条件逻辑
-    #             self.relationships.append({
-    #                 "id": str(uuid.uuid4()),
-    #                 "human_readable_id": self._get_human_readable_id(),
-    #                 "source": always_block_entity["title"],
-    #                 "target": condition_entity["title"],
-    #                 "type": "CONTROLS_BY_CONDITION",
-    #                 "description": f"Always block '{always_block_entity['title']}' includes control flow based on condition '{condition_entity['title']}'.",
-    #                 "weight": 1, "combined_degree": 0,
-    #                 "text_unit_ids": [f"{filepath}#{self._get_text_unit_ids(assign_info, f'block_cond_{condition_expr}')}"],
-    #             })
-
-    #             # 关系 D: Control Flow Condition LEADS_TO_ASSIGNMENT Internal Assignment
-    #             # 特定条件导致内部赋值发生
-    #             self.relationships.append({
-    #                 "id": str(uuid.uuid4()),
-    #                 "human_readable_id": self._get_human_readable_id(),
-    #                 "source": condition_entity["title"],
-    #                 "target": internal_assign_entity["title"],
-    #                 "type": "LEADS_TO_ASSIGNMENT",
-    #                 "description": f"Condition '{condition_entity['title']}' leads to internal assignment '{internal_assign_entity['title']}'.",
-    #                 "weight": 1, "combined_degree": 0,
-    #                 "text_unit_ids": [f"{filepath}#{self._get_text_unit_ids(assign_info, f'cond_assign_{target_signal_name}_{assign_line}')}"],
-    #             })
-
-    #             # 关系 E: Internal Assignment MODIFIES_SIGNAL_IN_BLOCK
-    #             # 内部赋值修改了哪个信号（左值）
-    #             # 尝试链接到已存在的信号实体
-    #             target_signal_entity_title = self._get_signal_entity_title_by_name(target_signal_name, parent_module_name)
-    #             if target_signal_entity_title:
-    #                 self.relationships.append({
-    #                     "id": str(uuid.uuid4()),
-    #                     "human_readable_id": self._get_human_readable_id(),
-    #                     "source": internal_assign_entity["title"],
-    #                     "target": target_signal_entity_title, # 链接到已存在的信号实体
-    #                     "type": "MODIFIES_SIGNAL_IN_BLOCK",
-    #                     "description": f"Internal assignment '{internal_assign_entity['title']}' **modifies** signal '{target_signal_name}'.",
-    #                     "weight": 2,
-    #                     "combined_degree": 0,
-    #                     "text_unit_ids": [f"{filepath}#{self._get_text_unit_ids(assign_info, f'modifies_{target_signal_name}')}"],
-    #                 })
-    #             else: 
-    #                 # 如果目标信号未被实体化（可能是不常见的形式或者解析遗漏）
-    #                 self.relationships.append({
-    #                     "id": str(uuid.uuid4()),
-    #                     "human_readable_id": self._get_human_readable_id(),
-    #                     "source": internal_assign_entity["title"],
-    #                     "target": target_signal_name, # 直接使用字符串名称
-    #                     "type": "MODIFIES_UNRESOLVED_SIGNAL_IN_BLOCK", 
-    #                     "description": f"Internal assignment '{internal_assign_entity['title']}' **modifies** an unresolved signal/expression '{target_signal_name}'.",
-    #                     "weight": 0.5,
-    #                     "combined_degree": 0,
-    #                     "text_unit_ids": [f"{filepath}#{self._get_text_unit_ids(assign_info, f'modifies_unres_{target_signal_name}')}"],
-    #                 })
-
-    #             # 关系 F: Internal Assignment USES_SIGNAL_IN_BLOCK / USES_LITERAL_OR_EXPRESSION_IN_BLOCK
-    #             # 内部赋值使用了哪个信号或表达式（右值）
-    #             if right_expr:
-    #                 source_signal_entity_title = self._get_signal_entity_title_by_name(right_expr, parent_module_name)
-    #                 if source_signal_entity_title: # 如果右侧表达式是某个已定义的信号
-    #                     self.relationships.append({
-    #                         "id": str(uuid.uuid4()),
-    #                         "human_readable_id": self._get_human_readable_id(),
-    #                         "source": internal_assign_entity["title"],
-    #                         "target": source_signal_entity_title, # 链接到已存在的信号实体
-    #                         "type": "USES_SIGNAL_IN_BLOCK",
-    #                         "description": f"Internal assignment '{internal_assign_entity['title']}' **uses** signal '{right_expr}'.",
-    #                         "weight": 1,
-    #                         "combined_degree": 0,
-    #                         "text_unit_ids": [f"{filepath}#{self._get_text_unit_ids(assign_info, f'uses_{right_expr}')}"],
-    #                     })
-    #                 else: # 如果右侧表达式是字面量、常量或复杂表达式，不能直接映射到单个信号
-    #                     self.relationships.append({
-    #                         "id": str(uuid.uuid4()),
-    #                         "human_readable_id": self._get_human_readable_id(),
-    #                         "source": internal_assign_entity["title"],
-    #                         "target": right_expr, # 目标是右侧表达式的字符串值
-    #                         "type": "USES_LITERAL_OR_EXPRESSION_IN_BLOCK",
-    #                         "description": f"Internal assignment '{internal_assign_entity['title']}' **uses** literal/expression '{right_expr}'.",
-    #                         "weight": 0.8,
-    #                         "combined_degree": 0,
-    #                         "text_unit_ids": [f"{filepath}#{self._get_text_unit_ids(assign_info, f'uses_lit_expr_{right_expr}')}"],
-    #                     })
-                    
-    #                 # 关系 G (可选): DRIVES_IN_BLOCK - 内部数据流关系
-    #                 # 如果左右值都是已解析的信号实体，则可以建立数据流关系
-    #                 if target_signal_entity_title and source_signal_entity_title:
-    #                     self.relationships.append({
-    #                         "id": str(uuid.uuid4()),
-    #                         "human_readable_id": self._get_human_readable_id(),
-    #                         "source": source_signal_entity_title, # 源是驱动信号实体
-    #                         "target": target_signal_entity_title, # 目标是被驱动信号实体
-    #                         "type": "DRIVES_IN_BLOCK", # 明确是 always 块内部的数据流
-    #                         "description": f"Signal '{source_signal_entity_title}' **drives** signal '{target_signal_entity_title}' via internal assignment '{internal_assign_entity['title']}'.",
-    #                         "weight": 3, # 数据流关系通常具有较高权重
-    #                         "combined_degree": 0,
-    #                         "text_unit_ids": [f"{filepath}#{self._get_text_unit_ids(assign_info)}"],
-    #                     })
-
-    #     return always_block_entity
         
     def _build_kg(self):
         for filepath in self.rtl_info.parsed_data.keys():
@@ -771,12 +821,17 @@ class KGBuilder:
                 for instance in self.rtl_info.parsed_data[filepath]["instances"]:
                     if instance["parent_module"]==module["name"]:
                         self._build_instance(filepath,instance)
+                for always_block in self.rtl_info.parsed_data[filepath]["always_blocks"]:
+                    if always_block["parent_module"]==module["name"]:
+                        self._build_always_block(filepath,always_block)
                 
     def _to_json(self,data,indent=2):
         return json.dumps(data,indent=indent,default=str)
     
     def get_kg(self):
         self._build_kg()
+        from KG_vis import visualize_graph_from_data
+        visualize_graph_from_data(self.entities,self.relationships)
         return self._to_json(self.entities),self._to_json(self.relationships)
 
     
