@@ -1,5 +1,4 @@
-import networkx as nx
-from networkx.drawing.nx_pylab import draw_networkx_nodes, draw_networkx_edges, draw_networkx_labels, draw_networkx_edge_labels
+
 import matplotlib.pyplot as plt
 import json
 import uuid

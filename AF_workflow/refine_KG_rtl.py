@@ -1019,18 +1019,18 @@ def remove_comments(input_path, output_path):
 if __name__ == "__main__":
 
     vistor= RTLCollectorVisitor()
-    # in_file_list=[
-    #     'C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\rtl\\apb.v','C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\rtl\\fifo.v','C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\rtl\\i2c.v'
-    #     ]
-    # out_file_list=[
-    #     'C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v','C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\fifo.v','C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\i2c.v'
-    # ]
     in_file_list=[
-        'C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\rtl\\apb.v'
+        'C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\rtl\\apb.v','C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\rtl\\fifo.v','C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\rtl\\i2c.v'
         ]
     out_file_list=[
-        'C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v'
+        'C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v','C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\fifo.v','C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\i2c.v'
     ]
+    # in_file_list=[
+    #     'C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\rtl\\apb.v'
+    #     ]
+    # out_file_list=[
+    #     'C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v'
+    # ]
     for inf,ouf in zip(in_file_list,out_file_list):
         remove_comments(inf,ouf) 
         #得到该文件的语法树
@@ -1043,7 +1043,7 @@ if __name__ == "__main__":
     static_dir='C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\static'
     os.makedirs(static_dir,exist_ok=True)
     with open(f'{static_dir}/data.json','w',encoding='utf-8') as f:
-        f.write(vistor.collected_info.parse_node(filepath='C:\\Users\\huijie\\Desktop\\graphrag\\svtest\\pre_rtl\\apb.v'))
+        f.write(vistor.collected_info.parse_node())
     
     from KGBuilder import KGBuilder
     kg=KGBuilder(vistor.collected_info)

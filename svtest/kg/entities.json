@@ -1,6 +1,6 @@
 [
   {
-    "id": "8a64452c-93d3-4ee9-ba69-011e42a66f58",
+    "id": "2fddde80-1e2b-43f2-8072-8e56e9138efe",
     "human_readable_id": 0,
     "title": "apb",
     "type": "MODULE",
@@ -12,7 +12,7 @@
     "y": 0
   },
   {
-    "id": "0762961f-d84f-4de9-9dd7-fd0cf9cd5277",
+    "id": "ca794c9f-f0ea-4a84-9c84-bd26805dbc53",
     "human_readable_id": 1,
     "title": "PCLK",
     "type": "PORT",
@@ -26,7 +26,7 @@
     "y": 0
   },
   {
-    "id": "adeff2ee-9d92-47b9-a5d8-7a6102486a6d",
+    "id": "017f6c2d-6f55-40da-867e-6c067cea8ec2",
     "human_readable_id": 3,
     "title": "PRESETn",
     "type": "PORT",
@@ -40,7 +40,7 @@
     "y": 0
   },
   {
-    "id": "52a94f9a-5217-43bf-9930-365b110af3d7",
+    "id": "45542319-526d-4ea4-bb4c-142714ec40bf",
     "human_readable_id": 5,
     "title": "PSELx",
     "type": "PORT",
@@ -54,7 +54,7 @@
     "y": 0
   },
   {
-    "id": "2d884c39-550b-4dc3-b446-87688319cd7a",
+    "id": "ee6b1d02-efaa-4c1a-b8ec-51dcd9230841",
     "human_readable_id": 7,
     "title": "PWRITE",
     "type": "PORT",
@@ -68,7 +68,7 @@
     "y": 0
   },
   {
-    "id": "11a9dd63-ce9f-482c-9f65-e415f6d9bf60",
+    "id": "c67756e5-2b6f-49bd-98cb-5c36c0e4389a",
     "human_readable_id": 9,
     "title": "PENABLE",
     "type": "PORT",
@@ -82,7 +82,7 @@
     "y": 0
   },
   {
-    "id": "451ad175-7ec0-4f7e-bd27-b71f3fa4a9ac",
+    "id": "017d2419-1fc2-4fed-95bd-d4cb2a66c044",
     "human_readable_id": 11,
     "title": "PADDR",
     "type": "PORT",
@@ -96,7 +96,7 @@
     "y": 0
   },
   {
-    "id": "4f138899-b854-41ec-b7d8-e4604ad9ac11",
+    "id": "e236204b-6a76-431b-8043-fec32f885c8d",
     "human_readable_id": 13,
     "title": "PWDATA",
     "type": "PORT",
@@ -110,7 +110,7 @@
     "y": 0
   },
   {
-    "id": "923838c1-4b10-4619-a0bf-549a61963dc1",
+    "id": "684be1ae-b5e7-432f-b451-77af92770abf",
     "human_readable_id": 15,
     "title": "READ_DATA_ON_RX",
     "type": "PORT",
@@ -124,7 +124,7 @@
     "y": 0
   },
   {
-    "id": "de32a6ac-a2ea-45ad-b92b-00f655a3219b",
+    "id": "8959f325-1a65-49ea-97cf-d65ef99b39ce",
     "human_readable_id": 17,
     "title": "ERROR",
     "type": "PORT",
@@ -138,7 +138,7 @@
     "y": 0
   },
   {
-    "id": "331bd4b9-1a95-4add-ab8a-d361dd333625",
+    "id": "ff1285f6-93e2-4c07-960c-4c3923f72e93",
     "human_readable_id": 19,
     "title": "TX_EMPTY",
     "type": "PORT",
@@ -152,7 +152,7 @@
     "y": 0
   },
   {
-    "id": "5781413c-990e-40a0-8e78-71bc302d8601",
+    "id": "31fa0ddb-7c16-4ea8-9634-66ac4f6ed7a7",
     "human_readable_id": 21,
     "title": "RX_EMPTY",
     "type": "PORT",
@@ -166,7 +166,7 @@
     "y": 0
   },
   {
-    "id": "a0b718ff-db06-418a-9f6b-408a818a006e",
+    "id": "7bf8cedf-c654-4aa3-8d5e-b3d7b45a9b2f",
     "human_readable_id": 23,
     "title": "PRDATA",
     "type": "PORT",
@@ -180,7 +180,7 @@
     "y": 0
   },
   {
-    "id": "3e43dc4f-ac6f-427e-bf97-aa4dc82762a1",
+    "id": "16c41c4d-a091-4f79-a78d-cd719e8d9038",
     "human_readable_id": 25,
     "title": "INTERNAL_I2C_REGISTER_CONFIG",
     "type": "PORT",
@@ -194,7 +194,7 @@
     "y": 0
   },
   {
-    "id": "aec2650c-ddac-4925-acff-a899f47385ec",
+    "id": "6cae2ff9-9ea0-49ad-bf30-3eee7e4d3d12",
     "human_readable_id": 27,
     "title": "INTERNAL_I2C_REGISTER_TIMEOUT",
     "type": "PORT",
@@ -208,7 +208,7 @@
     "y": 0
   },
   {
-    "id": "200cc3b0-0e73-4a29-8efd-3c1041663773",
+    "id": "5078d885-8459-4a37-98c5-3dc09cfc9cbb",
     "human_readable_id": 29,
     "title": "WRITE_DATA_ON_TX",
     "type": "PORT",
@@ -222,7 +222,7 @@
     "y": 0
   },
   {
-    "id": "989de1c5-cf26-404a-8e40-9c2f4fae6e0a",
+    "id": "ed6b1a7b-ceb3-4918-aed7-74aadf04849b",
     "human_readable_id": 31,
     "title": "WR_ENA",
     "type": "PORT",
@@ -236,7 +236,7 @@
     "y": 0
   },
   {
-    "id": "caecfe55-ee24-46ce-a2eb-92acff619279",
+    "id": "9c8e48a7-e85d-4460-8d34-b9df47057196",
     "human_readable_id": 33,
     "title": "RD_ENA",
     "type": "PORT",
@@ -250,7 +250,7 @@
     "y": 0
   },
   {
-    "id": "86a8f106-68ce-432e-9d13-cc50caeb3e62",
+    "id": "232ac3f7-fc32-40b3-897b-65ce6bf901ec",
     "human_readable_id": 35,
     "title": "PREADY",
     "type": "PORT",
@@ -264,7 +264,7 @@
     "y": 0
   },
   {
-    "id": "5d103bda-b3ed-415b-98d2-e41de2597710",
+    "id": "973d6854-d759-450e-bd06-7540867c032a",
     "human_readable_id": 37,
     "title": "PSLVERR",
     "type": "PORT",
@@ -278,7 +278,7 @@
     "y": 0
   },
   {
-    "id": "9999fdf9-8e91-4e25-8541-c790467effd2",
+    "id": "bf1490b6-812d-408e-b107-f9f1e5498524",
     "human_readable_id": 39,
     "title": "INT_RX",
     "type": "PORT",
@@ -292,7 +292,7 @@
     "y": 0
   },
   {
-    "id": "67ec4e18-f568-4362-8b6f-13687e1f8c51",
+    "id": "61591e12-f09f-45aa-ac24-4f68d9057168",
     "human_readable_id": 41,
     "title": "INT_TX",
     "type": "PORT",
@@ -306,7 +306,7 @@
     "y": 0
   },
   {
-    "id": "7dc9f279-fc45-4978-9134-887c657203c9",
+    "id": "093fdd2b-3c6f-4da3-9f81-50b15663419e",
     "human_readable_id": 43,
     "title": "INTERNAL_I2C_REGISTER_CONFIG",
     "type": "REGISTER",
@@ -320,7 +320,7 @@
     "y": 0
   },
   {
-    "id": "fabb7720-04d9-4933-abe1-a23766b59902",
+    "id": "28438ae1-c873-492a-8e62-9c0a07f743be",
     "human_readable_id": 45,
     "title": "INTERNAL_I2C_REGISTER_TIMEOUT",
     "type": "REGISTER",
@@ -334,7 +334,7 @@
     "y": 0
   },
   {
-    "id": "b0cf7977-2991-4208-a17c-9b7e4fb78392",
+    "id": "272cfc55-cac0-4e34-ab30-b52b6c5343a4",
     "human_readable_id": 47,
     "title": "Assign: WR_ENA = (((((PWRITE == 1'b1) & (PENABLE == 1'b1)) & (PADDR == 32'd0)) & (PSELx == 1'b1)))? 1'b1:1'b0",
     "type": "ASSIGNMENT",
@@ -348,7 +348,7 @@
     "y": 0
   },
   {
-    "id": "d046fb4e-6007-4492-a603-61f766f3e8f4",
+    "id": "e3ef68fe-717f-4179-b96d-12388776ff1a",
     "human_readable_id": 48,
     "title": "(((((PWRITE == 1'b1) & (PENABLE == 1'b1)) & (PADDR == 32'd0)) & (PSELx == 1'b1)))? 1'b1:1'b0",
     "type": "RHS_ASSIGN",
@@ -362,7 +362,7 @@
     "y": 0
   },
   {
-    "id": "27ee0d8a-5236-4db9-9b9f-f73232e38472",
+    "id": "d1f391cb-75a1-4884-a146-98f42c8a120e",
     "human_readable_id": 53,
     "title": "Assign: RD_ENA = (((((PWRITE == 1'b0) & (PENABLE == 1'b1)) & (PADDR == 32'd4)) & (PSELx == 1'b1)))? 1'b1:1'b0",
     "type": "ASSIGNMENT",
@@ -376,7 +376,7 @@
     "y": 0
   },
   {
-    "id": "beb5c0d4-af8c-4273-b9e6-4beec78b5779",
+    "id": "67cb9838-7eb1-4b66-82d4-dace51577ad2",
     "human_readable_id": 54,
     "title": "(((((PWRITE == 1'b0) & (PENABLE == 1'b1)) & (PADDR == 32'd4)) & (PSELx == 1'b1)))? 1'b1:1'b0",
     "type": "RHS_ASSIGN",
@@ -390,7 +390,7 @@
     "y": 0
   },
   {
-    "id": "4d9cb878-a2bb-426e-acdc-d58c9a60a747",
+    "id": "743e1eee-1522-4e54-9b5c-85ccfa872c11",
     "human_readable_id": 59,
     "title": "Assign: PREADY = ((((((WR_ENA == 1'b1) | (RD_ENA == 1'b1)) | (PADDR == 32'd8)) | (PADDR == 32'd12)) & ((PENABLE == 1'b1) & (PSELx == 1'b1))))? 1'b1:1'b0",
     "type": "ASSIGNMENT",
@@ -404,7 +404,7 @@
     "y": 0
   },
   {
-    "id": "4388bb59-fcd2-4cbe-b946-660869516b2f",
+    "id": "aa23697a-5fe3-4088-8a7c-868011154825",
     "human_readable_id": 60,
     "title": "((((((WR_ENA == 1'b1) | (RD_ENA == 1'b1)) | (PADDR == 32'd8)) | (PADDR == 32'd12)) & ((PENABLE == 1'b1) & (PSELx == 1'b1))))? 1'b1:1'b0",
     "type": "RHS_ASSIGN",
@@ -418,7 +418,7 @@
     "y": 0
   },
   {
-    "id": "1a9233b4-cd79-44ae-80e0-e272259a86e4",
+    "id": "4cdcb3d7-83b0-4e1d-b399-8a5715567dd8",
     "human_readable_id": 65,
     "title": "Assign: WRITE_DATA_ON_TX = ((PADDR == 32'd0))? PWDATA:PWDATA",
     "type": "ASSIGNMENT",
@@ -432,7 +432,7 @@
     "y": 0
   },
   {
-    "id": "ca0231a5-7862-4c63-a95f-8f9c1379675b",
+    "id": "38dcf202-aabc-41a5-baa9-51dfc959c950",
     "human_readable_id": 66,
     "title": "((PADDR == 32'd0))? PWDATA:PWDATA",
     "type": "RHS_ASSIGN",
@@ -446,7 +446,7 @@
     "y": 0
   },
   {
-    "id": "35025db5-bb1b-4d3a-a6ac-37065b1be8e0",
+    "id": "1bcd3283-f589-4a33-9481-bb3ae96fb00e",
     "human_readable_id": 71,
     "title": "Assign: PRDATA = ((PADDR == 32'd4))? READ_DATA_ON_RX:READ_DATA_ON_RX",
     "type": "ASSIGNMENT",
@@ -460,7 +460,7 @@
     "y": 0
   },
   {
-    "id": "5635e09c-18cb-4e4c-a85c-39880aabdc83",
+    "id": "2351d70a-7fba-406a-8f13-a8426e348f0e",
     "human_readable_id": 72,
     "title": "((PADDR == 32'd4))? READ_DATA_ON_RX:READ_DATA_ON_RX",
     "type": "RHS_ASSIGN",
@@ -474,7 +474,7 @@
     "y": 0
   },
   {
-    "id": "9a9195ed-3373-4b96-b00a-086acea61821",
+    "id": "d429b31d-3763-41f1-a9b5-b3286fdb8b04",
     "human_readable_id": 77,
     "title": "Assign: PSLVERR = ERROR",
     "type": "ASSIGNMENT",
@@ -488,7 +488,7 @@
     "y": 0
   },
   {
-    "id": "9715d63c-0da6-4f54-9e4e-01df55d13dac",
+    "id": "2e0c7ed9-186d-4568-941e-7c286ffb6058",
     "human_readable_id": 82,
     "title": "Assign: INT_TX = TX_EMPTY",
     "type": "ASSIGNMENT",
@@ -502,7 +502,7 @@
     "y": 0
   },
   {
-    "id": "e28646e2-3883-474b-bbf7-5ae69dca11ec",
+    "id": "b7dfc1e0-45ee-4171-a361-461cbd7fc4b3",
     "human_readable_id": 87,
     "title": "Assign: INT_RX = RX_EMPTY",
     "type": "ASSIGNMENT",
@@ -516,7 +516,7 @@
     "y": 0
   },
   {
-    "id": "9551c1c1-3845-4752-adbd-f59b83b5d957",
+    "id": "cc583471-356e-4b57-b444-cd769d63a112",
     "human_readable_id": 92,
     "title": "Always Block (sequential) @ (posedge PCLK)",
     "type": "ALWAYS_BLOCK",
@@ -530,7 +530,7 @@
     "y": 0
   },
   {
-    "id": "04a3da9e-704c-467a-b570-12e4c683f3a1",
+    "id": "1f008ea8-2c37-4b71-b6b3-613d5475d3c2",
     "human_readable_id": 96,
     "title": "14'd0",
     "type": "RHS_ALWASY",
@@ -544,7 +544,7 @@
     "y": 0
   },
   {
-    "id": "fbc7d4c3-0045-4491-97f4-68fcd2e23415",
+    "id": "51da0c79-e6dc-43e9-9bdf-04b9dd0823c1",
     "human_readable_id": 98,
     "title": "PWDATA[13:0]",
     "type": "RHS_ALWASY",
